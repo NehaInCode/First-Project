@@ -73,5 +73,19 @@ Widget customText(String text, double size, Color color, FontWeight fontWeight,
   );
 }
 
+class customTab extends StatelessWidget{
+  final String text;
+  final double width;
 
 
+  customTab(this.text, this.width);
+
+  @override
+  Widget build(BuildContext context) {
+   return Container(
+     width: width,
+     child: Tab(text: text,),
+   );
+  }
+
+}

@@ -61,7 +61,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
         ),
 
       ],
-        selectedItemColor: Colors.red,
+        selectedItemColor: Colors.black,
+        selectedIconTheme: IconThemeData(color: Colors.black,),
+
         type: BottomNavigationBarType.fixed,
         currentIndex: currentIndex,
         onTap: (value) {
