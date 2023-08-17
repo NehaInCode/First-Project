@@ -29,10 +29,12 @@ Widget customText(String text, double size, Color color, FontWeight fontWeight,
     builder: (BuildContext context) {
       return Center(
         child: Container(
+
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10)
           ),
           child: AlertDialog(
+            backgroundColor: Colors.white,
             title: customText(title, 16, grey, FontWeight.w700),
             content: customText(content, 14, grey, FontWeight.w400),
             actions: [

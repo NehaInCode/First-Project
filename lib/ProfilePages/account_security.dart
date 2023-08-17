@@ -91,7 +91,7 @@ class _AccountSecurity extends State<AccountSecurity>{
                     inactiveThumbColor: Colors.white,
                     activeTrackColor: Colors.blue.shade800,
                     activeColor: Colors.white,
-                    inactiveTrackColor: grey,
+                    inactiveTrackColor: Color(0xffE0E0E0),
                     value: _isSwitched, onChanged: (value) {
                     setState(() {
                       _isSwitched = value;
@@ -115,10 +115,12 @@ class _AccountSecurity extends State<AccountSecurity>{
             ),
             Spacer(),
 
-            Container(
-              height: 2,
-              width: 130,
-              color: grey,
+            Center(
+              child: Container(
+                height: 2,
+                width: 130,
+                color: grey,
+              ),
             ),
 
           ],
@@ -149,8 +151,15 @@ class _Mobile extends State<Mobile>{
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextField(
+              cursorColor: grey,
               keyboardType: TextInputType.phone,
               decoration: InputDecoration(
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: grey,
+                    width: 1,
+                  )
+                ),
                   hintText: '+9  9823788249',
                   hintStyle: TextStyle(
                       fontWeight: FontWeight.w500
@@ -217,9 +226,16 @@ class _Password extends State<Password>{
             Container(
               height: 50,
               child: TextField(
+                cursorColor: grey,
                 obscureText: true,
                 obscuringCharacter: '*',
                 decoration: InputDecoration(
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: grey,
+                      width: 1,
+                    )
+                  ),
                     suffixIcon: Icon(Icons.remove_red_eye_outlined),
                     hintText: 'Enter Password',
                     hintStyle: TextStyle(
@@ -238,9 +254,16 @@ class _Password extends State<Password>{
             Container(
               height: 50,
               child: TextField(
+                cursorColor: grey,
                 obscureText: true,
                 obscuringCharacter: '*',
                 decoration: InputDecoration(
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: grey,
+                      width: 1,
+                    )
+                  ),
                     suffixIcon: Icon(Icons.remove_red_eye_outlined),
                     hintText: 'Enter Password',
                     hintStyle: TextStyle(
@@ -259,9 +282,16 @@ class _Password extends State<Password>{
             Container(
               height: 50,
               child: TextField(
+                cursorColor: grey,
                 obscureText: true,
                 obscuringCharacter: '*',
                 decoration: InputDecoration(
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: grey,
+                      width: 1,
+                    )
+                  ),
                     suffixIcon: Icon(Icons.remove_red_eye_outlined),
                     hintText: 'Enter Password',
                     hintStyle: TextStyle(

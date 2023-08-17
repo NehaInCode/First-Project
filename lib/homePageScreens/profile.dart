@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../ProfilePages/edit.dart';
 import '../ProfilePages/setting.dart';
 import '../const.dart';
+import 'home.dart';
 
 
 class ProfilePage extends StatefulWidget {
@@ -211,7 +213,7 @@ class _ProfilePage extends State<ProfilePage> {
                         )
                       ),
                       onPressed: () {
-                    
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfile(),));
                   }, child: customText('Edit Profile', 14, grey, FontWeight.normal)),
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
@@ -221,7 +223,7 @@ class _ProfilePage extends State<ProfilePage> {
                           )
                       ),
                       onPressed: () {
-                    
+
                   }, child: customText('Join Community', 14, grey, FontWeight.normal))
                 ],
               ),
@@ -241,7 +243,11 @@ class _ProfilePage extends State<ProfilePage> {
                   Spacer(),
                   Padding(
                     padding: const EdgeInsets.only(right: 15.0),
-                    child: Icon(Icons.search),
+                    child: InkWell(
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => SearchPage(),));
+                        },
+                        child: Icon(Icons.search)),
                   ),
                 ],
               ),
@@ -250,10 +256,11 @@ class _ProfilePage extends State<ProfilePage> {
 
                      children: [
                    Container(
-
+                     height: 500,
                      child: Center(child: Text('Post Tab Content')),
                    ),
                    Container(
+                     height: 500,
                      child: Center(child: Text('Likes Tab Content')),
                    )
                  ]),

@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:guido/ProfilePages/privacy.dart';
 import 'package:guido/const.dart';
 
+import 'about.dart';
 import 'account_security.dart';
+import 'notification.dart';
 
 class Settings extends StatelessWidget {
   @override
@@ -25,6 +28,8 @@ class Settings extends StatelessWidget {
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => AccountSecurity(),));
               },
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -34,36 +39,57 @@ class Settings extends StatelessWidget {
               ),
             ),
             SizedBox(height: 30,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                customText('Privacy Policy', 14, grey, FontWeight.w400),
-               Icon(Icons.arrow_forward_ios_outlined,size: 15,)
-              ],
+            InkWell(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Privacy(),));
+              },
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  customText('Privacy Policy', 14, grey, FontWeight.w400),
+                 Icon(Icons.arrow_forward_ios_outlined,size: 15,)
+                ],
+              ),
             ),
             SizedBox(height: 20,),
             Divider(height: 8,color: Color(0xffFAFAFA),thickness: 8),
             SizedBox(height: 20,),
             customText('Application', 14, grey, FontWeight.w700),
             SizedBox(height: 30,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                customText('Notification', 14, grey, FontWeight.w400),
-                Icon(Icons.arrow_forward_ios_outlined,size: 15,)
-              ],
+            InkWell(
+             onTap: () {
+               Navigator.push(context, MaterialPageRoute(builder: (context) => Notifications(),));
+             },
+              highlightColor: Colors.transparent,
+              splashColor: Colors.transparent,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  customText('Notification', 14, grey, FontWeight.w400),
+                  Icon(Icons.arrow_forward_ios_outlined,size: 15,)
+                ],
+              ),
             ),
             SizedBox(height: 20,),
             Divider(height: 8,color: Color(0xffFAFAFA),thickness: 8),
             SizedBox(height: 20,),
             customText('Info', 14, grey, FontWeight.w700),
             SizedBox(height: 30,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                customText('About', 14, grey, FontWeight.w400),
-                Icon(Icons.arrow_forward_ios_outlined,size: 15,)
-              ],
+            InkWell(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => About(),));
+              },
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  customText('About', 14, grey, FontWeight.w400),
+                  Icon(Icons.arrow_forward_ios_outlined,size: 15,)
+                ],
+              ),
             ),
             SizedBox(height: 30,),
              Row(
@@ -87,7 +113,7 @@ class Settings extends StatelessWidget {
 
                   ),
                   onPressed: () {
-
+showCustomDialog(context, 'Are you sure to Log Out?', 'Are you sure you want to log out of this account now?', 'Cancel', Colors.white, () => null, 'Logout', Colors.red, () => null);
               }, child: customText('Logout', 14, Colors.white, FontWeight.normal)),
             ),
             SizedBox(
