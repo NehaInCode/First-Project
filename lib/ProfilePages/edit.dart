@@ -86,7 +86,8 @@ class _EditProfileState extends State<EditProfile> {
                             shape: BoxShape.circle,
                             color: grey
                           ),
-                          child: Center(
+                          child: Align(
+                            alignment: Alignment.center,
                             child: IconButton(
                             icon: Icon(Icons.camera_enhance_outlined,color: Colors.white,size: 15), onPressed: () {
                               ShowBottomSheet(context);

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../ProfilePages/community.dart';
 import '../ProfilePages/edit.dart';
 import '../ProfilePages/setting.dart';
 import '../const.dart';
@@ -66,54 +67,69 @@ class _ProfilePage extends State<ProfilePage> {
                    child: Row(
                      children: [
                        SizedBox(width: 15,),
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.white,
-                        ),
-                        height: 65,
-                        width: 130,
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 10.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => EWallet(),));
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.white,
+                          ),
+                          height: 65,
+                          width: 130,
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 10.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
 
-                              Row(
-                                children: [
-                                  Image.asset('assets/images/protect.png',height: 16,),
-                                  SizedBox(width: 10),
-                                  customText('GuidoProtect', 10, Color(0xff4468FA), FontWeight.normal)
-                                ],
-                              ),
-                              SizedBox(height: 8,),
-                              customText('\$25', 14, grey, FontWeight.w700),
-                            ],
+                                Row(
+                                  children: [
+                                    Image.asset('assets/images/protect.png',height: 16,),
+                                    SizedBox(width: 10),
+                                    customText('GuidoProtect', 10, Color(0xff4468FA), FontWeight.normal)
+                                  ],
+                                ),
+                                SizedBox(height: 8,),
+                                customText('\$25', 14, grey, FontWeight.w700),
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                       Container(
-                         width: 50,
-                         // color: Colors.white,
-                         child: Column(
-                           mainAxisAlignment: MainAxisAlignment.center,
-                           children: [
-                             Image.asset('assets/images/plusCircle.png',height: 18,),
-                             SizedBox(height: 8,),
-                             customText('Top Up', 10, grey, FontWeight.w500)
-                           ],
+                       InkWell(
+                         onTap: () {
+
+                         },
+                         child: Container(
+                           width: 50,
+                           // color: Colors.white,
+                           child: Column(
+                             mainAxisAlignment: MainAxisAlignment.center,
+                             children: [
+                               Image.asset('assets/images/plusCircle.png',height: 18,),
+                               SizedBox(height: 8,),
+                               customText('Top Up', 10, grey, FontWeight.w500)
+                             ],
+                           ),
                          ),
                        ),
-                       Container(
-                         width: 50,
-                         child: Column(
-                           mainAxisAlignment: MainAxisAlignment.center,
-                           children: [
-                             Image.asset('assets/images/history.png',height: 18,),
-                             SizedBox(height: 8,),
-                             customText('History', 10, grey, FontWeight.w500)
-                           ],
+                       InkWell(
+                         onTap: () {
+
+                         },
+                         child: Container(
+                           width: 50,
+                           child: Column(
+                             mainAxisAlignment: MainAxisAlignment.center,
+                             children: [
+                               Image.asset('assets/images/history.png',height: 18,),
+                               SizedBox(height: 8,),
+                               customText('History', 10, grey, FontWeight.w500)
+                             ],
+                           ),
                          ),
                        ),
                        SizedBox(width: 5,)
@@ -223,7 +239,7 @@ class _ProfilePage extends State<ProfilePage> {
                           )
                       ),
                       onPressed: () {
-
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => JoinCommunity(),));
                   }, child: customText('Join Community', 14, grey, FontWeight.normal))
                 ],
               ),
@@ -265,11 +281,6 @@ class _ProfilePage extends State<ProfilePage> {
                    )
                  ]),
                ),
-
-
-
-
-
             ],
           ),
         ),
@@ -280,4 +291,69 @@ class _ProfilePage extends State<ProfilePage> {
   }
 }
 
+class EWallet extends StatefulWidget {
+  const EWallet({super.key});
+
+  @override
+  State<EWallet> createState() => _EWalletState();
+}
+
+class _EWalletState extends State<EWallet> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Align(
+            alignment: Alignment.center,
+            child: Padding(
+              padding: const EdgeInsets.only(right: 35.0),
+              child: customText('E-Wallet', 16, grey, FontWeight.w600),
+            )),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            customText('My GuidoProtect', 14, grey, FontWeight.w700),
+            SizedBox(height: 25,),
+            Row(
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+
+                    Row(
+                      children: [
+                        Image.asset('assets/images/protect.png',height: 18,),
+                        SizedBox(width: 10),
+                        customText('GuidoProtect', 12, Color(0xff4468FA), FontWeight.normal)
+                      ],
+                    ),
+                    SizedBox(height: 8,),
+                    customText('\$25', 24, grey, FontWeight.w700),
+                  ],
+                ),
+                Spacer(),
+                ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5)
+                      )
+                    ),
+                    onPressed: () {
+                  
+                }, child: customText('Top Up', 12, Color(0xff4468FA), FontWeight.w500))
+              ],
+            ),
+            SizedBox(height: 25,),
+            Divider(height: 8,color: Color(0xffFAFAFA),thickness: 8),
+            SizedBox(height: 20,),
+          ],
+        ),
+      ),
+    );
+  }
+}
 
