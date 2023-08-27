@@ -113,7 +113,7 @@ class Settings extends StatelessWidget {
 
                   ),
                   onPressed: () {
-showCustomDialog(context, 'Are you sure to Log Out?', 'Are you sure you want to log out of this account now?', 'Cancel', Colors.white, () => null, 'Logout', Colors.red, () => null);
+showCustomDialog(context, 'Are you sure to Log Out?', Text('Are you sure you want to log out of this account now?',style: TextStyle(fontSize: 14,fontWeight: FontWeight.w400,color: grey)), 'Cancel', Colors.white, () => null, 'Logout', Colors.red, () => null);
               }, child: customText('Logout', 14, Colors.white, FontWeight.normal)),
             ),
             SizedBox(

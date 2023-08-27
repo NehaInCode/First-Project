@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../ProfilePages/community.dart';
 import '../ProfilePages/edit.dart';
 import '../ProfilePages/setting.dart';
+import '../ProfilePages/topup.dart';
 import '../const.dart';
 import 'home.dart';
 
@@ -20,10 +21,8 @@ class _ProfilePage extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Padding(
-          padding: const EdgeInsets.only(left: 20.0),
-          child: customText('@kimwexler', 16, grey, FontWeight.w600),
-        )),
+        centerTitle: true,
+        title: customText('@kimwexler', 16, grey, FontWeight.w600),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 15.0),
@@ -101,7 +100,7 @@ class _ProfilePage extends State<ProfilePage> {
                       ),
                        InkWell(
                          onTap: () {
-
+Navigator.push(context, MaterialPageRoute(builder: (context) => TopUp(),));
                          },
                          child: Container(
                            width: 50,
@@ -118,7 +117,7 @@ class _ProfilePage extends State<ProfilePage> {
                        ),
                        InkWell(
                          onTap: () {
-
+                           Navigator.push(context, MaterialPageRoute(builder: (context) => History(),));
                          },
                          child: Container(
                            width: 50,
@@ -299,6 +298,11 @@ class EWallet extends StatefulWidget {
 }
 
 class _EWalletState extends State<EWallet> {
+
+  var title = 'E-Wallet Top Up Successfully';
+  var subTitle = '23/05/2022, 2:43PM';
+  var amount = '+500 SGD';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -312,48 +316,154 @@ class _EWalletState extends State<EWallet> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(15.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            customText('My GuidoProtect', 14, grey, FontWeight.w700),
-            SizedBox(height: 25,),
-            Row(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              customText('My GuidoProtect', 14, grey, FontWeight.w700),
+              SizedBox(height: 25,),
+              Row(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
 
-                    Row(
-                      children: [
-                        Image.asset('assets/images/protect.png',height: 18,),
-                        SizedBox(width: 10),
-                        customText('GuidoProtect', 12, Color(0xff4468FA), FontWeight.normal)
-                      ],
-                    ),
-                    SizedBox(height: 8,),
-                    customText('\$25', 24, grey, FontWeight.w700),
-                  ],
-                ),
-                Spacer(),
-                ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5)
-                      )
-                    ),
-                    onPressed: () {
-                  
-                }, child: customText('Top Up', 12, Color(0xff4468FA), FontWeight.w500))
-              ],
-            ),
-            SizedBox(height: 25,),
-            Divider(height: 8,color: Color(0xffFAFAFA),thickness: 8),
-            SizedBox(height: 20,),
-          ],
+                      Row(
+                        children: [
+                          Image.asset('assets/images/protect.png',height: 18,),
+                          SizedBox(width: 10),
+                          customText('GuidoProtect', 12, Color(0xff4468FA), FontWeight.normal)
+                        ],
+                      ),
+                      SizedBox(height: 8,),
+                      customText('\$25', 24, grey, FontWeight.w700),
+                    ],
+                  ),
+                  Spacer(),
+                  ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5)
+                        )
+                      ),
+                      onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => TopUp(),));
+                  }, child: customText('Top Up', 12, Color(0xff4468FA), FontWeight.w500))
+                ],
+              ),
+              SizedBox(height: 25,),
+              Divider(height: 8,color: Color(0xffFAFAFA),thickness: 8),
+              SizedBox(height: 20,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  customText('Recent Transaction', 14, grey,FontWeight.w700),
+                  InkWell(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => History(),));
+                      },
+                      child: customText('See All History', 12, Color(0xff4468FA),FontWeight.w500)),
+                ],
+              ),
+              SizedBox(height: 30,),
+              ListView.builder(
+                shrinkWrap: true,
+                itemCount: 6,
+                itemBuilder: (context, index) {
+                return Container(
+                  margin: EdgeInsets.only(bottom: 15),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          customText(title, 14, grey, FontWeight.w500),
+                          SizedBox(height: 5),
+                          customText(subTitle, 12, grey, FontWeight.w200),
+                        ],
+                      ),
+                      Spacer(),
+                      customText(amount, 14, Color(0xff43936C), FontWeight.normal),
+                      Icon(Icons.arrow_forward_ios_outlined,size: 15,),
+                    ],
+                  ),
+                );
+              },)
+            ],
+          ),
         ),
       ),
     );
   }
 }
 
+class History extends StatefulWidget {
+  const History({super.key});
+
+  @override
+  State<History> createState() => _HistoryState();
+}
+
+class EWalletDetail{
+  final Widget title;
+  final Widget subTitle;
+  final Widget amount;
+
+  EWalletDetail({required this.title,required this.subTitle,required this.amount});
+}
+List<EWalletDetail> detail =[
+  EWalletDetail(title: customText('Amount Refunded', 14, grey, FontWeight.w500),subTitle: customText('23/05/2022, 2:43PM', 12, grey, FontWeight.w400),amount:customText('+50 SGD', 14, Color(0xff43936C), FontWeight.normal) ),
+  EWalletDetail(title: customText('E-Wallet Top Up Successfully', 14, grey, FontWeight.w500),subTitle: customText('23/05/2022, 2:43PM', 12, grey, FontWeight.w400),amount:customText('+50 SGD', 14, Color(0xff43936C), FontWeight.normal) ),
+  EWalletDetail(title: customText('E-Wallet Top Up Successfully', 14, grey, FontWeight.w500),subTitle: customText('23/05/2022, 2:43PM', 12, grey, FontWeight.w400),amount:customText('+50 SGD', 14, Color(0xff43936C), FontWeight.normal) ),
+  EWalletDetail(title: customText('E-Wallet Top Up Successfully', 14, grey, FontWeight.w500),subTitle: customText('23/05/2022, 2:43PM', 12, grey, FontWeight.w400),amount:customText('+50 SGD', 14, Color(0xff43936C), FontWeight.normal) ),
+  EWalletDetail(title: customText('E-Wallet Top Up Successfully', 14, grey, FontWeight.w500),subTitle: customText('23/05/2022, 2:43PM', 12, grey, FontWeight.w400),amount:customText('+50 SGD', 14, Color(0xff43936C), FontWeight.normal) ),
+  EWalletDetail(title: customText('E-Wallet Top Up Successfully', 14, grey, FontWeight.w500),subTitle: customText('23/05/2022, 2:43PM', 12, grey, FontWeight.w400),amount:customText('+50 SGD', 14, Color(0xff43936C), FontWeight.normal) ),
+  EWalletDetail(title: customText('E-Wallet Top Up Successfully', 14, grey, FontWeight.w500),subTitle: customText('23/05/2022, 2:43PM', 12, grey, FontWeight.w400),amount:customText('+50 SGD', 14, Color(0xff43936C), FontWeight.normal) ),
+  EWalletDetail(title: customText('E-Wallet Top Up Successfully', 14, grey, FontWeight.w500),subTitle: customText('23/05/2022, 2:43PM', 12, grey, FontWeight.w400),amount:customText('+50 SGD', 14, Color(0xff43936C), FontWeight.normal) ),
+];
+
+class _HistoryState extends State<History> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: customText('History', 16, grey, FontWeight.w600),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Column(
+          children: [
+            ListView.builder(
+              shrinkWrap: true,
+
+              itemCount: detail.length,
+              itemBuilder: (context, index) {
+
+              return Container(
+                margin: EdgeInsets.only(bottom: 15),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                       detail[index].title,
+                        SizedBox(height: 5),
+                        detail[index].subTitle
+                      ],
+                    ),
+                    Spacer(),
+                   detail[index].amount,
+                    Icon(Icons.arrow_forward_ios_outlined,size: 15,),
+                  ],
+                ),
+              );
+            },)
+          ],
+        ),
+      ),
+    );
+  }
+}

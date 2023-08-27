@@ -55,6 +55,7 @@ dev_dependencies:
   dots_indicator: ^3.0.0
   carousel_slider: ^4.2.1
   video_player: ^2.7.0
+  flutter_chat_ui: ^1.6.9
 
 
 # For information on the generic Dart part of this file, see the

@@ -1,3 +1,4 @@
+// import 'dart:js';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,7 @@ Widget customText(String text, double size, Color color, FontWeight fontWeight,
 }
 
 
- void showCustomDialog(BuildContext context, String title, String content, String btn1, Color btn1Clr ,Function() onTapBtn1,String btn2 , Color btn2Clr , Function() onTapBtn2 ) {
+ void showCustomDialog(BuildContext context, String title, Widget content, String btn1, Color btn1Clr ,Function() onTapBtn1,String btn2 , Color btn2Clr , Function() onTapBtn2 ) {
   showDialog(
     context: context,
     builder: (BuildContext context) {
@@ -36,7 +37,7 @@ Widget customText(String text, double size, Color color, FontWeight fontWeight,
           child: AlertDialog(
             backgroundColor: Colors.white,
             title: customText(title, 16, grey, FontWeight.w700),
-            content: customText(content, 14, grey, FontWeight.w400),
+            content: content,
             actions: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -50,7 +51,7 @@ Widget customText(String text, double size, Color color, FontWeight fontWeight,
                         )
                       ),
                       onPressed: () {
-                        onTapBtn1;
+                        onTapBtn1();
                     Navigator.of(context).pop();
                   }, child: customText(btn1, 14, grey, FontWeight.normal)),
                   ElevatedButton(
@@ -62,7 +63,7 @@ Widget customText(String text, double size, Color color, FontWeight fontWeight,
                           )
                       ),
                       onPressed: () {
-                        onTapBtn2;
+                        onTapBtn2();
                     Navigator.of(context).pop();
                   }, child: customText(btn2, 14, grey, FontWeight.normal)),
                 ],
@@ -90,4 +91,52 @@ class customTab extends StatelessWidget{
    );
   }
 
+}
+
+void showCustomDialogS(BuildContext context){
+  showDialog(
+    context: context,
+    builder: (context) {
+      return Container(
+        child: AlertDialog(
+          backgroundColor: Colors.white,
+          content: Material(
+            color: Colors.transparent,
+            child: Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                // color: Colors.white
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SizedBox(height: 15),
+                  Image.asset('assets/images/popupImage.png',height: 140,),
+                  SizedBox(height: 30),
+                  customText('Top Up Successful', 16, grey, FontWeight.w700),
+                  SizedBox(height: 20),
+                  customText('Congratulation! You have successfully topped up your E-Wallet!', 14, grey, FontWeight.w400),
+                  SizedBox(height: 40),
+                  Container(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: primaryColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          )
+                        ),
+                        onPressed: () {
+
+                    }, child: customText('Ok', 14, grey, FontWeight.normal)),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
+    },
+  );
 }

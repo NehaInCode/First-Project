@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:guido/const.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:guido/homePageScreens/_bottomnavBar.dart';
 import 'package:guido/main.dart';
 import 'package:guido/screens/register.dart';
 import '../homePageScreens/home.dart';
@@ -128,7 +129,7 @@ class _LoginState extends State<Login> {
                     child: ElevatedButton(
                         onPressed: () {
                           if(emailMobNum.text != '' && pass.text != ''){
-                             Navigator.push(context, MaterialPageRoute(builder: (context) => Authentication(),));
+                             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Authentication(),));
                           }else{
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
@@ -346,8 +347,8 @@ class _AuthenticationState extends State<Authentication> {
 
                           onPressed: () {
                             if(pin.text != '') {
-                              Navigator.push(context, MaterialPageRoute(
-                                builder: (context) => HomePage(),));
+                              Navigator.pushReplacement(context, MaterialPageRoute(
+                                builder: (context) => BottomNavBar(),));
                             }
                           },
                           style: ElevatedButton.styleFrom(

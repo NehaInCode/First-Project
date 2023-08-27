@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:guido/const.dart';
 
+import '../homePageScreens/home.dart';
+
 class EditProfile extends StatefulWidget {
   const EditProfile({super.key});
 
@@ -46,6 +48,9 @@ class _EditProfileState extends State<EditProfile> {
       );
     },);
   }
+  bool _isMaleSelected  = false;
+  bool _isFemaleSelected = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,9 +91,9 @@ class _EditProfileState extends State<EditProfile> {
                             shape: BoxShape.circle,
                             color: grey
                           ),
-                          child: Align(
-                            alignment: Alignment.center,
+                          child: Center(
                             child: IconButton(
+                              padding: EdgeInsets.zero,
                             icon: Icon(Icons.camera_enhance_outlined,color: Colors.white,size: 15), onPressed: () {
                               ShowBottomSheet(context);
                               },),
@@ -210,7 +215,48 @@ class _EditProfileState extends State<EditProfile> {
               SizedBox(height: 5,),
               GestureDetector(
                 onTap: () {
-                  showCustomDialog(context, 'Select Gender', 'Genders here', 'Cancel', Colors.white, () => null, 'Save', primaryColor, () => null);
+                  showCustomDialog(context, 'Select Gender', Container(
+                    height: 90,
+                    child: Column(
+                      children: [
+                        InkWell(
+                            onTap :(){
+                              setState(() {
+                                _isMaleSelected = true;
+                                _isFemaleSelected = false;
+                              });
+                            },
+                            child: Row(
+                              children: [
+                                Container(child: customText('Male', 14, grey, FontWeight.w400),),
+                                Spacer(),
+                                Icon(Icons.check,color : _isMaleSelected ? grey : Colors.transparent)
+
+                              ],
+                            )),
+                        SizedBox(height: 10,),
+                        Divider(thickness: 2,color: grey,),
+                        SizedBox(height: 10,),
+                        InkWell(
+                            onTap: () {
+                              setState(() {
+                                _isFemaleSelected = true;
+                                _isMaleSelected = false;
+                              });
+                            },
+                            child: Row(
+                              children: [
+                                Container(child: customText('Female', 14, grey, FontWeight.w400),),
+                                Spacer(),
+
+                              Icon(Icons.check,color : _isFemaleSelected ? grey : Colors.transparent)
+
+
+                              ],
+                            )),
+                      ],
+                    ),
+                  ), 'Cancel', Colors.white, () => null, 'Save', primaryColor, () => null);
                 },
                 child: Row(
                  children: [
@@ -259,7 +305,11 @@ class _EditProfileState extends State<EditProfile> {
               SizedBox(height: 5,),
               GestureDetector(
                 onTap: () {
-                  showCustomDialog(context, 'Add Date', 'Date Picker', 'Cancel', Colors.white, () => null, 'Save', primaryColor, () => null);
+                  showCustomDialog(context, 'Add Date', Column(
+                    children: [
+
+                    ],
+                  ), 'Cancel', Colors.white, () => null, 'Save', primaryColor, () => null);
                 },
                 child: Row(
                  children: [
@@ -307,9 +357,18 @@ class _EditProfileState extends State<EditProfile> {
                 children: [
                   customText('Your Hashtag Interest', 14, grey, FontWeight.w400),
                   Spacer(),
-                  customText('5 Interest', 12, Color(0xff9E9E9E), FontWeight.w400),
-                  SizedBox(width: 5),
-                  Icon(Icons.arrow_forward_ios_outlined,size: 14,)
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => SearchPage(),));
+                    },
+                    child: Row(
+                      children: [
+                        customText('5 Interest', 12, Color(0xff9E9E9E), FontWeight.w400),
+                        SizedBox(width: 5),
+                        Icon(Icons.arrow_forward_ios_outlined,size: 14,),
+                      ],
+                    ),
+                  )
                 ],
               ),
               SizedBox(height: 60,),

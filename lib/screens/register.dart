@@ -61,7 +61,7 @@ class _Register extends State<Register> {
                        customText('Already have an account?', 16, grey, FontWeight.w400),
                         InkWell(
                           onTap: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => BottomNavBar(),));
+                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => BottomNavBar(),));
                           },
                           child: customText('Login', 16, grey, FontWeight.w500,underline: true),)
                       ],

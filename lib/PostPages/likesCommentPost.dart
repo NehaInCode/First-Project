@@ -1,10 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:guido/homePageScreens/postItems.dart';
 import '../const.dart';
-import 'package:dots_indicator/dots_indicator.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:video_player/video_player.dart';
 
 class LikesPage extends StatefulWidget {
   @override

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:guido/screens/login.dart';
 import 'package:guido/screens/register.dart';
+import 'package:guido/screens/splash.dart';
 import 'homePageScreens/_bottomnavBar.dart';
 
-
 void main() {
-  runApp( const MyApp());
-
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -28,11 +27,8 @@ class _MyAppState extends State<MyApp> {
         useMaterial3: true,
       ),
       // home: Login(),
-      home:BottomNavBar(),
-
+      // home:BottomNavBar(),
+      home: Splash(),
     );
   }
 }
-
-
-

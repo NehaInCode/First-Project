@@ -34,6 +34,7 @@ class _HomePage extends State<HomePage> {
                         width: 285,
                         height: 45,
                         child: TextField(
+                          cursorColor: grey,
                           onTap: () {
                             Navigator.push(
                                 context,
@@ -43,6 +44,9 @@ class _HomePage extends State<HomePage> {
                           },
                           textAlignVertical: TextAlignVertical.bottom,
                           decoration: InputDecoration(
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: grey)
+                            ),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(5),
                               ),
@@ -292,9 +296,9 @@ class _MapSetting extends State<MapSetting> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // appBar: AppBar(
-        //   title: customText('Map Setting', 16, grey, FontWeight.normal),
-        // ),
+        appBar: AppBar(
+          title: customText('Map Setting', 16, grey, FontWeight.normal),
+        ),
         body: Center(
           child: Container(
             width: 310,
