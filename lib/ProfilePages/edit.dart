@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:guido/const.dart';
 import '../homePages/searchPage.dart';
+import 'package:intl/intl.dart' as intl; // Add this import statement
+
 
 class EditProfile extends StatefulWidget {
   const EditProfile({super.key});
@@ -10,6 +12,9 @@ class EditProfile extends StatefulWidget {
 }
 
 class _EditProfileState extends State<EditProfile> {
+  DateTime? selectedDate; // Add this variable to store the selected date
+  TextEditingController birthday =TextEditingController();
+
   // ignore: non_constant_identifier_names
   void ShowBottomSheet(BuildContext context){
     showModalBottomSheet(context: context, builder: (context) {
@@ -247,141 +252,177 @@ class _EditProfileState extends State<EditProfile> {
                 const SizedBox(height: 5,),
                 GestureDetector(
                   onTap: () {
-                    showCustomDialog(context, 'Select Gender', SizedBox(
-                      height: 90,
-                      child: Column(
-                        children: [
-                          InkWell(
-                              onTap :(){
-                                setState(() {
-                                  _isMaleSelected = true;
-                                  _isFemaleSelected = false;
-                                });
-                              },
-                              child: Row(
-                                children: [
-                                  Container(child: customText('Male', 14, grey, FontWeight.w400),),
-                                  const Spacer(),
-                                  Icon(Icons.check,color : _isMaleSelected ? grey : Colors.transparent)
+                    showCustomDialog(
+                      context,
+                      'Select Gender',
+                      StatefulBuilder(
+                        builder: (context,setStateNew) {
+                          return SizedBox(
 
-                                ],
-                              )),
-                          const SizedBox(height: 10,),
-                          Divider(thickness: 2,color: grey,),
-                          const SizedBox(height: 10,),
-                          InkWell(
-                              onTap: () {
-                                setState(() {
-                                  _isFemaleSelected = true;
-                                  _isMaleSelected = false;
-                                });
-                              },
-                              child: Row(
-                                children: [
-                                  Container(child: customText('Female', 14, grey, FontWeight.w400),),
-                                  const Spacer(),
-
-                                Icon(Icons.check,color : _isFemaleSelected ? grey : Colors.transparent)
-
-
-                                ],
-                              )),
-                        ],
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                          setStateNew(() {
+                                      _isMaleSelected = true;
+                                      _isFemaleSelected = false;
+                                    });
+                                    print(_isMaleSelected);
+                                  },
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        child: customText('Male', 14, grey, FontWeight.w400),
+                                      ),
+                                      const Spacer(),
+                                      Icon(
+                                        Icons.check,
+                                        color:  _isMaleSelected?grey:Colors.transparent,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Divider(thickness: 1, color: grey,),
+                                InkWell(
+                                  onTap: () {
+                                    setStateNew(() {
+                                      _isFemaleSelected = true;
+                                      _isMaleSelected = false;
+                                    });
+                                  },
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        child: customText('Female', 14, grey, FontWeight.w400),
+                                      ),
+                                      const Spacer(),
+                                      Icon(
+                                        Icons.check,
+                                        color: _isFemaleSelected ? grey : Colors.transparent,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        }
                       ),
-                    ), 'Cancel', Colors.white, () => null, 'Save', primaryColor, () => null);
+                      'Cancel',
+                      Colors.white,
+                          () => null,
+                      'Save',
+                      primaryColor,
+                          () => null,
+                    );
                   },
                   child: Row(
-                   children: [
-                   Padding(
-                     padding: const EdgeInsets.only(top: 12.0),
-                     child: Image.asset('assets/images/male.png',height: 20,color: grey),
-                   ),
-                     Expanded(
-                       child: Padding(
-                         padding: const EdgeInsets.only(right: 15.0,left: 15.0),
-                         child: Center(
-                           child: TextField(
-                             enabled: false,
-                             readOnly: true,
-                             cursorColor: grey,
-                             decoration: InputDecoration(
-                               enabledBorder: const UnderlineInputBorder(
-                                 borderSide: BorderSide(
-                                   color:Color(0xffDEDEDE) ,
-                                 )
-                               ),
-                               suffixIcon: const Icon(Icons.arrow_forward_ios_outlined,size: 14),
-                               hintText: 'Gender',
-                                 hintStyle: const TextStyle(
-                                   fontWeight: FontWeight.w100
-                                 ),
-                                 focusedBorder: UnderlineInputBorder(
-                                     borderSide: BorderSide(
-
-                                       color: grey,
-                                     )
-                                 ),
-                               border: const UnderlineInputBorder(
-                                 borderSide: BorderSide(
-                                   color: Color(0xffDEDEDE),
-                                 ),
-                               )
-                             ),
-                           ),
-                         ),
-                       ),
-                     )
-                   ],
-               ),
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 12.0),
+                        child: Image.asset(
+                          'assets/images/male.png',
+                          height: 20,
+                          color: _isMaleSelected ? grey : null,
+                        ),
+                      ),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.only(right: 15.0, left: 15.0),
+                          child: Center(
+                            child: TextField(
+                              enabled: false,
+                              readOnly: true,
+                              cursorColor: grey,
+                              decoration: InputDecoration(
+                                enabledBorder: const UnderlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0xffDEDEDE),
+                                  ),
+                                ),
+                                suffixIcon: const Icon(Icons.arrow_forward_ios_outlined, size: 14),
+                                hintText: 'Gender',
+                                hintStyle: const TextStyle(
+                                  fontWeight: FontWeight.w100,
+                                ),
+                                focusedBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: grey,
+                                  ),
+                                ),
+                                border: const UnderlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0xffDEDEDE),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
+
                 const SizedBox(height: 5,),
-                GestureDetector(
-                  onTap: () {
-                    showCustomDialog(context, 'Add Date', const Column(
-                      children: [
 
-                      ],
-                    ), 'Cancel', Colors.white, () => null, 'Save', primaryColor, () => null);
-                  },
-                  child: Row(
-                   children: [
-                   Padding(
-                     padding: const EdgeInsets.only(top: 12.0),
-                     child: Image.asset('assets/images/birth.png',height: 20,color: grey),
-                   ),
-                     Expanded(
-                       child: Padding(
-                         padding: const EdgeInsets.only(right: 15.0,left: 15.0),
-                         child: Center(
-                           child: TextField(
-                             enabled: false,
-                             readOnly: true,
-                             cursorColor: grey,
-                             decoration: InputDecoration(
-                                 suffixIcon: const Icon(Icons.arrow_forward_ios_outlined,size: 14),
-                               hintText: 'Add Birthdate',
-                                 hintStyle: const TextStyle(
-                                   fontWeight: FontWeight.w100
-                                 ),
-                                 focusedBorder: UnderlineInputBorder(
-                                     borderSide: BorderSide(
-                                       color: grey,
-                                     )
-                                 ),
-                               enabledBorder: const UnderlineInputBorder(
-                                 borderSide: BorderSide(
-                                   color: Color(0xffDEDEDE),
-                                 ),
-
-                               )
-                             ),
-                           ),
-                         ),
-                       ),
-                     )
-                   ],
-               ),
+              GestureDetector(
+              onTap: () {
+                showDatePicker(
+                  initialEntryMode:DatePickerEntryMode.inputOnly,
+                  context: context,
+                  initialDate: selectedDate ?? DateTime.now(),
+                  firstDate: DateTime(1900),
+                  lastDate: DateTime(2101),
+                ).then((pickedDate) {
+                  if (pickedDate != null && pickedDate != selectedDate) {
+                    setState(() {
+                      selectedDate = pickedDate;
+                      birthday.text =selectedDate.toString();
+                    });
+                  }
+                });
+        },
+          child: Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 12.0),
+                child: Image.asset('assets/images/birth.png', height: 20, color: grey),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 15.0, left: 15.0),
+                  child: Center(
+                    child: TextField(
+                      controller: birthday,
+                      enabled: false,
+                      readOnly: true,
+                      cursorColor: grey,
+                      decoration: InputDecoration(
+                        suffixIcon: const Icon(Icons.arrow_forward_ios_outlined, size: 14),
+                        hintText: 'Add Birthdate',
+                        hintStyle: const TextStyle(
+                          fontWeight: FontWeight.w100,
+                        ),
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                            color: grey,
+                          ),
+                        ),
+                        enabledBorder: const UnderlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0xffDEDEDE),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
+              ),
+            ],
+          ),
+        ),
                 const SizedBox(height: 25,),
                 customText('Add Interest', 14, grey, FontWeight.w700),
                 const SizedBox(height: 25,),
