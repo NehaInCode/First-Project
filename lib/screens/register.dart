@@ -7,12 +7,10 @@ class Register extends StatefulWidget {
   const Register({super.key});
 
   @override
-  State<StatefulWidget> createState() {
-    return _Register();
-  }
+  State<Register> createState() => _RegisterState();
 }
 
-class _Register extends State<Register> {
+class _RegisterState extends State<Register> {
   var userName = TextEditingController();
   var emailMobNum = TextEditingController();
   var passW = TextEditingController();
@@ -82,139 +80,136 @@ class _Register extends State<Register> {
                       const SizedBox(
                         height: 30,
                       ),
-                      SizedBox(
-                        height: 40,
-                        child: TextFormField(
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter your name';
-                            }
-                            return null;
-                          },
-                          cursorColor: grey,
-                          textAlignVertical: TextAlignVertical.bottom,
-                          controller: userName,
-                          decoration: InputDecoration(
-                              focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: grey)),
-                              hintText: 'Username',
-                              hintStyle: TextStyle(
-                                color: hColor,
-                                fontSize: 15,
-                              ),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(5),
-                              )),
-                        ),
+                      TextFormField(
+
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your name';
+                          }
+                          return null;
+                        },
+                        cursorColor: grey,
+                        textAlignVertical: TextAlignVertical.center,
+                        controller: userName,
+                        decoration: InputDecoration(
+                            contentPadding: EdgeInsets.all(10),
+                            isDense: true,
+                            focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: grey)),
+                            hintText: 'Username',
+                            hintStyle: TextStyle(
+                              color: hColor,
+                              fontSize: 15,
+                            ),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(5),
+                            )),
                       ),
                       const SizedBox(
                         height: 15,
                       ),
-                      SizedBox(
-                        height: 40,
-                        child: TextFormField(
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter some text';
-                            }
+                      TextFormField(
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter some text';
+                          }
 
-                            // Check if the input is a valid email ending with "@gmail.com"
-                            if (RegExp(r'^[\w-]+(\.[\w-]+)*@gmail\.com$')
-                                .hasMatch(value)) {
-                              return null; // Valid email
-                            }
+                          // Check if the input is a valid email ending with "@gmail.com"
+                          if (RegExp(r'^[\w-]+(\.[\w-]+)*@gmail\.com$')
+                              .hasMatch(value)) {
+                            return null; // Valid email
+                          }
 
-                            // Check if the input is an 11-digit number
-                            if (RegExp(r'^\d{11}$').hasMatch(value)) {
-                              return null; // Valid 11-digit number
-                            }
+                          // Check if the input is an 11-digit number
+                          if (RegExp(r'^\d{11}$').hasMatch(value)) {
+                            return null; // Valid 11-digit number
+                          }
 
-                            return 'Please enter a valid Gmail address or an 11-digit number';
-                          },
-                          cursorColor: grey,
-                          textAlignVertical: TextAlignVertical.bottom,
-                          controller: emailMobNum,
-                          decoration: InputDecoration(
-                            hintText: 'Email or Mobile Number',
-                            focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: grey)),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5),
-                            ),
+                          return 'Please enter a valid Gmail address or an 11-digit number';
+                        },
+                        cursorColor: grey,
+                        textAlignVertical: TextAlignVertical.center,
+                        controller: emailMobNum,
+                        decoration: InputDecoration(
+                          contentPadding: EdgeInsets.all(10),
+                          isDense: true,
+                          hintText: 'Email or Mobile Number',
+                          focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: grey)),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5),
                           ),
                         ),
                       ),
                       const SizedBox(
                         height: 15,
                       ),
-                      SizedBox(
-                        height: 40,
-                        child: TextFormField(
-                          validator: (value) {
-                            if(value == null || value.isEmpty){
-                              return 'Please enter your password';
-                            }
-                            return null;
-                          },
-                          cursorColor: grey,
-                          textAlignVertical: TextAlignVertical.bottom,
-                          controller: passW,
-                          obscureText: obscurePassword,
-                          obscuringCharacter: '*',
-                          decoration: InputDecoration(
-                              focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: grey)),
-                              hintText: 'Password',
-                              suffixIcon: GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    obscurePassword = !obscurePassword;
-                                  });
-                                },
-                                child: Icon(obscurePassword
-                                    ? Icons.visibility_off
-                                    : Icons.visibility),
-                              ),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(5),
-                              )),
-                        ),
+                      TextFormField(
+                        validator: (value) {
+                          if(value == null || value.isEmpty){
+                            return 'Please enter your password';
+                          }
+                          return null;
+                        },
+                        cursorColor: grey,
+                        textAlignVertical: TextAlignVertical.center,
+                        controller: passW,
+                        obscureText: obscurePassword,
+                        obscuringCharacter: '*',
+                        decoration: InputDecoration(
+                            contentPadding: EdgeInsets.all(10),
+                            isDense: true,
+                            focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: grey)),
+                            hintText: 'Password',
+                            suffixIcon: GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  obscurePassword = !obscurePassword;
+                                });
+                              },
+                              child: Icon(obscurePassword
+                                  ? Icons.visibility_off
+                                  : Icons.visibility),
+                            ),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(5),
+                            )),
                       ),
                       const SizedBox(
                         height: 15,
                       ),
-                      SizedBox(
-                        height: 40,
-                        child: TextFormField(
-                          validator: (value) {
-                            if(value == null || value.isEmpty){
-                              return 'Please enter your password';
-                            }
-                            return null;
-                          },
-                          cursorColor: grey,
-                          textAlignVertical: TextAlignVertical.bottom,
-                          controller: confirmPass,
-                          obscureText: obscurePasswordC,
-                          obscuringCharacter: '*',
-                          decoration: InputDecoration(
-                              focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: grey)),
-                              hintText: 'Confirm Password',
-                              suffixIcon: GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    obscurePasswordC = !obscurePasswordC;
-                                  });
-                                },
-                                child: Icon(obscurePasswordC
-                                    ? Icons.visibility_off
-                                    : Icons.visibility),
-                              ),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(5),
-                              )),
-                        ),
+                      TextFormField(
+                        validator: (value) {
+                          if(value == null || value.isEmpty){
+                            return 'Please enter your password';
+                          }
+                          return null;
+                        },
+                        cursorColor: grey,
+                        textAlignVertical: TextAlignVertical.center,
+                        controller: confirmPass,
+                        obscureText: obscurePasswordC,
+                        obscuringCharacter: '*',
+                        decoration: InputDecoration(
+                            contentPadding: EdgeInsets.all(10),
+                            isDense: true,// Adjust the padding as needed
+                            focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: grey)),
+                            hintText: 'Confirm Password',
+                            suffixIcon: GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  obscurePasswordC = !obscurePasswordC;
+                                });
+                              },
+                              child: Icon(obscurePasswordC
+                                  ? Icons.visibility_off
+                                  : Icons.visibility),
+                            ),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(5),
+                            )),
                       ),
                       const SizedBox(
                         height: 15,
@@ -228,15 +223,15 @@ class _Register extends State<Register> {
                               }else{
                                 ScaffoldMessenger.of(context).showSnackBar(
                                     const SnackBar(
-                                        content: Text('Processing Data'),
+                                      content: Text('Processing Data'),
 
                                     ));
                               }
                             },
                             style: ElevatedButton.styleFrom(
                                 shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5.0),
-                            )),
+                                  borderRadius: BorderRadius.circular(5.0),
+                                )),
                             child: customText(
                                 'Register', 16, grey, FontWeight.normal)),
                       ),
@@ -262,3 +257,5 @@ class _Register extends State<Register> {
     );
   }
 }
+
+
