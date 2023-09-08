@@ -1,9 +1,11 @@
-import 'package:flutter/cupertino.dart';
+// ignore: file_names
 import 'package:flutter/material.dart';
 
 import '../const.dart';
 
 class SearchPostPage extends StatefulWidget {
+  const SearchPostPage({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _SearchPostPage();
@@ -18,17 +20,18 @@ class _SearchPostPage extends State<SearchPostPage> {
         title: customText('Search', 16, grey, FontWeight.normal),
       ),
       body: Center(
-        child: Container(
+        child: SizedBox(
           width: 310,
           height: double.infinity,
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Container(
+                SizedBox(
                   width: 310,
                   height: 45,
                   child: TextField(
+                    cursorColor: grey,
                     textAlignVertical: TextAlignVertical.bottom,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
@@ -51,7 +54,7 @@ class _SearchPostPage extends State<SearchPostPage> {
                 const SizedBox(
                   height: 30,
                 ),
-                Container(
+                SizedBox(
                   width: double.infinity,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,

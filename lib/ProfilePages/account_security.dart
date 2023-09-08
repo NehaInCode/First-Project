@@ -1,9 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../const.dart';
 
 class AccountSecurity extends StatefulWidget{
+  const AccountSecurity({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _AccountSecurity();
@@ -24,7 +25,7 @@ class _AccountSecurity extends State<AccountSecurity>{
           children: [
             InkWell(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Mobile(),));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const Mobile(),));
               },
               splashColor: Colors.transparent,
               highlightColor: Colors.transparent,
@@ -32,16 +33,16 @@ class _AccountSecurity extends State<AccountSecurity>{
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   customText('Mobile', 14, grey, FontWeight.w400),
-                  Spacer(),
-                  customText('Add', 12, Color(0xff9E9E9E), FontWeight.w400),
-                  Icon(Icons.arrow_forward_ios_outlined,size: 15,)
+                  const Spacer(),
+                  customText('Add', 12, const Color(0xff9E9E9E), FontWeight.w400),
+                  const Icon(Icons.arrow_forward_ios_outlined,size: 15,)
                 ],
               ),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             InkWell(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Password(),));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const Password(),));
               },
               splashColor: Colors.transparent,
               highlightColor: Colors.transparent,
@@ -49,37 +50,37 @@ class _AccountSecurity extends State<AccountSecurity>{
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   customText('Password', 14, grey, FontWeight.w400),
-                  Spacer(),
-                  customText('Change', 12, Color(0xff9E9E9E), FontWeight.w400),
-                  Icon(Icons.arrow_forward_ios_outlined,size: 15,)
+                  const Spacer(),
+                  customText('Change', 12, const Color(0xff9E9E9E), FontWeight.w400),
+                  const Icon(Icons.arrow_forward_ios_outlined,size: 15,)
                 ],
               ),
             ),
-            SizedBox(height: 20,),
-            Divider(height: 8,color: Color(0x119E9E9E),thickness: 8),
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
+            const Divider(height: 8,color: Color(0x119E9E9E),thickness: 8),
+            const SizedBox(height: 20,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 customText('Real-name Verification', 14, grey, FontWeight.w400),
-                Spacer(),
-                customText('Not Verified', 12, Color(0xff9E9E9E), FontWeight.w400),
-                Icon(Icons.arrow_forward_ios_outlined,size: 15,)
+                const Spacer(),
+                customText('Not Verified', 12, const Color(0xff9E9E9E), FontWeight.w400),
+                const Icon(Icons.arrow_forward_ios_outlined,size: 15,)
               ],
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 customText('Official Verification', 14, grey, FontWeight.w400),
-                Spacer(),
-                customText('Not Verified', 12, Color(0xff9E9E9E), FontWeight.w400),
-                Icon(Icons.arrow_forward_ios_outlined,size: 15,)
+                const Spacer(),
+                customText('Not Verified', 12, const Color(0xff9E9E9E), FontWeight.w400),
+                const Icon(Icons.arrow_forward_ios_outlined,size: 15,)
               ],
             ),
-            SizedBox(height: 20,),
-            Divider(height: 8,color: Color(0x119E9E9E),thickness: 8),
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
+            const Divider(height: 8,color: Color(0x119E9E9E),thickness: 8),
+            const SizedBox(height: 20,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -91,7 +92,7 @@ class _AccountSecurity extends State<AccountSecurity>{
                     inactiveThumbColor: Colors.white,
                     activeTrackColor: Colors.blue.shade800,
                     activeColor: Colors.white,
-                    inactiveTrackColor: Color(0xffE0E0E0),
+                    inactiveTrackColor: const Color(0xffE0E0E0),
                     value: _isSwitched, onChanged: (value) {
                     setState(() {
                       _isSwitched = value;
@@ -101,19 +102,19 @@ class _AccountSecurity extends State<AccountSecurity>{
 
               ],
             ),
-            SizedBox(height: 20,),
-            Divider(height: 8,color: Color(0x119E9E9E),thickness: 8),
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
+            const Divider(height: 8,color: Color(0x119E9E9E),thickness: 8),
+            const SizedBox(height: 20,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 customText('Upgrade to Pro', 14, grey, FontWeight.w400),
-                Spacer(),
-                customText('Not Enable', 12, Color(0xff9E9E9E), FontWeight.w400),
-                Icon(Icons.arrow_forward_ios_outlined,size: 15,)
+                const Spacer(),
+                customText('Not Enable', 12, const Color(0xff9E9E9E), FontWeight.w400),
+                const Icon(Icons.arrow_forward_ios_outlined,size: 15,)
               ],
             ),
-            Spacer(),
+            const Spacer(),
 
             Center(
               child: Container(
@@ -132,6 +133,8 @@ class _AccountSecurity extends State<AccountSecurity>{
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 class Mobile extends StatefulWidget{
+  const Mobile({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _Mobile();
@@ -161,7 +164,7 @@ class _Mobile extends State<Mobile>{
                   )
                 ),
                   hintText: '+9  9823788249',
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                       fontWeight: FontWeight.w500
                   ),
                   border: OutlineInputBorder(
@@ -169,15 +172,15 @@ class _Mobile extends State<Mobile>{
                   )
               ),
             ),
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
             customText('Maximum of 13 number', 12, grey, FontWeight.w100),
-            Spacer(),
-            Container(
+            const Spacer(),
+            SizedBox(
               width: double.infinity,
               child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       backgroundColor: primaryColor,
-                      fixedSize: Size(double.infinity, 50),
+                      fixedSize: const Size(double.infinity, 50),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       )
@@ -186,7 +189,7 @@ class _Mobile extends State<Mobile>{
 
                   }, child: customText('Save', 14, grey, FontWeight.normal)),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Center(
               child: Container(
                 height: 2,
@@ -203,6 +206,8 @@ class _Mobile extends State<Mobile>{
 }
 
 class Password extends StatefulWidget{
+  const Password({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _Password();
@@ -222,8 +227,8 @@ class _Password extends State<Password>{
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             customText('Current Password', 14, grey, FontWeight.w400),
-            SizedBox(height: 10),
-            Container(
+            const SizedBox(height: 10),
+            SizedBox(
               height: 50,
               child: TextField(
                 cursorColor: grey,
@@ -236,7 +241,7 @@ class _Password extends State<Password>{
                       width: 1,
                     )
                   ),
-                    suffixIcon: Icon(Icons.remove_red_eye_outlined),
+                    suffixIcon: const Icon(Icons.remove_red_eye_outlined),
                     hintText: 'Enter Password',
                     hintStyle: TextStyle(
                       fontWeight: FontWeight.w100,
@@ -248,10 +253,10 @@ class _Password extends State<Password>{
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             customText('New Password', 14, grey, FontWeight.w400),
-            SizedBox(height: 10),
-            Container(
+            const SizedBox(height: 10),
+            SizedBox(
               height: 50,
               child: TextField(
                 cursorColor: grey,
@@ -264,7 +269,7 @@ class _Password extends State<Password>{
                       width: 1,
                     )
                   ),
-                    suffixIcon: Icon(Icons.remove_red_eye_outlined),
+                    suffixIcon: const Icon(Icons.remove_red_eye_outlined),
                     hintText: 'Enter Password',
                     hintStyle: TextStyle(
                       fontWeight: FontWeight.w100,
@@ -276,10 +281,10 @@ class _Password extends State<Password>{
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             customText('Confirm New Password', 14, grey, FontWeight.w400),
-            SizedBox(height: 10),
-            Container(
+            const SizedBox(height: 10),
+            SizedBox(
               height: 50,
               child: TextField(
                 cursorColor: grey,
@@ -292,7 +297,7 @@ class _Password extends State<Password>{
                       width: 1,
                     )
                   ),
-                    suffixIcon: Icon(Icons.remove_red_eye_outlined),
+                    suffixIcon: const Icon(Icons.remove_red_eye_outlined),
                     hintText: 'Enter Password',
                     hintStyle: TextStyle(
                       fontWeight: FontWeight.w100,
@@ -304,8 +309,8 @@ class _Password extends State<Password>{
                 ),
               ),
             ),
-            Spacer(),
-            Container(
+            const Spacer(),
+            SizedBox(
               width: double.infinity,
               child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -318,7 +323,7 @@ class _Password extends State<Password>{
 
                   }, child: customText('Save', 14, grey, FontWeight.normal)),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Center(
               child: Container(
                 height: 2,

@@ -1,14 +1,11 @@
-
-import 'package:flutter/cupertino.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:guido/const.dart';
 import '../homePageScreens/_bottomnavBar.dart';
-import 'forgot.dart';
 import 'login.dart';
 
-
 class Register extends StatefulWidget {
+  const Register({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _Register();
@@ -23,6 +20,13 @@ class _Register extends State<Register> {
   Color myColor = const Color(0xFFFFD464);
   Color grey = const Color(0xFF616161);
   Color hColor = const Color(0xFF404040);
+  bool obscurePassword = true;
+  bool obscurePasswordC = true;
+  final _formKey = GlobalKey<FormState>();
+  String? UserNameError;
+  String? emailNumError;
+  String? passError;
+  String? confirmPassError;
 
   @override
   Widget build(BuildContext context) {
@@ -31,144 +35,227 @@ class _Register extends State<Register> {
         width: double.infinity,
         height: double.infinity,
         color: myColor,
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-
-                    const SizedBox(
-                      height: 60,
-                    ),
-                    Image.asset('assets/Logo.png',width: 150),
-                    const SizedBox(
-                      height: 50,
-                    ),
-                    Row(
-                      children: [
-                       customText('Register', 20, Colors.black, FontWeight.w700),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    Row(
-                      children: [
-                       customText('Already have an account?', 16, grey, FontWeight.w400),
-                        InkWell(
-                          onTap: () {
-                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => BottomNavBar(),));
+        child: Form(
+          key: _formKey,
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      const SizedBox(
+                        height: 60,
+                      ),
+                      Image.asset('assets/Logo.png', width: 150),
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      Row(
+                        children: [
+                          customText(
+                              'Register', 20, Colors.black, FontWeight.w700),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      Row(
+                        children: [
+                          customText('Already have an account?', 16, grey,
+                              FontWeight.w400),
+                          InkWell(
+                            onTap: () {
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const Login(),
+                                  ));
+                            },
+                            child: customText(
+                                'Login', 16, Colors.black, FontWeight.w500,
+                                underline: true),
+                          )
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      SizedBox(
+                        height: 40,
+                        child: TextFormField(
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter your name';
+                            }
+                            return null;
                           },
-                          child: customText('Login', 16, grey, FontWeight.w500,underline: true),)
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    Container(
-                      height: 40,
-                      child: TextField(
-                        textAlignVertical: TextAlignVertical.bottom,
-                        controller: userName,
-                        decoration: InputDecoration(
-                            hintText: 'Username',
-                            hintStyle: TextStyle(
-                              color: hColor,
-                              fontSize: 15,
-                            ),
+                          cursorColor: grey,
+                          textAlignVertical: TextAlignVertical.bottom,
+                          controller: userName,
+                          decoration: InputDecoration(
+                              focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: grey)),
+                              hintText: 'Username',
+                              hintStyle: TextStyle(
+                                color: hColor,
+                                fontSize: 15,
+                              ),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5),
+                              )),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      SizedBox(
+                        height: 40,
+                        child: TextFormField(
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter some text';
+                            }
+
+                            // Check if the input is a valid email ending with "@gmail.com"
+                            if (RegExp(r'^[\w-]+(\.[\w-]+)*@gmail\.com$')
+                                .hasMatch(value)) {
+                              return null; // Valid email
+                            }
+
+                            // Check if the input is an 11-digit number
+                            if (RegExp(r'^\d{11}$').hasMatch(value)) {
+                              return null; // Valid 11-digit number
+                            }
+
+                            return 'Please enter a valid Gmail address or an 11-digit number';
+                          },
+                          cursorColor: grey,
+                          textAlignVertical: TextAlignVertical.bottom,
+                          controller: emailMobNum,
+                          decoration: InputDecoration(
+                            hintText: 'Email or Mobile Number',
+                            focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: grey)),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5),
-                            )),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    Container(
-                      height: 40,
-                      child: TextField(
-                        textAlignVertical: TextAlignVertical.bottom,
-                        controller: emailMobNum,
-
-                        decoration: InputDecoration(
-                          hintText: 'Email or Mobile Number',
-
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(5),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    Container(
-                      height: 40,
-                      child: TextField(
-                        textAlignVertical: TextAlignVertical.bottom,
-                        controller: passW,
-                        obscureText: true,
-                        obscuringCharacter: '*',
-                        decoration: InputDecoration(
-                            hintText: 'Password',
-                            suffixIcon: Icon(Icons.remove_red_eye_outlined,color: grey,),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5),
-                            )),
-                      ),     ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    Container(
-                      height: 40,
-                      child: TextField(
-                        textAlignVertical: TextAlignVertical.bottom,
-                        controller: confirmPass,
-                        obscureText: true,
-                        obscuringCharacter: '*',
-                        decoration: InputDecoration(
-                            hintText: 'Confirm Password',
-                            suffixIcon: Icon(Icons.remove_red_eye_outlined,color: grey,),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5),
-                            )),
+                      const SizedBox(
+                        height: 15,
                       ),
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    Container(
-                      width: double.infinity,
-                      child: ElevatedButton(
-
-                          onPressed: () {
-                            // Navigator.push(context, MaterialPageRoute(builder: (context) => Authentication(),))
+                      SizedBox(
+                        height: 40,
+                        child: TextFormField(
+                          validator: (value) {
+                            if(value == null || value.isEmpty){
+                              return 'Please enter your password';
+                            }
+                            return null;
                           },
-                          style: ElevatedButton.styleFrom(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(5.0),
+                          cursorColor: grey,
+                          textAlignVertical: TextAlignVertical.bottom,
+                          controller: passW,
+                          obscureText: obscurePassword,
+                          obscuringCharacter: '*',
+                          decoration: InputDecoration(
+                              focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: grey)),
+                              hintText: 'Password',
+                              suffixIcon: GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    obscurePassword = !obscurePassword;
+                                  });
+                                },
+                                child: Icon(obscurePassword
+                                    ? Icons.visibility_off
+                                    : Icons.visibility),
+                              ),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5),
                               )),
-                          child: customText('Register', 16, grey, FontWeight.normal)),
-                    ),
-                  ],
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      SizedBox(
+                        height: 40,
+                        child: TextFormField(
+                          validator: (value) {
+                            if(value == null || value.isEmpty){
+                              return 'Please enter your password';
+                            }
+                            return null;
+                          },
+                          cursorColor: grey,
+                          textAlignVertical: TextAlignVertical.bottom,
+                          controller: confirmPass,
+                          obscureText: obscurePasswordC,
+                          obscuringCharacter: '*',
+                          decoration: InputDecoration(
+                              focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: grey)),
+                              hintText: 'Confirm Password',
+                              suffixIcon: GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    obscurePasswordC = !obscurePasswordC;
+                                  });
+                                },
+                                child: Icon(obscurePasswordC
+                                    ? Icons.visibility_off
+                                    : Icons.visibility),
+                              ),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5),
+                              )),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                            onPressed: () {
+                              if(_formKey.currentState!.validate()){
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => const Login(),));
+                              }else{
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                        content: Text('Processing Data'),
+
+                                    ));
+                              }
+                            },
+                            style: ElevatedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5.0),
+                            )),
+                            child: customText(
+                                'Register', 16, grey, FontWeight.normal)),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              const SizedBox(
-                height: 132,
-              ),
-              Container(
-                height: 2,
-                width: 130,
-                color: grey,
-              ),
-              const SizedBox(
-                height: 9,
-              )
-            ],
+                const SizedBox(
+                  height: 132,
+                ),
+                Container(
+                  height: 2,
+                  width: 130,
+                  color: grey,
+                ),
+                const SizedBox(
+                  height: 9,
+                )
+              ],
+            ),
           ),
         ),
       ),

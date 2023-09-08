@@ -1,8 +1,11 @@
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: non_constant_identifier_names, camel_case_types, duplicate_ignore
+
 import 'package:flutter/material.dart';
 import '../const.dart';
 
 class LikesPage extends StatefulWidget {
+  const LikesPage({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _LikesPage();
@@ -46,7 +49,7 @@ class _LikesPage extends State<LikesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Like'),
+        title: const Text('Like'),
       ),
       body: Center(
         child: Padding(
@@ -54,7 +57,7 @@ class _LikesPage extends State<LikesPage> {
           child: Column(
             children: [
               Center(
-                child: Container(
+                child: SizedBox(
                   height: 20,
                   child: Center(
                     child: Row(
@@ -62,17 +65,17 @@ class _LikesPage extends State<LikesPage> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         InkWell(
-                          child: Image.asset('assets/images/heart.png'),
                           radius: 12,
+                          child: Image.asset('assets/images/heart.png'),
                         ),
-                        SizedBox(width: 3),
+                        const SizedBox(width: 3),
                         customText('1.124', 16, grey, FontWeight.normal)
                       ],
                     ),
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Expanded(
@@ -98,6 +101,8 @@ class _LikesPage extends State<LikesPage> {
 }
 
 class CommentPage extends StatefulWidget {
+  const CommentPage({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _CommentPage();
@@ -105,6 +110,7 @@ class CommentPage extends StatefulWidget {
 }
 class CommentsItem {
   final String ImagePath;
+  // ignore: non_constant_identifier_names
   final Widget Title;
   final Widget Subtitle;
   final num Likes;
@@ -142,18 +148,18 @@ class _CommentPage extends State<CommentPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Comments'),
+        title: const Text('Comments'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Center(
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
               Center(
-                child: Container(
+                child: SizedBox(
                   width: double.infinity,
                   height: 20,
                   child: Center(
@@ -163,13 +169,13 @@ class _CommentPage extends State<CommentPage> {
                         Image.asset(
                           'assets/images/commet.png',
                         ),
-                        SizedBox(width: 3),
+                        const SizedBox(width: 3),
                         InkWell(
                             onTap: () {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => CommentPage(),
+                                    builder: (context) => const CommentPage(),
                                   ));
                             },
                             child: customText(
@@ -179,7 +185,7 @@ class _CommentPage extends State<CommentPage> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Expanded(
@@ -204,7 +210,7 @@ class _CommentPage extends State<CommentPage> {
                           title: Row(
                             children: [
                               cItems[index].Title,
-                              SizedBox(width: 8),
+                              const SizedBox(width: 8),
                               customText('15m ago', 10, grey, FontWeight.w100)
                             ],
                           ),

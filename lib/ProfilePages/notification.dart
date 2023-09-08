@@ -1,9 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../const.dart';
 
 class Notifications extends StatefulWidget{
+  const Notifications({super.key});
+
   @override
   State<StatefulWidget> createState() {
    return _Notifications();
@@ -32,7 +33,7 @@ title: customText('Notification', 16, grey, FontWeight.normal),
          crossAxisAlignment: CrossAxisAlignment.start,
          children: [
            customText('Post', 14, grey, FontWeight.w700),
-           SizedBox(height: 15,),
+           const SizedBox(height: 15,),
            Row(
              mainAxisAlignment: MainAxisAlignment.spaceBetween,
              children: [
@@ -44,7 +45,7 @@ title: customText('Notification', 16, grey, FontWeight.normal),
                    inactiveThumbColor: Colors.white,
                    activeTrackColor: Colors.blue.shade800,
                    activeColor: Colors.white,
-                   inactiveTrackColor: Color(0xffE0E0E0),
+                   inactiveTrackColor: const Color(0xffE0E0E0),
 
                    value: _isSwitchedL, onChanged: (value) {
                    setState(() {
@@ -66,7 +67,7 @@ title: customText('Notification', 16, grey, FontWeight.normal),
                    inactiveThumbColor: Colors.white,
                    activeTrackColor: Colors.blue.shade800,
                    activeColor: Colors.white,
-                   inactiveTrackColor: Color(0xffE0E0E0),
+                   inactiveTrackColor: const Color(0xffE0E0E0),
 
                    value: _isSwitchedC, onChanged: (value) {
                    setState(() {
@@ -89,7 +90,7 @@ title: customText('Notification', 16, grey, FontWeight.normal),
                    inactiveThumbColor: Colors.white,
                    activeTrackColor: Colors.blue.shade800,
                    activeColor: Colors.white,
-                   inactiveTrackColor: Color(0xffE0E0E0),
+                   inactiveTrackColor: const Color(0xffE0E0E0),
 
                    value: _isSwitchedR, onChanged: (value) {
                    setState(() {
@@ -112,7 +113,7 @@ title: customText('Notification', 16, grey, FontWeight.normal),
                    inactiveThumbColor: Colors.white,
                    activeTrackColor: Colors.blue.shade800,
                    activeColor: Colors.white,
-                   inactiveTrackColor: Color(0xffE0E0E0),
+                   inactiveTrackColor: const Color(0xffE0E0E0),
 
                    value: _isSwitchedM, onChanged: (value) {
                    setState(() {
@@ -123,11 +124,11 @@ title: customText('Notification', 16, grey, FontWeight.normal),
 
              ],
            ),
-           SizedBox(height: 15,),
-           Divider(height: 8,color: Color(0x119E9E9E),thickness: 8),
-           SizedBox(height: 15,),
+           const SizedBox(height: 15,),
+           const Divider(height: 8,color: Color(0x119E9E9E),thickness: 8),
+           const SizedBox(height: 15,),
            customText('Chat', 14, grey, FontWeight.w700),
-           SizedBox(height: 15,),
+           const SizedBox(height: 15,),
            Row(
              mainAxisAlignment: MainAxisAlignment.spaceBetween,
              children: [
@@ -139,7 +140,7 @@ title: customText('Notification', 16, grey, FontWeight.normal),
                    inactiveThumbColor: Colors.white,
                    activeTrackColor: Colors.blue.shade800,
                    activeColor: Colors.white,
-                   inactiveTrackColor: Color(0xffE0E0E0),
+                   inactiveTrackColor: const Color(0xffE0E0E0),
 
                    value: _isSwitchedMR, onChanged: (value) {
                    setState(() {
@@ -161,7 +162,7 @@ title: customText('Notification', 16, grey, FontWeight.normal),
                    inactiveThumbColor: Colors.white,
                    activeTrackColor: Colors.blue.shade800,
                    activeColor: Colors.white,
-                   inactiveTrackColor: Color(0xffE0E0E0),
+                   inactiveTrackColor: const Color(0xffE0E0E0),
 
                    value: _isSwitchedPC, onChanged: (value) {
                    setState(() {
@@ -184,7 +185,7 @@ title: customText('Notification', 16, grey, FontWeight.normal),
                    inactiveThumbColor: Colors.white,
                    activeTrackColor: Colors.blue.shade800,
                    activeColor: Colors.white,
-                   inactiveTrackColor: Color(0xffE0E0E0),
+                   inactiveTrackColor: const Color(0xffE0E0E0),
 
                    value: _isSwitchedCC, onChanged: (value) {
                    setState(() {
@@ -207,7 +208,7 @@ title: customText('Notification', 16, grey, FontWeight.normal),
                    inactiveThumbColor: Colors.white,
                    activeTrackColor: Colors.blue.shade800,
                    activeColor: Colors.white,
-                   inactiveTrackColor: Color(0xffE0E0E0),
+                   inactiveTrackColor: const Color(0xffE0E0E0),
 
                    value: _isSwitchedDM, onChanged: (value) {
                    setState(() {
@@ -229,7 +230,7 @@ title: customText('Notification', 16, grey, FontWeight.normal),
                    inactiveThumbColor: Colors.white,
                    activeTrackColor: Colors.blue.shade800,
                    activeColor: Colors.white,
-                   inactiveTrackColor: Color(0xffE0E0E0),
+                   inactiveTrackColor: const Color(0xffE0E0E0),
 
                    value: _isSwitchedCO, onChanged: (value) {
                    setState(() {
@@ -240,7 +241,7 @@ title: customText('Notification', 16, grey, FontWeight.normal),
 
              ],
            ),
-           Spacer(),
+           const Spacer(),
            Center(
              child: Container(
                height: 2,

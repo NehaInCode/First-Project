@@ -1,20 +1,24 @@
-import 'package:flutter/cupertino.dart';
+
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:dots_indicator/dots_indicator.dart';
+// ignore: depend_on_referenced_packages
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:guido/PostPages/postChatPage.dart';
 import '../const.dart';
-import '../homePageScreens/post.dart';
 import 'postItems.dart';
 import 'likesCommentPost.dart';
 
 class PostDotsFullPage extends StatefulWidget {
   final PostItems post;
 
-  PostDotsFullPage({required this.post});
+  const PostDotsFullPage({super.key, required this.post});
 
   @override
   State<StatefulWidget> createState() {
+    // ignore: no_logic_in_create_state
     return _PostDotsFullPage(post: post);
   }
 }
@@ -24,6 +28,7 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
 
   _PostDotsFullPage({required this.post});
 
+  // ignore: non_constant_identifier_names
   void ShowBottomSheet(BuildContext context) {
     showModalBottomSheet(
       context: context,
@@ -31,7 +36,7 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
         return Container(
           height: 260,
           width: double.infinity,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.only(
                 topRight: Radius.circular(15.0),
@@ -44,35 +49,35 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 4,
                 ),
                 Center(
                   child: Container(
                     decoration: BoxDecoration(
-                        color: Color(0x66404040),
+                        color: const Color(0x66404040),
                         borderRadius: BorderRadius.circular(2)),
                     height: 3,
                     width: 70,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 customText('Edit Listing', 18, grey, FontWeight.w500),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 customText('Mark as Reserved', 18, grey, FontWeight.w500),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 customText('Mark as Sold', 18, grey, FontWeight.w500),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 customText('Delete Listing', 18, Colors.red, FontWeight.w500),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
                 Center(
@@ -98,7 +103,7 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
     padding: const EdgeInsets.all(15.0),
     child: InkWell(
       radius: 10,
-      child: Container(
+      child: SizedBox(
           width: 15,
           height: 15,
           child: Image.asset(
@@ -117,13 +122,14 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
   ];
   int _currentPage = 0;
 
+  // ignore: non_constant_identifier_names
   void ShowBottomPricePage(BuildContext context) {
     showModalBottomSheet(
       context: context,
       builder: (context) {
         return Container(
           width: double.infinity,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.only(
                   topRight: Radius.circular(30.0),
@@ -133,9 +139,9 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               PreferredSize(
-                preferredSize: Size(double.infinity, 50),
+                preferredSize: const Size(double.infinity, 50),
                 child: AppBar(
-                  shape: RoundedRectangleBorder(
+                  shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(30),
                           topRight: Radius.circular(30))),
@@ -152,45 +158,45 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
                   ),
                 ),
               ),
-              Divider(
+              const Divider(
                 height: 1,
                 thickness: 1.0,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 20.0, right: 20.0),
                 child: Row(children: [
-                  Container(
+                  SizedBox(
                       height: 18,
                       width: 18,
                       child: Image.asset(
                         'assets/images/cart.png',
                         fit: BoxFit.contain,
-                        color: Color(0x77404040),
+                        color: const Color(0x77404040),
                       )),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   customText('For Sale', 13, grey, FontWeight.w100),
                 ]),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 20.0, right: 20.0),
                 child: customText('Refrigerator', 16, grey, FontWeight.w600),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 20.0, right: 20.0),
                 child: customText('\$15-30', 14, grey, FontWeight.w500),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
               Padding(
@@ -198,7 +204,7 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       backgroundColor: primaryColor,
-                      fixedSize: Size(double.infinity, 50),
+                      fixedSize: const Size(double.infinity, 50),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5),
                       )),
@@ -210,7 +216,7 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
                         width: 15,
                         child: Image.asset('assets/images/message.png'),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       customText('Chat', 13, grey, FontWeight.w500)
@@ -218,7 +224,7 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 37,
               ),
               Center(
@@ -235,6 +241,7 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
     );
   }
 
+  // ignore: non_constant_identifier_names
   void ShowBottomSheetLikes(BuildContext context) {
     showModalBottomSheet(
       context: context,
@@ -242,13 +249,13 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
         return Container(
           height: double.infinity,
           width: double.infinity,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(15), topRight: Radius.circular(15)),
               color: Colors.white),
           child: Scaffold(
             appBar: AppBar(
-              title: Text('Like'),
+              title: const Text('Like'),
             ),
             body: Center(
               child: Padding(
@@ -256,7 +263,7 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
                 child: Column(
                   children: [
                     Center(
-                      child: Container(
+                      child: SizedBox(
                         height: 20,
                         child: Center(
                           child: Row(
@@ -264,17 +271,17 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               InkWell(
-                                child: Image.asset('assets/images/heart.png'),
                                 radius: 12,
+                                child: Image.asset('assets/images/heart.png'),
                               ),
-                              SizedBox(width: 3),
+                              const SizedBox(width: 3),
                               customText('1.124', 16, grey, FontWeight.normal)
                             ],
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Expanded(
@@ -302,6 +309,7 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
     );
   }
 
+  // ignore: non_constant_identifier_names
   void ShowBottomSheetComments(BuildContext context) {
     showModalBottomSheet(
       context: context,
@@ -309,25 +317,25 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
         return Container(
             height: double.infinity,
             width: double.infinity,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(15),
                     topRight: Radius.circular(15)),
                 color: Colors.white),
             child: Scaffold(
               appBar: AppBar(
-                title: Text('Comments'),
+                title: const Text('Comments'),
               ),
               body: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Center(
                   child: Column(
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       Center(
-                        child: Container(
+                        child: SizedBox(
                           width: double.infinity,
                           height: 20,
                           child: Center(
@@ -337,7 +345,7 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
                                 Image.asset(
                                   'assets/images/commet.png',
                                 ),
-                                SizedBox(width: 3),
+                                const SizedBox(width: 3),
                                 InkWell(
                                     onTap: () {
                                       Navigator.push(
@@ -353,7 +361,7 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Expanded(
@@ -379,7 +387,7 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
                                   title: Row(
                                     children: [
                                       cItems[index].Title,
-                                      SizedBox(width: 8),
+                                      const SizedBox(width: 8),
                                       customText(
                                           '15m ago', 10, grey, FontWeight.w100)
                                     ],
@@ -419,10 +427,10 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
         body: Stack(
           alignment: Alignment.topCenter,
           children: [
-            Container(
+            SizedBox(
               width: double.infinity,
               height: double.infinity,
-              child: Container(
+              child: SizedBox(
                 width: double.infinity,
                 child: Column(children: [
                   Stack(
@@ -432,7 +440,7 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
                           height: 700,
                           autoPlay: true,
                           reverse: false,
-                          autoPlayInterval: Duration(seconds: 5),
+                          autoPlayInterval: const Duration(seconds: 5),
                           enableInfiniteScroll: false,
                           enlargeCenterPage: true,
                           viewportFraction: 1.0,
@@ -465,7 +473,7 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
                         child: DotsIndicator(
                           dotsCount: imagesArr.length,
                           position: _currentPage,
-                          decorator: DotsDecorator(
+                          decorator: const DotsDecorator(
                             size: Size.square(5.0),
                             // activeSize: Size(20.0, 10.0),
                             // activeShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
@@ -484,13 +492,13 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
               right: 0,
               left: 0,
               child: AppBar(
-                title: Text('Post'),
+                title: const Text('Post'),
                 actions: [
                   IconButton(
                     onPressed: () {
                       ShowBottomSheet(context);
                     },
-                    icon: Icon(Icons.more_vert),
+                    icon: const Icon(Icons.more_vert),
                   )
                 ],
               ),
@@ -512,8 +520,8 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
                             width: double.infinity,
                             height: 45,
                             decoration: BoxDecoration(
-                              color: Color(0xFF404040).withOpacity(0.4),
-                              borderRadius: BorderRadius.only(
+                              color: const Color(0xFF404040).withOpacity(0.4),
+                              borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(10.0),
                                 topRight: Radius.circular(10.0),
                               ),
@@ -531,10 +539,10 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
                                           right: 8.0,
                                           bottom: 8.0),
                                       child: InkWell(
+                                        radius: 12,
                                         child: Image.asset(
                                           'assets/images/cart.png',
                                         ),
-                                        radius: 12,
                                       ),
                                     ),
                                     Padding(
@@ -592,6 +600,7 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
                                   onTap: () {
 
                                   },
+                                  radius: 20,
                                   child: Padding(
                                     padding: const EdgeInsets.all(7.0),
                                     child: Image.asset(
@@ -599,13 +608,12 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
                                       width: 16,
                                     ),
                                   ),
-                                  radius: 20,
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10,
                               ),
-                              Container(
+                              SizedBox(
                                 width: 190,
                                 child: Align(
                                   alignment: Alignment.centerLeft,
@@ -650,11 +658,11 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
                                       SizedBox(
                                         width: 15,
                                         child: InkWell(
+                                          radius: 12,
                                           child: Image.asset(
                                             'assets/images/message.png',
                                             color: Colors.white,
                                           ),
-                                          radius: 12,
                                         ),
                                       ),
                                       customText(
@@ -697,7 +705,7 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
                             ],
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 7,
                         ),
                         Padding(
@@ -708,14 +716,14 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
                                 child: customText(
                                     'See More', 12, Colors.white, FontWeight.w600),
                               ),
-                              Icon(
+                              const Icon(
                                 Icons.keyboard_arrow_down_outlined,
                                 color: Colors.white,
                               ),
                             ],
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 12,
                         ),
                         Padding(
@@ -736,30 +744,30 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
-                              Container(
+                              SizedBox(
                                 width: double.infinity,
                                 height: 40,
                                 child: Padding(
                                   padding: const EdgeInsets.only(
                                       right: 13.0, left: 13.0),
-                                  child: Container(
+                                  child: SizedBox(
                                     width: double.infinity,
                                     height: 30,
                                     child: Row(
                                       mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Container(
+                                        SizedBox(
                                           width: 190,
                                           height: 45,
                                           child: TextField(
                                             decoration: InputDecoration(
                                                 prefixIcon: pencil,
                                                 hintText: 'Type your comment',
-                                                hintStyle: TextStyle(
+                                                hintStyle: const TextStyle(
                                                   fontWeight: FontWeight.w100,
                                                   fontSize: 14,
                                                   color: Colors.white,
@@ -770,19 +778,15 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
                                                 )),
                                           ),
                                         ),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 8,
                                         ),
-                                        Container(
+                                        SizedBox(
                                           width: 55,
                                           height: 13,
                                           child: Row(
                                             children: [
                                               InkWell(
-                                                child: Image.asset(
-                                                  'assets/images/heart.png',
-                                                  color: heartClr,
-                                                ),
                                                 radius: 12,
                                                 onTap: () {
                                                   setState(() {
@@ -795,8 +799,12 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
                                                     }
                                                   });
                                                 },
+                                                child: Image.asset(
+                                                  'assets/images/heart.png',
+                                                  color: heartClr,
+                                                ),
                                               ),
-                                              SizedBox(width: 3),
+                                              const SizedBox(width: 3),
                                               InkWell(
                                                 onTap: () {
                                                   ShowBottomSheetLikes(context);
@@ -810,8 +818,8 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
                                             ],
                                           ),
                                         ),
-                                        SizedBox(width: 8),
-                                        Container(
+                                        const SizedBox(width: 8),
+                                        SizedBox(
                                           width: 55,
                                           height: 13,
                                           child: Row(
@@ -820,7 +828,7 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
                                                 'assets/images/commet.png',
                                                 color: Colors.white,
                                               ),
-                                              SizedBox(width: 3),
+                                              const SizedBox(width: 3),
                                               InkWell(
                                                 onTap: () {
                                                   ShowBottomSheetComments(context);
@@ -839,7 +847,7 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
                                   ),
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 50,
                               ),
                               Container(

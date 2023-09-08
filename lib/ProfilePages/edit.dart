@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:guido/const.dart';
-
-import '../homePageScreens/home.dart';
+import '../homePages/searchPage.dart';
 
 class EditProfile extends StatefulWidget {
   const EditProfile({super.key});
@@ -12,9 +10,10 @@ class EditProfile extends StatefulWidget {
 }
 
 class _EditProfileState extends State<EditProfile> {
+  // ignore: non_constant_identifier_names
   void ShowBottomSheet(BuildContext context){
     showModalBottomSheet(context: context, builder: (context) {
-      return Container(
+      return SizedBox(
         width: double.infinity,
         height: 140,
         child: Padding(
@@ -22,7 +21,7 @@ class _EditProfileState extends State<EditProfile> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               Center(
                 child: Container(
                   height: 2,
@@ -30,11 +29,11 @@ class _EditProfileState extends State<EditProfile> {
                   color: grey,
                 ),
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               customText('Camera', 14, grey, FontWeight.w500),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               customText('From Gallery', 14, grey, FontWeight.w500),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Center(
                 child: Container(
                   height: 2,
@@ -50,6 +49,10 @@ class _EditProfileState extends State<EditProfile> {
   }
   bool _isMaleSelected  = false;
   bool _isFemaleSelected = false;
+  final _formKey = GlobalKey<FormState>();
+  String? nameError;
+  String? gmailError;
+  String? bioError;
 
   @override
   Widget build(BuildContext context) {
@@ -62,237 +65,87 @@ class _EditProfileState extends State<EditProfile> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(15.0),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                height: 100,
-                width: double.infinity,
-                child: Center(
-                  child: Container(
-                    height: 100,
-                    width: 100,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                    ),
-                    child: Stack(
-                      children:[
-                        CircleAvatar(
-                        child: ClipOval(child: Image.asset('assets/images/profileImg.png',height: 100,)),radius: 50,
+        child: Form(
+          key: _formKey,
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: 100,
+                  width: double.infinity,
+                  child: Center(
+                    child: Container(
+                      height: 100,
+                      width: 100,
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
                       ),
-                        Positioned(
-                            bottom: 0,
-                            right: 0,
-                            child: Container(
-                          height: 25,
-                          width: 25,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: grey
-                          ),
-                          child: Center(
-                            child: IconButton(
-                              padding: EdgeInsets.zero,
-                            icon: Icon(Icons.camera_enhance_outlined,color: Colors.white,size: 15), onPressed: () {
-                              ShowBottomSheet(context);
-                              },),
-                          ),
-                          ),
-                            )
-                      ]
+                      child: Stack(
+                        children:[
+                          CircleAvatar(
+                          radius: 50,
+                          child: ClipOval(child: Image.asset('assets/images/profileImg.png',height: 100,)),
+                        ),
+                          Positioned(
+                              bottom: 0,
+                              right: 0,
+                              child: Container(
+                            height: 25,
+                            width: 25,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: grey
+                            ),
+                            child: Center(
+                              child: IconButton(
+                                padding: EdgeInsets.zero,
+                              icon: const Icon(Icons.camera_enhance_outlined,color: Colors.white,size: 15), onPressed: () {
+                                ShowBottomSheet(context);
+                                },),
+                            ),
+                            ),
+                              )
+                        ]
+                      ),
                     ),
                   ),
                 ),
-              ),
-              SizedBox(height: 25),
-              customText('Personal Information', 14, grey, FontWeight.w700),
-             SizedBox(height: 15,),
-             Row(
-               children: [
-               Padding(
-                 padding: const EdgeInsets.only(top: 12.0),
-                 child: Image.asset('assets/images/profile.png',height: 20,color: Color(0xff404040)),
-               ),
-                 Expanded(
-                   child: Padding(
-                     padding: const EdgeInsets.only(right: 15.0,left: 15.0),
-                     child: Center(
-                       child: TextField(
-                         cursorColor: grey,
-                         decoration: InputDecoration(
-                           hintText: 'UserName',
-                           hintStyle: TextStyle(
-                             fontWeight: FontWeight.w100
-                           ),
-                           focusedBorder: UnderlineInputBorder(
-                             borderSide: BorderSide(
-                               color: grey,
-                             )
-                           ),
-                           border: UnderlineInputBorder(
-                             borderSide: BorderSide(
-                               color: Color(0xffDEDEDE),
-                             )
-                           )
-                         ),
-                       ),
-                     ),
-                   ),
-                 )
-               ],
-             ),
-              SizedBox(height: 5,),
-              Row(
-               children: [
-               Padding(
-                 padding: const EdgeInsets.only(top: 12.0),
-                 child: Image.asset('assets/images/@.png',height: 20,color: grey),
-               ),
-                 Expanded(
-                   child: Padding(
-                     padding: const EdgeInsets.only(right: 15.0,left: 15.0),
-                     child: Center(
-                       child: TextField(
-                         cursorColor: grey,
-                         decoration: InputDecoration(
-                           hintText: 'Gmail',
-                             hintStyle: TextStyle(
-                               fontWeight: FontWeight.w100
-                             ),
-                             focusedBorder: UnderlineInputBorder(
-                                 borderSide: BorderSide(
-                                   color: grey,
-                                 )
-                             ),
-                           border: UnderlineInputBorder(
-                             borderSide: BorderSide(
-                               color: Color(0xffDEDEDE),
-                             )
-                           )
-                         ),
-                       ),
-                     ),
-                   ),
-                 )
-               ],
-             ),
-              SizedBox(height: 5,),
-              Row(
-               children: [
-               Padding(
-                 padding: const EdgeInsets.only(top: 12.0),
-                 child: Image.asset('assets/images/commet.png',height: 20,color: grey),
-               ),
-                 Expanded(
-                   child: Padding(
-                     padding: const EdgeInsets.only(right: 15.0,left: 15.0),
-                     child: Center(
-                       child: TextField(
-                         cursorColor: grey,
-                         decoration: InputDecoration(
-                           hintText: 'Bio',
-                             hintStyle: TextStyle(
-                               fontWeight: FontWeight.w100
-                             ),
-                             focusedBorder: UnderlineInputBorder(
-                                 borderSide: BorderSide(
-                                   color: grey,
-                                 )
-                             ),
-                           border: UnderlineInputBorder(
-                             borderSide: BorderSide(
-                               color: Color(0xffDEDEDE),
-                             )
-                           )
-                         ),
-                       ),
-                     ),
-                   ),
-                 )
-               ],
-             ),
-              SizedBox(height: 5,),
-              GestureDetector(
-                onTap: () {
-                  showCustomDialog(context, 'Select Gender', Container(
-                    height: 90,
-                    child: Column(
-                      children: [
-                        InkWell(
-                            onTap :(){
-                              setState(() {
-                                _isMaleSelected = true;
-                                _isFemaleSelected = false;
-                              });
-                            },
-                            child: Row(
-                              children: [
-                                Container(child: customText('Male', 14, grey, FontWeight.w400),),
-                                Spacer(),
-                                Icon(Icons.check,color : _isMaleSelected ? grey : Colors.transparent)
-
-                              ],
-                            )),
-                        SizedBox(height: 10,),
-                        Divider(thickness: 2,color: grey,),
-                        SizedBox(height: 10,),
-                        InkWell(
-                            onTap: () {
-                              setState(() {
-                                _isFemaleSelected = true;
-                                _isMaleSelected = false;
-                              });
-                            },
-                            child: Row(
-                              children: [
-                                Container(child: customText('Female', 14, grey, FontWeight.w400),),
-                                Spacer(),
-
-                              Icon(Icons.check,color : _isFemaleSelected ? grey : Colors.transparent)
-
-
-                              ],
-                            )),
-                      ],
-                    ),
-                  ), 'Cancel', Colors.white, () => null, 'Save', primaryColor, () => null);
-                },
-                child: Row(
+                const SizedBox(height: 25),
+                customText('Personal Information', 14, grey, FontWeight.w700),
+               const SizedBox(height: 15,),
+               Row(
                  children: [
                  Padding(
                    padding: const EdgeInsets.only(top: 12.0),
-                   child: Image.asset('assets/images/male.png',height: 20,color: grey),
+                   child: Image.asset('assets/images/profile.png',height: 20,color: const Color(0xff404040)),
                  ),
                    Expanded(
                      child: Padding(
                        padding: const EdgeInsets.only(right: 15.0,left: 15.0),
                        child: Center(
-                         child: TextField(
-                           enabled: false,
-                           readOnly: true,
+                         child: TextFormField(
+                           validator: (value) {
+                             if(value == null||value.isEmpty){
+                               return 'Please enter your name';
+                             }
+                             return null;
+                           },
                            cursorColor: grey,
                            decoration: InputDecoration(
-                             enabledBorder: UnderlineInputBorder(
+                             hintText: 'UserName',
+                             hintStyle: const TextStyle(
+                               fontWeight: FontWeight.w100
+                             ),
+                             focusedBorder: UnderlineInputBorder(
                                borderSide: BorderSide(
-                                 color:Color(0xffDEDEDE) ,
+                                 color: grey,
                                )
                              ),
-                             suffixIcon: Icon(Icons.arrow_forward_ios_outlined,size: 14),
-                             hintText: 'Gender',
-                               hintStyle: TextStyle(
-                                 fontWeight: FontWeight.w100
-                               ),
-                               focusedBorder: UnderlineInputBorder(
-                                   borderSide: BorderSide(
-
-                                     color: grey,
-                                   )
-                               ),
-                             border: UnderlineInputBorder(
+                             border: const UnderlineInputBorder(
                                borderSide: BorderSide(
                                  color: Color(0xffDEDEDE),
-                               ),
+                               )
                              )
                            ),
                          ),
@@ -300,35 +153,35 @@ class _EditProfileState extends State<EditProfile> {
                      ),
                    )
                  ],
-             ),
-              ),
-              SizedBox(height: 5,),
-              GestureDetector(
-                onTap: () {
-                  showCustomDialog(context, 'Add Date', Column(
-                    children: [
-
-                    ],
-                  ), 'Cancel', Colors.white, () => null, 'Save', primaryColor, () => null);
-                },
-                child: Row(
+               ),
+                const SizedBox(height: 5,),
+                Row(
                  children: [
                  Padding(
                    padding: const EdgeInsets.only(top: 12.0),
-                   child: Image.asset('assets/images/birth.png',height: 20,color: grey),
+                   child: Image.asset('assets/images/@.png',height: 20,color: grey),
                  ),
                    Expanded(
                      child: Padding(
                        padding: const EdgeInsets.only(right: 15.0,left: 15.0),
                        child: Center(
-                         child: TextField(
-                           enabled: false,
-                           readOnly: true,
+                         child: TextFormField(
+                           validator: (value) {
+                             if(value == null || value.isEmpty){
+                               return 'Please enter Gmail address or number';
+                             }
+                             if(RegExp(r'^[\w-]+(\.+[\w.]+)*@gmail\.com$').hasMatch(value)){
+                               return null;
+                             }
+                             if (RegExp(r'^\d{11}$').hasMatch(value)) {
+                               return null; // Valid 11-digit number
+                             }
+                             return 'Please enter a valid Gmail address or an 11-digit number';
+                           },
                            cursorColor: grey,
                            decoration: InputDecoration(
-                               suffixIcon: Icon(Icons.arrow_forward_ios_outlined,size: 14),
-                             hintText: 'Add Birthdate',
-                               hintStyle: TextStyle(
+                             hintText: 'Gmail',
+                               hintStyle: const TextStyle(
                                  fontWeight: FontWeight.w100
                                ),
                                focusedBorder: UnderlineInputBorder(
@@ -336,65 +189,245 @@ class _EditProfileState extends State<EditProfile> {
                                      color: grey,
                                    )
                                ),
-                             enabledBorder: UnderlineInputBorder(
+                             border: const UnderlineInputBorder(
                                borderSide: BorderSide(
                                  color: Color(0xffDEDEDE),
                                ),
-
-                             )
+                             ),
+                             errorText: gmailError,
                            ),
                          ),
                        ),
                      ),
                    )
                  ],
-             ),
-              ),
-              SizedBox(height: 25,),
-              customText('Add Interest', 14, grey, FontWeight.w700),
-              SizedBox(height: 25,),
-              Row(
-                children: [
-                  customText('Your Hashtag Interest', 14, grey, FontWeight.w400),
-                  Spacer(),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => SearchPage(),));
-                    },
-                    child: Row(
-                      children: [
-                        customText('5 Interest', 12, Color(0xff9E9E9E), FontWeight.w400),
-                        SizedBox(width: 5),
-                        Icon(Icons.arrow_forward_ios_outlined,size: 14,),
-                      ],
-                    ),
-                  )
-                ],
-              ),
-              SizedBox(height: 60,),
-              Container(
-                width: double.infinity,
-                height: 50,
-                child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+               ),
+                const SizedBox(height: 5,),
+                Row(
+                 children: [
+                 Padding(
+                   padding: const EdgeInsets.only(top: 12.0),
+                   child: Image.asset('assets/images/commet.png',height: 20,color: grey),
+                 ),
+                   Expanded(
+                     child: Padding(
+                       padding: const EdgeInsets.only(right: 15.0,left: 15.0),
+                       child: Center(
+                         child: TextFormField(
+                           validator: (value) {
+                             if(value == null || value.isEmpty){
+                               return 'Please enter some text';
+                             }
+                             return null;
+                           },
+                           cursorColor: grey,
+                           decoration: InputDecoration(
+                             hintText: 'Bio',
+                               hintStyle: const TextStyle(
+                                 fontWeight: FontWeight.w100
+                               ),
+                               focusedBorder: UnderlineInputBorder(
+                                   borderSide: BorderSide(
+                                     color: grey,
+                                   )
+                               ),
+                             border: const UnderlineInputBorder(
+                               borderSide: BorderSide(
+                                 color: Color(0xffDEDEDE),
+                               )
+                             ),
+                             errorText: bioError,
+                           ),
+                         ),
+                       ),
+                     ),
+                   )
+                 ],
+               ),
+                const SizedBox(height: 5,),
+                GestureDetector(
+                  onTap: () {
+                    showCustomDialog(context, 'Select Gender', SizedBox(
+                      height: 90,
+                      child: Column(
+                        children: [
+                          InkWell(
+                              onTap :(){
+                                setState(() {
+                                  _isMaleSelected = true;
+                                  _isFemaleSelected = false;
+                                });
+                              },
+                              child: Row(
+                                children: [
+                                  Container(child: customText('Male', 14, grey, FontWeight.w400),),
+                                  const Spacer(),
+                                  Icon(Icons.check,color : _isMaleSelected ? grey : Colors.transparent)
+
+                                ],
+                              )),
+                          const SizedBox(height: 10,),
+                          Divider(thickness: 2,color: grey,),
+                          const SizedBox(height: 10,),
+                          InkWell(
+                              onTap: () {
+                                setState(() {
+                                  _isFemaleSelected = true;
+                                  _isMaleSelected = false;
+                                });
+                              },
+                              child: Row(
+                                children: [
+                                  Container(child: customText('Female', 14, grey, FontWeight.w400),),
+                                  const Spacer(),
+
+                                Icon(Icons.check,color : _isFemaleSelected ? grey : Colors.transparent)
+
+
+                                ],
+                              )),
+                        ],
                       ),
-                      backgroundColor: primaryColor,
-                    ),
-                    onPressed: () {
-                  
-                },child: customText('Save', 14, grey, FontWeight.normal)),
-              ),
-              SizedBox(height: 15,),
-              Center(
-                child: Container(
-                  height: 2,
-                  width: 130,
-                  color: grey,
+                    ), 'Cancel', Colors.white, () => null, 'Save', primaryColor, () => null);
+                  },
+                  child: Row(
+                   children: [
+                   Padding(
+                     padding: const EdgeInsets.only(top: 12.0),
+                     child: Image.asset('assets/images/male.png',height: 20,color: grey),
+                   ),
+                     Expanded(
+                       child: Padding(
+                         padding: const EdgeInsets.only(right: 15.0,left: 15.0),
+                         child: Center(
+                           child: TextField(
+                             enabled: false,
+                             readOnly: true,
+                             cursorColor: grey,
+                             decoration: InputDecoration(
+                               enabledBorder: const UnderlineInputBorder(
+                                 borderSide: BorderSide(
+                                   color:Color(0xffDEDEDE) ,
+                                 )
+                               ),
+                               suffixIcon: const Icon(Icons.arrow_forward_ios_outlined,size: 14),
+                               hintText: 'Gender',
+                                 hintStyle: const TextStyle(
+                                   fontWeight: FontWeight.w100
+                                 ),
+                                 focusedBorder: UnderlineInputBorder(
+                                     borderSide: BorderSide(
+
+                                       color: grey,
+                                     )
+                                 ),
+                               border: const UnderlineInputBorder(
+                                 borderSide: BorderSide(
+                                   color: Color(0xffDEDEDE),
+                                 ),
+                               )
+                             ),
+                           ),
+                         ),
+                       ),
+                     )
+                   ],
+               ),
                 ),
-              ),
-            ],
+                const SizedBox(height: 5,),
+                GestureDetector(
+                  onTap: () {
+                    showCustomDialog(context, 'Add Date', const Column(
+                      children: [
+
+                      ],
+                    ), 'Cancel', Colors.white, () => null, 'Save', primaryColor, () => null);
+                  },
+                  child: Row(
+                   children: [
+                   Padding(
+                     padding: const EdgeInsets.only(top: 12.0),
+                     child: Image.asset('assets/images/birth.png',height: 20,color: grey),
+                   ),
+                     Expanded(
+                       child: Padding(
+                         padding: const EdgeInsets.only(right: 15.0,left: 15.0),
+                         child: Center(
+                           child: TextField(
+                             enabled: false,
+                             readOnly: true,
+                             cursorColor: grey,
+                             decoration: InputDecoration(
+                                 suffixIcon: const Icon(Icons.arrow_forward_ios_outlined,size: 14),
+                               hintText: 'Add Birthdate',
+                                 hintStyle: const TextStyle(
+                                   fontWeight: FontWeight.w100
+                                 ),
+                                 focusedBorder: UnderlineInputBorder(
+                                     borderSide: BorderSide(
+                                       color: grey,
+                                     )
+                                 ),
+                               enabledBorder: const UnderlineInputBorder(
+                                 borderSide: BorderSide(
+                                   color: Color(0xffDEDEDE),
+                                 ),
+
+                               )
+                             ),
+                           ),
+                         ),
+                       ),
+                     )
+                   ],
+               ),
+                ),
+                const SizedBox(height: 25,),
+                customText('Add Interest', 14, grey, FontWeight.w700),
+                const SizedBox(height: 25,),
+                Row(
+                  children: [
+                    customText('Your Hashtag Interest', 14, grey, FontWeight.w400),
+                    const Spacer(),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => SearchPage(),));
+                      },
+                      child: Row(
+                        children: [
+                          customText('5 Interest', 12, const Color(0xff9E9E9E), FontWeight.w400),
+                          const SizedBox(width: 5),
+                          const Icon(Icons.arrow_forward_ios_outlined,size: 14,),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+                const SizedBox(height: 60,),
+                SizedBox(
+                  width: double.infinity,
+                  height: 50,
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        backgroundColor: primaryColor,
+                      ),
+                      onPressed: () {
+
+                  },child: customText('Save', 14, grey, FontWeight.normal)),
+                ),
+                const SizedBox(height: 15,),
+                Center(
+                  child: Container(
+                    height: 2,
+                    width: 130,
+                    color: grey,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       )

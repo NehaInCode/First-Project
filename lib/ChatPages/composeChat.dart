@@ -1,4 +1,5 @@
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:guido/const.dart';
 
@@ -25,35 +26,35 @@ class _ComposeChatState extends State<ComposeChat> {
           children: [
             Row(
               children: [
-                Container(
+                SizedBox(
                   height: 20,
                   width: 20,
                   child: Image.asset('assets/images/pp.png'),
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 customText('Private Channel', 14, grey, FontWeight.w500)
               ],
             ),
-            SizedBox(height: 30,),
+            const SizedBox(height: 30,),
             InkWell(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => CommunityChannel(),));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const CommunityChannel(),));
               },
               child: Row(
                 children: [
-                  Container(
+                  SizedBox(
                     height: 20,
                     width: 20,
                     child: Image.asset('assets/images/ppp.png'),
                   ),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   customText('Community Channel', 14, grey, FontWeight.w500)
                 ],
               ),
             ),
-            SizedBox(height: 50,),
+            const SizedBox(height: 50,),
             customText('Recent', 14, grey, FontWeight.w700),
-            SizedBox(height: 50,),
+            const SizedBox(height: 50,),
             Row(
               children: [
                 Container(
@@ -68,15 +69,15 @@ class _ComposeChatState extends State<ComposeChat> {
                     child: Image.asset('assets/images/circleP.png'),
                   ),
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 customText('user********01', 14, grey, FontWeight.w200),
-                Spacer(),
+                const Spacer(),
                 InkWell(
-                  child: customText('Add', 12, Color(0xff4468FA), FontWeight.w500),
+                  child: customText('Add', 12, const Color(0xff4468FA), FontWeight.w500),
                 )
               ],
             ),
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
             Row(
               children: [
                 Container(
@@ -91,16 +92,16 @@ class _ComposeChatState extends State<ComposeChat> {
                     child: Image.asset('assets/images/circleP.png'),
                   ),
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 customText('user********09', 14, grey, FontWeight.w200),
-                Spacer(),
+                const Spacer(),
                 InkWell(
-                  child: customText('Add', 12, Color(0xff4468FA), FontWeight.w500),
+                  child: customText('Add', 12, const Color(0xff4468FA), FontWeight.w500),
                 )
               ],
             ),
 
-            Spacer(),
+            const Spacer(),
             Center(
               child: Container(
                 height: 2,

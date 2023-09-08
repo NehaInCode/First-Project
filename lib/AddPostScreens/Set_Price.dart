@@ -1,4 +1,5 @@
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:guido/const.dart';
 
@@ -25,17 +26,17 @@ class _SetPriceState extends State<SetPrice> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
               customText('Item Description', 14, grey, FontWeight.w700),
-           SizedBox(
+           const SizedBox(
              height: 20,
            ),
-              Container(
+              SizedBox(
                 height: 50,
                 child: TextField(
-
+                  cursorColor: grey,
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
@@ -44,7 +45,7 @@ class _SetPriceState extends State<SetPrice> {
                     ),
 
                     hintText: 'Enter product description',
-                    hintStyle: TextStyle(
+                    hintStyle: const TextStyle(
                       fontSize: 14,
                       color: Color(0xff9E9E9E),
                       fontWeight: FontWeight.w100
@@ -55,10 +56,10 @@ class _SetPriceState extends State<SetPrice> {
                   ),
                 ),
               ),
-              SizedBox(height: 25,),
+              const SizedBox(height: 25,),
               customText('Category Price', 14, grey, FontWeight.w700),
-              SizedBox(height: 15,),
-              Container(
+              const SizedBox(height: 15,),
+              SizedBox(
                 height: 50,
                 width: double.infinity,
                 child: Row(
@@ -66,7 +67,7 @@ class _SetPriceState extends State<SetPrice> {
                   children: [
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          fixedSize: Size(160, 50),
+                          fixedSize: const Size(160, 50),
                           backgroundColor: isRentSelected ? primaryColor : btnClr,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
@@ -81,7 +82,7 @@ class _SetPriceState extends State<SetPrice> {
                     }, child: customText('Rent', 14, grey, FontWeight.normal)),
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            fixedSize: Size(160, 50),
+                            fixedSize: const Size(160, 50),
                             backgroundColor: isSaleSelected ? primaryColor : btnClr,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
@@ -97,15 +98,16 @@ class _SetPriceState extends State<SetPrice> {
                   ],
                 ),
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
               customText('Set Price', 14, grey, FontWeight.w700),
-              SizedBox(height: 10,),
-              Container(
+              const SizedBox(height: 10,),
+              SizedBox(
                 height: 50,
                 child: TextField(
+                  cursorColor: grey,
                   decoration: InputDecoration(
                     hintText: 'Set your price',
-                    hintStyle: TextStyle(
+                    hintStyle: const TextStyle(
                       fontWeight: FontWeight.w100,
                       fontSize: 14,
                       color: Color(0xff9E9E9E),
@@ -119,27 +121,28 @@ class _SetPriceState extends State<SetPrice> {
                   ),
                 ),
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               InkWell(
-                child: Container(
+                child: SizedBox(
                   width: double.infinity,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(Icons.add,size: 20,color: Color(0xff4468FA)),
-                      customText('Add Price', 14, Color(0xff4468FA), FontWeight.normal)
+                      const Icon(Icons.add,size: 20,color: Color(0xff4468FA)),
+                      customText('Add Price', 14, const Color(0xff4468FA), FontWeight.normal)
                     ],
                   )
                 ),
               ),
-              SizedBox(height: 230,),
-              Container(
+              const SizedBox(height: 230,),
+              // Spacer(),
+              SizedBox(
                 width: double.infinity,
                 height: 50,
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xffE0E0E0),
-                      fixedSize: Size(double.infinity, 50),
+                      backgroundColor: const Color(0xffE0E0E0),
+                      fixedSize: const Size(double.infinity, 50),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       )
@@ -148,7 +151,7 @@ class _SetPriceState extends State<SetPrice> {
 
                 }, child: customText('Done', 14, Colors.white, FontWeight.normal)),
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
               Center(
                 child: Container(
                   height: 2,

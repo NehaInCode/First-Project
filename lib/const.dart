@@ -1,5 +1,5 @@
-// import 'dart:js';
-import 'dart:ui';
+
+// ignore: depend_on_referenced_packages
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 
@@ -45,7 +45,7 @@ Widget customText(String text, double size, Color color, FontWeight fontWeight,
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           backgroundColor: btn1Clr,
-                        fixedSize: Size(110, 50),
+                        fixedSize: const Size(110, 50),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         )
@@ -57,7 +57,7 @@ Widget customText(String text, double size, Color color, FontWeight fontWeight,
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: btn2Clr,
-                          fixedSize: Size(110, 50),
+                          fixedSize: const Size(110, 50),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                           )
@@ -76,16 +76,17 @@ Widget customText(String text, double size, Color color, FontWeight fontWeight,
   );
 }
 
+// ignore: camel_case_types
 class customTab extends StatelessWidget{
   final String text;
   final double width;
 
 
-  customTab(this.text, this.width);
+  const customTab(this.text, this.width, {super.key});
 
   @override
   Widget build(BuildContext context) {
-   return Container(
+   return SizedBox(
      width: width,
      child: Tab(text: text,),
    );
@@ -94,45 +95,49 @@ class customTab extends StatelessWidget{
 }
 
 void showCustomDialogS(BuildContext context){
+
+
   showDialog(
+
     context: context,
     builder: (context) {
-      return Container(
-        child: AlertDialog(
-          backgroundColor: Colors.white,
-          content: Material(
-            color: Colors.transparent,
-            child: Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                // color: Colors.white
-              ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  SizedBox(height: 15),
-                  Image.asset('assets/images/popupImage.png',height: 140,),
-                  SizedBox(height: 30),
-                  customText('Top Up Successful', 16, grey, FontWeight.w700),
-                  SizedBox(height: 20),
-                  customText('Congratulation! You have successfully topped up your E-Wallet!', 14, grey, FontWeight.w400),
-                  SizedBox(height: 40),
-                  Container(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: primaryColor,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          )
-                        ),
-                        onPressed: () {
 
-                    }, child: customText('Ok', 14, grey, FontWeight.normal)),
-                  ),
-                ],
-              ),
+
+      return AlertDialog(
+
+        backgroundColor: Colors.white,
+        content: Material(
+          color: Colors.transparent,
+          child: Container(
+            width: double.infinity,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              // color: Colors.white
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const SizedBox(height: 15),
+                Image.asset('assets/images/popupImage.png',height: 140,),
+                const SizedBox(height: 30),
+                customText('Top Up Successful', 16, grey, FontWeight.w700),
+                const SizedBox(height: 20),
+                customText('Congratulation! You have successfully topped up your E-Wallet!', 14, grey, FontWeight.w400),
+                const SizedBox(height: 40),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: primaryColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        )
+                      ),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      }, child: customText('Ok', 14, grey, FontWeight.normal)),
+                ),
+              ],
             ),
           ),
         ),

@@ -1,14 +1,15 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../ProfilePages/community.dart';
 import '../ProfilePages/edit.dart';
 import '../ProfilePages/setting.dart';
 import '../ProfilePages/topup.dart';
 import '../const.dart';
-import 'home.dart';
+import '../homePages/searchPage.dart';
 
 
 class ProfilePage extends StatefulWidget {
+  const ProfilePage({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _ProfilePage();
@@ -28,7 +29,7 @@ class _ProfilePage extends State<ProfilePage> {
             padding: const EdgeInsets.only(right: 15.0),
             child: InkWell(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => Settings(),));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const Settings(),));
                 },
                 child: Icon(Icons.settings_outlined,color: grey)),
           ),
@@ -41,7 +42,7 @@ class _ProfilePage extends State<ProfilePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-           Container(
+           SizedBox(
              width: double.infinity,
              height: 90,
              child:Row(
@@ -50,106 +51,110 @@ class _ProfilePage extends State<ProfilePage> {
                  Container(
                    height: 90,
                    width: 85,
-                   decoration: BoxDecoration(
+                   decoration: const BoxDecoration(
                      shape: BoxShape.circle,
                    ),
                    child: CircleAvatar(
                      child: ClipOval(child: Image.asset('assets/images/profileImg.png',fit: BoxFit.cover)),
                    ),
                  ),
-                 Container(
-                   decoration: BoxDecoration(
-                     borderRadius: BorderRadius.circular(10),
-                     color: primaryColor,
-                   ),
-                   height: 90,
-                   child: Row(
-                     children: [
-                       SizedBox(width: 15,),
-                      InkWell(
-                        onTap: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => EWallet(),));
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: Colors.white,
-                          ),
-                          height: 65,
-                          width: 130,
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 10.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
+                 SizedBox(width: 5),
+                 Expanded(
+                   child: Container(
+                     decoration: BoxDecoration(
+                       borderRadius: BorderRadius.circular(10),
+                       color: primaryColor,
+                     ),
+                     height: 90,
+                     child: Row(
+                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                       children: [
+                         const SizedBox(width: 15,),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => const EWallet(),));
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Colors.white,
+                            ),
+                            height: 65,
+                            width: 130,
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 10.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
 
-                                Row(
-                                  children: [
-                                    Image.asset('assets/images/protect.png',height: 16,),
-                                    SizedBox(width: 10),
-                                    customText('GuidoProtect', 10, Color(0xff4468FA), FontWeight.normal)
-                                  ],
-                                ),
-                                SizedBox(height: 8,),
-                                customText('\$25', 14, grey, FontWeight.w700),
-                              ],
+                                  Row(
+                                    children: [
+                                      Image.asset('assets/images/protect.png',height: 16,),
+                                      const SizedBox(width: 10),
+                                      customText('GuidoProtect', 10, const Color(0xff4468FA), FontWeight.normal)
+                                    ],
+                                  ),
+                                  const SizedBox(height: 8,),
+                                  customText('\$25', 14, grey, FontWeight.w700),
+                                ],
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                       InkWell(
-                         onTap: () {
-Navigator.push(context, MaterialPageRoute(builder: (context) => TopUp(),));
-                         },
-                         child: Container(
-                           width: 50,
-                           // color: Colors.white,
-                           child: Column(
-                             mainAxisAlignment: MainAxisAlignment.center,
-                             children: [
-                               Image.asset('assets/images/plusCircle.png',height: 18,),
-                               SizedBox(height: 8,),
-                               customText('Top Up', 10, grey, FontWeight.w500)
-                             ],
+                         InkWell(
+                           onTap: () {
+Navigator.push(context, MaterialPageRoute(builder: (context) => const TopUp(),));
+                           },
+                           child: SizedBox(
+                             width: 50,
+                             // color: Colors.white,
+                             child: Column(
+                               mainAxisAlignment: MainAxisAlignment.center,
+                               children: [
+                                 Image.asset('assets/images/plusCircle.png',height: 18,),
+                                 const SizedBox(height: 8,),
+                                 customText('Top Up', 10, grey, FontWeight.w500)
+                               ],
+                             ),
                            ),
                          ),
-                       ),
-                       InkWell(
-                         onTap: () {
-                           Navigator.push(context, MaterialPageRoute(builder: (context) => History(),));
-                         },
-                         child: Container(
-                           width: 50,
-                           child: Column(
-                             mainAxisAlignment: MainAxisAlignment.center,
-                             children: [
-                               Image.asset('assets/images/history.png',height: 18,),
-                               SizedBox(height: 8,),
-                               customText('History', 10, grey, FontWeight.w500)
-                             ],
+                         InkWell(
+                           onTap: () {
+                             Navigator.push(context, MaterialPageRoute(builder: (context) => const History(),));
+                           },
+                           child: SizedBox(
+                             width: 50,
+                             child: Column(
+                               mainAxisAlignment: MainAxisAlignment.center,
+                               children: [
+                                 Image.asset('assets/images/history.png',height: 18,),
+                                 const SizedBox(height: 8,),
+                                 customText('History', 10, grey, FontWeight.w500)
+                               ],
+                             ),
                            ),
                          ),
-                       ),
-                       SizedBox(width: 5,)
-                     ],
+                         const SizedBox(width: 5,)
+                       ],
+                     ),
                    ),
                  )
                ],
              ),
            ),
-              SizedBox(height: 30,),
+              const SizedBox(height: 30,),
               customText('kimwexler', 16, grey, FontWeight.w700),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
               customText('I know he\'s not perfect, and I know he cuts corners. But you\'re the one who made him this way. He idolizes you, he accepts you, he takes care of you. And all he ever wanted was your love and support.', 14, grey, FontWeight.w400),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
               Row(
                 children: [
                   customText(likes, 12, grey, FontWeight.w700),
                   customText('Likes', 12, grey, FontWeight.w500)
                 ],
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
              SingleChildScrollView(
                scrollDirection: Axis.horizontal,
                child: Row(
@@ -157,124 +162,131 @@ Navigator.push(context, MaterialPageRoute(builder: (context) => TopUp(),));
                    Container(
                      height: 25,
                      decoration: BoxDecoration(
-                       color: Color(0xff404040),
+                       color: const Color(0xff404040),
                        borderRadius: BorderRadius.circular(13)
                      ),
                      child: Center(child: Padding(
                        padding: const EdgeInsets.only(left: 8.0,right: 8.0),
-                       child: customText('#homebasedbusiness', 10, Color(0xffFFD464), FontWeight.normal),
+                       child: customText('#homebasedbusiness', 10, const Color(0xffFFD464), FontWeight.normal),
                      )),
                    ),
-                   SizedBox(width: 5,),
+                   const SizedBox(width: 5,),
                    Container(
                      height: 25,
                      decoration: BoxDecoration(
-                       color: Color(0xff404040),
+                       color: const Color(0xff404040),
                        borderRadius: BorderRadius.circular(13)
                      ),
                      child: Center(child: Padding(
                        padding: const EdgeInsets.only(left: 8.0,right: 8.0),
-                       child: customText('#rental', 10, Color(0xffFFD464), FontWeight.normal),
+                       child: customText('#rental', 10, const Color(0xffFFD464), FontWeight.normal),
                      )),
                    ),
-                   SizedBox(width: 5,),
+                   const SizedBox(width: 5,),
                    Container(
                      height: 25,
                      decoration: BoxDecoration(
-                       color: Color(0xff404040),
+                       color: const Color(0xff404040),
                        borderRadius: BorderRadius.circular(13)
                      ),
                      child: Center(child: Padding(
                        padding: const EdgeInsets.only(left: 8.0,right: 8.0),
-                       child: customText('#dumplings', 10, Color(0xffFFD464), FontWeight.normal),
+                       child: customText('#dumplings', 10, const Color(0xffFFD464), FontWeight.normal),
                      )),
                    ),
-                   SizedBox(width: 5,),
+                   const SizedBox(width: 5,),
                    Container(
                      height: 25,
                      decoration: BoxDecoration(
-                       color: Color(0xff404040),
+                       color: const Color(0xff404040),
                        borderRadius: BorderRadius.circular(13)
                      ),
                      child: Center(child: Padding(
                        padding: const EdgeInsets.only(left: 8.0,right: 8.0),
-                       child: customText('#hiddengem', 10, Color(0xffFFD464), FontWeight.normal),
+                       child: customText('#hiddengem', 10, const Color(0xffFFD464), FontWeight.normal),
                      )),
                    ),
-                   SizedBox(width: 5,),
+                   const SizedBox(width: 5,),
                    Container(
                      height: 25,
                      decoration: BoxDecoration(
-                       color: Color(0xff404040),
+                       color: const Color(0xff404040),
                        borderRadius: BorderRadius.circular(13)
                      ),
                      child: Center(child: Padding(
                        padding: const EdgeInsets.only(left: 8.0,right: 8.0),
-                       child: customText('+1', 10, Color(0xffFFD464), FontWeight.normal),
+                       child: customText('+1', 10, const Color(0xffFFD464), FontWeight.normal),
                      )),
                    ),
                  ],
                ),
              ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        fixedSize: Size(165, 50),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        )
-                      ),
-                      onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfile(),));
-                  }, child: customText('Edit Profile', 14, grey, FontWeight.normal)),
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(
+                  Expanded(
+                    child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor:Colors.white,
                           fixedSize: Size(165, 50),
                           shape: RoundedRectangleBorder(
+                            side: const BorderSide(color: Color(0xffDEDEDE),width: 1,),
                             borderRadius: BorderRadius.circular(10),
                           )
-                      ),
-                      onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => JoinCommunity(),));
-                  }, child: customText('Join Community', 14, grey, FontWeight.normal))
+                        ),
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => const EditProfile(),));
+                    }, child: customText('Edit Profile', 14, grey, FontWeight.normal)),
+                  ),
+                  SizedBox(width: 10),
+                  Expanded(
+                    child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: primaryColor,
+                            fixedSize: Size(165, 50),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            )
+                        ),
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => const JoinCommunity(),));
+                    }, child: customText('Join Community', 14, grey, FontWeight.normal)),
+                  )
                 ],
               ),
-              SizedBox(height: 30,),
+              const SizedBox(height: 30,),
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Flexible(
+                  const Flexible(
                     child: TabBar(
                         tabs: [
-                      // Tab(text: 'Post'),
                          customTab('Post', 150.0),
                           customTab('Likes', 150.0),
-                      // Tab(text: 'Likes',),
                     ],
                     ),
                   ),
-                  Spacer(),
                   Padding(
                     padding: const EdgeInsets.only(right: 15.0),
                     child: InkWell(
                         onTap: () {
                           Navigator.push(context, MaterialPageRoute(builder: (context) => SearchPage(),));
                         },
-                        child: Icon(Icons.search)),
+                        child: const Icon(Icons.search)),
                   ),
                 ],
               ),
-               Expanded(
+               const Expanded(
                  child: TabBarView(
 
                      children: [
-                   Container(
+                   SizedBox(
                      height: 500,
                      child: Center(child: Text('Post Tab Content')),
                    ),
-                   Container(
+                   SizedBox(
                      height: 500,
                      child: Center(child: Text('Likes Tab Content')),
                    )
@@ -321,7 +333,7 @@ class _EWalletState extends State<EWallet> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               customText('My GuidoProtect', 14, grey, FontWeight.w700),
-              SizedBox(height: 25,),
+              const SizedBox(height: 25,),
               Row(
                 children: [
                   Column(
@@ -332,15 +344,15 @@ class _EWalletState extends State<EWallet> {
                       Row(
                         children: [
                           Image.asset('assets/images/protect.png',height: 18,),
-                          SizedBox(width: 10),
-                          customText('GuidoProtect', 12, Color(0xff4468FA), FontWeight.normal)
+                          const SizedBox(width: 10),
+                          customText('GuidoProtect', 12, const Color(0xff4468FA), FontWeight.normal)
                         ],
                       ),
-                      SizedBox(height: 8,),
+                      const SizedBox(height: 8,),
                       customText('\$25', 24, grey, FontWeight.w700),
                     ],
                   ),
-                  Spacer(),
+                  const Spacer(),
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
@@ -348,31 +360,31 @@ class _EWalletState extends State<EWallet> {
                         )
                       ),
                       onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => TopUp(),));
-                  }, child: customText('Top Up', 12, Color(0xff4468FA), FontWeight.w500))
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const TopUp(),));
+                  }, child: customText('Top Up', 12, const Color(0xff4468FA), FontWeight.w500))
                 ],
               ),
-              SizedBox(height: 25,),
-              Divider(height: 8,color: Color(0xffFAFAFA),thickness: 8),
-              SizedBox(height: 20,),
+              const SizedBox(height: 25,),
+              const Divider(height: 8,color: Color(0xffFAFAFA),thickness: 8),
+              const SizedBox(height: 20,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   customText('Recent Transaction', 14, grey,FontWeight.w700),
                   InkWell(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => History(),));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const History(),));
                       },
-                      child: customText('See All History', 12, Color(0xff4468FA),FontWeight.w500)),
+                      child: customText('See All History', 12, const Color(0xff4468FA),FontWeight.w500)),
                 ],
               ),
-              SizedBox(height: 30,),
+              const SizedBox(height: 30,),
               ListView.builder(
                 shrinkWrap: true,
                 itemCount: 6,
                 itemBuilder: (context, index) {
                 return Container(
-                  margin: EdgeInsets.only(bottom: 15),
+                  margin: const EdgeInsets.only(bottom: 15),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -380,13 +392,13 @@ class _EWalletState extends State<EWallet> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           customText(title, 14, grey, FontWeight.w500),
-                          SizedBox(height: 5),
+                          const SizedBox(height: 5),
                           customText(subTitle, 12, grey, FontWeight.w200),
                         ],
                       ),
-                      Spacer(),
-                      customText(amount, 14, Color(0xff43936C), FontWeight.normal),
-                      Icon(Icons.arrow_forward_ios_outlined,size: 15,),
+                      const Spacer(),
+                      customText(amount, 14, const Color(0xff43936C), FontWeight.normal),
+                      const Icon(Icons.arrow_forward_ios_outlined,size: 15,),
                     ],
                   ),
                 );
@@ -414,14 +426,14 @@ class EWalletDetail{
   EWalletDetail({required this.title,required this.subTitle,required this.amount});
 }
 List<EWalletDetail> detail =[
-  EWalletDetail(title: customText('Amount Refunded', 14, grey, FontWeight.w500),subTitle: customText('23/05/2022, 2:43PM', 12, grey, FontWeight.w400),amount:customText('+50 SGD', 14, Color(0xff43936C), FontWeight.normal) ),
-  EWalletDetail(title: customText('E-Wallet Top Up Successfully', 14, grey, FontWeight.w500),subTitle: customText('23/05/2022, 2:43PM', 12, grey, FontWeight.w400),amount:customText('+50 SGD', 14, Color(0xff43936C), FontWeight.normal) ),
-  EWalletDetail(title: customText('E-Wallet Top Up Successfully', 14, grey, FontWeight.w500),subTitle: customText('23/05/2022, 2:43PM', 12, grey, FontWeight.w400),amount:customText('+50 SGD', 14, Color(0xff43936C), FontWeight.normal) ),
-  EWalletDetail(title: customText('E-Wallet Top Up Successfully', 14, grey, FontWeight.w500),subTitle: customText('23/05/2022, 2:43PM', 12, grey, FontWeight.w400),amount:customText('+50 SGD', 14, Color(0xff43936C), FontWeight.normal) ),
-  EWalletDetail(title: customText('E-Wallet Top Up Successfully', 14, grey, FontWeight.w500),subTitle: customText('23/05/2022, 2:43PM', 12, grey, FontWeight.w400),amount:customText('+50 SGD', 14, Color(0xff43936C), FontWeight.normal) ),
-  EWalletDetail(title: customText('E-Wallet Top Up Successfully', 14, grey, FontWeight.w500),subTitle: customText('23/05/2022, 2:43PM', 12, grey, FontWeight.w400),amount:customText('+50 SGD', 14, Color(0xff43936C), FontWeight.normal) ),
-  EWalletDetail(title: customText('E-Wallet Top Up Successfully', 14, grey, FontWeight.w500),subTitle: customText('23/05/2022, 2:43PM', 12, grey, FontWeight.w400),amount:customText('+50 SGD', 14, Color(0xff43936C), FontWeight.normal) ),
-  EWalletDetail(title: customText('E-Wallet Top Up Successfully', 14, grey, FontWeight.w500),subTitle: customText('23/05/2022, 2:43PM', 12, grey, FontWeight.w400),amount:customText('+50 SGD', 14, Color(0xff43936C), FontWeight.normal) ),
+  EWalletDetail(title: customText('Amount Refunded', 14, grey, FontWeight.w500),subTitle: customText('23/05/2022, 2:43PM', 12, grey, FontWeight.w400),amount:customText('+50 SGD', 14, const Color(0xff43936C), FontWeight.normal) ),
+  EWalletDetail(title: customText('E-Wallet Top Up Successfully', 14, grey, FontWeight.w500),subTitle: customText('23/05/2022, 2:43PM', 12, grey, FontWeight.w400),amount:customText('+50 SGD', 14, const Color(0xff43936C), FontWeight.normal) ),
+  EWalletDetail(title: customText('E-Wallet Top Up Successfully', 14, grey, FontWeight.w500),subTitle: customText('23/05/2022, 2:43PM', 12, grey, FontWeight.w400),amount:customText('+50 SGD', 14, const Color(0xff43936C), FontWeight.normal) ),
+  EWalletDetail(title: customText('E-Wallet Top Up Successfully', 14, grey, FontWeight.w500),subTitle: customText('23/05/2022, 2:43PM', 12, grey, FontWeight.w400),amount:customText('+50 SGD', 14, const Color(0xff43936C), FontWeight.normal) ),
+  EWalletDetail(title: customText('E-Wallet Top Up Successfully', 14, grey, FontWeight.w500),subTitle: customText('23/05/2022, 2:43PM', 12, grey, FontWeight.w400),amount:customText('+50 SGD', 14, const Color(0xff43936C), FontWeight.normal) ),
+  EWalletDetail(title: customText('E-Wallet Top Up Successfully', 14, grey, FontWeight.w500),subTitle: customText('23/05/2022, 2:43PM', 12, grey, FontWeight.w400),amount:customText('+50 SGD', 14, const Color(0xff43936C), FontWeight.normal) ),
+  EWalletDetail(title: customText('E-Wallet Top Up Successfully', 14, grey, FontWeight.w500),subTitle: customText('23/05/2022, 2:43PM', 12, grey, FontWeight.w400),amount:customText('+50 SGD', 14, const Color(0xff43936C), FontWeight.normal) ),
+  EWalletDetail(title: customText('E-Wallet Top Up Successfully', 14, grey, FontWeight.w500),subTitle: customText('23/05/2022, 2:43PM', 12, grey, FontWeight.w400),amount:customText('+50 SGD', 14, const Color(0xff43936C), FontWeight.normal) ),
 ];
 
 class _HistoryState extends State<History> {
@@ -442,7 +454,7 @@ class _HistoryState extends State<History> {
               itemBuilder: (context, index) {
 
               return Container(
-                margin: EdgeInsets.only(bottom: 15),
+                margin: const EdgeInsets.only(bottom: 15),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -450,13 +462,13 @@ class _HistoryState extends State<History> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                        detail[index].title,
-                        SizedBox(height: 5),
+                        const SizedBox(height: 5),
                         detail[index].subTitle
                       ],
                     ),
-                    Spacer(),
+                    const Spacer(),
                    detail[index].amount,
-                    Icon(Icons.arrow_forward_ios_outlined,size: 15,),
+                    const Icon(Icons.arrow_forward_ios_outlined,size: 15,),
                   ],
                 ),
               );

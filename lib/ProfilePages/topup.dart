@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:guido/const.dart';
 
@@ -22,15 +21,15 @@ appBar: AppBar(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             customText('Top-up Amount', 14, grey, FontWeight.w400),
-            SizedBox(height: 15),
-            Container(
+            const SizedBox(height: 15),
+            SizedBox(
               height: 50,
               width: double.infinity,
               child: TextField(
                 cursorColor: grey,
                 decoration: InputDecoration(
                   hintText: 'SGD  \$500.00',
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w500,
                   ),
@@ -46,13 +45,13 @@ appBar: AppBar(
                 ),
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      fixedSize: Size(75, 40),
+                      fixedSize: const Size(75, 40),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       )
@@ -62,7 +61,7 @@ appBar: AppBar(
                 }, child: customText('100', 12, grey, FontWeight.normal)),
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        fixedSize: Size(75, 40),
+                        fixedSize: const Size(75, 40),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       )
@@ -72,7 +71,7 @@ appBar: AppBar(
                 }, child: customText('200', 12, grey, FontWeight.normal)),
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        fixedSize: Size(75, 40),
+                        fixedSize: const Size(75, 40),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       )
@@ -82,7 +81,7 @@ appBar: AppBar(
                 }, child: customText('500', 12, grey, FontWeight.normal)),
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        fixedSize: Size(78, 40),
+                        fixedSize: const Size(78, 40),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       )
@@ -92,19 +91,19 @@ appBar: AppBar(
                 }, child: customText('1,000', 12, grey, FontWeight.normal)),
               ],
             ),
-            Spacer(),
-            Container(
+            const Spacer(),
+            SizedBox(
               width: double.infinity,
               child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: primaryColor,
-                    fixedSize: Size(double.infinity, 50),
+                    fixedSize: const Size(double.infinity, 50),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     )
                   ),
                   onPressed: () {
-Navigator.push(context, MaterialPageRoute(builder: (context) => TopUpNext(),));
+Navigator.push(context, MaterialPageRoute(builder: (context) => const TopUpNext(),));
               }, child: customText('Next', 14, grey, FontWeight.normal)),
             )
           ],
@@ -134,17 +133,17 @@ class _TopUpNextState extends State<TopUpNext> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             customText('Credit/Debit Card', 14, grey, FontWeight.w400),
-            SizedBox(height: 25),
+            const SizedBox(height: 25),
             customText('Paypal', 14, grey, FontWeight.w400),
-            SizedBox(height: 25),
+            const SizedBox(height: 25),
             customText('DBS Paylah! Express Checkout', 14, grey, FontWeight.w400),
-            Spacer(),
-            Container(
+            const Spacer(),
+            SizedBox(
               width: double.infinity,
               child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: primaryColor,
-                    fixedSize: Size(double.infinity, 50),
+                    fixedSize: const Size(double.infinity, 50),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     )

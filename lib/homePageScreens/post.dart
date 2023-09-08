@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:guido/PostPages/postItems.dart';
 import '../PostPages/postPageView.dart';
@@ -6,6 +5,8 @@ import '../PostPages/searchPost.dart';
 import '../const.dart';
 
 class PostPageWithGridView extends StatefulWidget {
+  const PostPageWithGridView({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _PostPageWithGridViewState();
@@ -18,21 +19,21 @@ class _PostPageWithGridViewState extends State<PostPageWithGridView> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Post'),
+        title: const Text('Post'),
         actions: [
           IconButton(
               onPressed: () {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => SearchPostPage(),
+                      builder: (context) => const SearchPostPage(),
                     ));
               },
               icon: const Icon(Icons.search)),
         ],
       ),
       body: Padding(
-        padding: EdgeInsets.all(12),
+        padding: const EdgeInsets.all(12),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -45,7 +46,7 @@ class _PostPageWithGridViewState extends State<PostPageWithGridView> {
                 ),
                 shrinkWrap: true,
                 primary: false,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: Post.length,
                 itemBuilder: (context, index) {
                   return InkWell(
@@ -63,7 +64,7 @@ class _PostPageWithGridViewState extends State<PostPageWithGridView> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Container(
+                            SizedBox(
                               height: 230,
                               width: double.infinity,
                               child: ClipRRect(
@@ -84,12 +85,12 @@ class _PostPageWithGridViewState extends State<PostPageWithGridView> {
                             const SizedBox(
                               height: 3,
                             ),
-                            Container(
+                            SizedBox(
                               height: 20,
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Container(
+                                  SizedBox(
                                     width: 100,
                                     height: 20,
                                     child: Row(
@@ -110,7 +111,7 @@ class _PostPageWithGridViewState extends State<PostPageWithGridView> {
                                       ],
                                     ),
                                   ),
-                                  Container(
+                                  SizedBox(
                                     width: 65,
                                     height: 20,
                                     child: Row(

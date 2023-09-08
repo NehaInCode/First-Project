@@ -1,8 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:guido/const.dart';
 
 class About extends StatefulWidget{
+  const About({super.key});
+
   @override
   State<StatefulWidget> createState() {
    return _About();
@@ -24,20 +25,20 @@ appBar: AppBar(
              mainAxisAlignment: MainAxisAlignment.spaceBetween,
              children: [
                customText('Terms and Conditions', 14, grey, FontWeight.w400),
-               Icon(Icons.arrow_forward_ios_outlined,size: 15,)
+               const Icon(Icons.arrow_forward_ios_outlined,size: 15,)
              ],
            ),
-           SizedBox(
+           const SizedBox(
              height: 20,
            ),
            Row(
              mainAxisAlignment: MainAxisAlignment.spaceBetween,
              children: [
                customText('Support', 14, grey, FontWeight.w400),
-               Icon(Icons.arrow_forward_ios_outlined,size: 15,)
+               const Icon(Icons.arrow_forward_ios_outlined,size: 15,)
              ],
            ),
-           Spacer(),
+           const Spacer(),
            Center(
              child: Container(
                height: 2,

@@ -1,9 +1,12 @@
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: non_constant_identifier_names, file_names
+
 import 'package:flutter/material.dart';
 
 import '../const.dart';
 
 class PostChatPage extends StatelessWidget {
+  const PostChatPage({super.key});
+
   void ShowBottomSheet(BuildContext context) {
     showModalBottomSheet(
       context: context,
@@ -11,7 +14,7 @@ class PostChatPage extends StatelessWidget {
         return Container(
           height: 195,
           width: double.infinity,
-          decoration: BoxDecoration(color: Colors.white),
+          decoration: const BoxDecoration(color: Colors.white),
           child: Padding(
             padding: const EdgeInsets.only(
               left: 20.0,
@@ -20,33 +23,33 @@ class PostChatPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 4,
                 ),
                 Center(
                   child: Container(
                     decoration: BoxDecoration(
-                        color: Color(0x66404040),
+                        color: const Color(0x66404040),
                         borderRadius: BorderRadius.circular(2)),
                     height: 3,
                     width: 70,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 customText('Leave Chat', 14, grey, FontWeight.w500),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 customText(
                     'Block Chat', 14, Colors.red.shade800, FontWeight.w500),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 customText(
                     'Report Chat', 14, Colors.red.shade800, FontWeight.w500),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
                 Center(
@@ -81,13 +84,13 @@ class PostChatPage extends StatelessWidget {
               onPressed: () {
                 ShowBottomSheet(context);
               },
-              icon: Icon(Icons.more_vert))
+              icon: const Icon(Icons.more_vert))
         ],
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Padding(
@@ -95,7 +98,7 @@ class PostChatPage extends StatelessWidget {
               child: Row(
                 children: [
                   Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Color(0x77404040),
                       borderRadius: BorderRadius.all(Radius.circular(15.0)),
                     ),
@@ -106,11 +109,11 @@ class PostChatPage extends StatelessWidget {
                           '#flowers', 10, Colors.white, FontWeight.normal),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 4,
                   ),
                   Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Color(0x77404040),
                       borderRadius: BorderRadius.all(Radius.circular(15.0)),
                     ),
@@ -121,11 +124,11 @@ class PostChatPage extends StatelessWidget {
                           '#bucket', 10, Colors.white, FontWeight.normal),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 4,
                   ),
                   Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Color(0x77404040),
                       borderRadius: BorderRadius.all(Radius.circular(15.0)),
                     ),
@@ -136,11 +139,11 @@ class PostChatPage extends StatelessWidget {
                           '#refrigerator', 10, Colors.white, FontWeight.normal),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 4,
                   ),
                   Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Color(0x77404040),
                       borderRadius: BorderRadius.all(Radius.circular(15.0)),
                     ),
@@ -151,11 +154,11 @@ class PostChatPage extends StatelessWidget {
                           '#hunting', 10, Colors.white, FontWeight.normal),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 4,
                   ),
                   Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Color(0x77404040),
                       borderRadius: BorderRadius.all(Radius.circular(15.0)),
                     ),
@@ -169,17 +172,17 @@ class PostChatPage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             ListTile(
               leading: Container(
                   height: 50,
                   width: 50,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(4.0))),
                   child: ClipRRect(
-                      borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                      borderRadius: const BorderRadius.all(Radius.circular(4.0)),
                       child: Image.asset(
                         'assets/images/Photo1.jpg',
                         width: 50,
@@ -187,25 +190,25 @@ class PostChatPage extends StatelessWidget {
                       ))),
               title: Row(
                 children: [
-                  Container(
+                  SizedBox(
                       height: 18,
                       width: 18,
                       child: Image.asset(
                         'assets/images/cart.png',
                         fit: BoxFit.contain,
-                        color: Color(0x77404040),
+                        color: const Color(0x77404040),
                       )),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   customText('For Sale', 13, grey, FontWeight.w100),
-                  SizedBox(
+                  const SizedBox(
                     width: 20,
                   ),
                   Container(
                     decoration: BoxDecoration(
                         color: Colors.blue.shade800,
-                        borderRadius: BorderRadius.all(Radius.circular(12.0))),
+                        borderRadius: const BorderRadius.all(Radius.circular(12.0))),
                     child: Padding(
                       padding: const EdgeInsets.only(
                           right: 7.0, left: 7.0, top: 4.0, bottom: 4.0),
@@ -223,7 +226,7 @@ class PostChatPage extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1),
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Padding(
@@ -235,7 +238,7 @@ class PostChatPage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Row(
@@ -243,13 +246,13 @@ class PostChatPage extends StatelessWidget {
               children: [
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        fixedSize: Size(160, 45),
-                        side: BorderSide(
+                        fixedSize: const Size(160, 45),
+                        side: const BorderSide(
                           width: 1,
                           color: Color(0x77404040),
                         ),
                         backgroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
+                        shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(5.0)),
                         )),
                     onPressed: () {},
@@ -257,9 +260,9 @@ class PostChatPage extends StatelessWidget {
                     customText('Edit Price', 14, grey, FontWeight.normal)),
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        fixedSize: Size(160, 45),
+                        fixedSize: const Size(160, 45),
                         backgroundColor: primaryColor,
-                        shape: RoundedRectangleBorder(
+                        shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(5.0)),
                         )),
                     onPressed: () {},
@@ -267,14 +270,14 @@ class PostChatPage extends StatelessWidget {
                     customText('Send Offer', 14, grey, FontWeight.normal)),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 350,
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
+                children: <Widget>[
                   Container(
                     height: 45,
                     width: 45,
@@ -286,7 +289,7 @@ class PostChatPage extends StatelessWidget {
                       child: Image.asset('assets/images/safetyText.png'),
                     ),
                   ),
-                  Container(
+                  SizedBox(
                     width: 210,
                     height: 45,
                     child: TextField(
@@ -318,7 +321,7 @@ class PostChatPage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 17,
             ),
             Container(
@@ -326,7 +329,7 @@ class PostChatPage extends StatelessWidget {
               width: 130,
               color: grey,
             ),
-            SizedBox(
+            const SizedBox(
               height: 3,
             )
           ],

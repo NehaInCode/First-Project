@@ -1,8 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:guido/const.dart';
 
 class Privacy extends StatefulWidget{
+  const Privacy({super.key});
+
   @override
   State<StatefulWidget> createState() {
   return _Privacy();
@@ -36,7 +37,7 @@ class _Privacy extends State<Privacy>{
                   inactiveThumbColor: Colors.white,
                   activeTrackColor: Colors.blue.shade800,
                   activeColor: Colors.white,
-                  inactiveTrackColor: Color(0xffE0E0E0),
+                  inactiveTrackColor: const Color(0xffE0E0E0),
 
                   value: _isSwitchedLI, onChanged: (value) {
                   setState(() {
@@ -48,29 +49,29 @@ class _Privacy extends State<Privacy>{
             ],
           ),
           customText('Cannot receive message from buyer unless you accept', 12, grey, FontWeight.w100),
-          SizedBox(height: 20,),
-          Divider(height: 8,color: Color(0x119E9E9E),thickness: 8),
-          SizedBox(height: 20,),
+          const SizedBox(height: 20,),
+          const Divider(height: 8,color: Color(0x119E9E9E),thickness: 8),
+          const SizedBox(height: 20,),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               customText('Prevent Adding onto Private Channel', 14, grey, FontWeight.w400),
-              Spacer(),
-              customText('Default', 12, Color(0xff9E9E9E), FontWeight.w400),
-              Icon(Icons.arrow_forward_ios_outlined,size: 15,)
+              const Spacer(),
+              customText('Default', 12, const Color(0xff9E9E9E), FontWeight.w400),
+              const Icon(Icons.arrow_forward_ios_outlined,size: 15,)
             ],
           ),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               customText('My Collection', 14, grey, FontWeight.w400),
-              Spacer(),
-              customText('Public', 12, Color(0xff9E9E9E), FontWeight.w400),
-              Icon(Icons.arrow_forward_ios_outlined,size: 15,)
+              const Spacer(),
+              customText('Public', 12, const Color(0xff9E9E9E), FontWeight.w400),
+              const Icon(Icons.arrow_forward_ios_outlined,size: 15,)
             ],
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -82,7 +83,7 @@ class _Privacy extends State<Privacy>{
                   inactiveThumbColor: Colors.white,
                   activeTrackColor: Colors.blue.shade800,
                   activeColor: Colors.white,
-                  inactiveTrackColor: Color(0xffE0E0E0),
+                  inactiveTrackColor: const Color(0xffE0E0E0),
 
                   value: _isSwitchedHP, onChanged: (value) {
                   setState(() {
@@ -93,7 +94,7 @@ class _Privacy extends State<Privacy>{
 
             ],
           ),
-          Spacer(),
+          const Spacer(),
           Center(
             child: Container(
               height: 2,

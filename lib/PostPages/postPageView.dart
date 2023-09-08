@@ -1,33 +1,35 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:dots_indicator/dots_indicator.dart';
+// ignore: depend_on_referenced_packages
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:guido/PostPages/postChatPage.dart';
 import 'package:guido/PostPages/postPageFullView.dart';
 import '../const.dart';
-import '../homePageScreens/post.dart';
 import 'postItems.dart';
 import 'likesCommentPost.dart';
 
 class PostDots extends StatefulWidget {
   final PostItems post;
 
-  PostDots({required this.post});
+  const PostDots({super.key, required this.post});
 
   @override
   State<StatefulWidget> createState() {
+    // ignore: no_logic_in_create_state
     return _PostDots(post: post);
   }
 }
 
 class _PostDots extends State<PostDots> {
+  // ignore: non_constant_identifier_names
   void ShowBottomPricePage(BuildContext context) {
     showModalBottomSheet(
       context: context,
       builder: (context) {
         return Container(
           width: double.infinity,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.only(
                   topRight: Radius.circular(30.0),
@@ -37,9 +39,9 @@ class _PostDots extends State<PostDots> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               PreferredSize(
-                preferredSize: Size(double.infinity, 50),
+                preferredSize: const Size(double.infinity, 50),
                 child: AppBar(
-                  shape: RoundedRectangleBorder(
+                  shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(30),
                           topRight: Radius.circular(30))),
@@ -56,45 +58,45 @@ class _PostDots extends State<PostDots> {
                   ),
                 ),
               ),
-              Divider(
+              const Divider(
                 height: 1,
                 thickness: 1.0,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 20.0, right: 20.0),
                 child: Row(children: [
-                  Container(
+                  SizedBox(
                       height: 18,
                       width: 18,
                       child: Image.asset(
                         'assets/images/cart.png',
                         fit: BoxFit.contain,
-                        color: Color(0x77404040),
+                        color: const Color(0x77404040),
                       )),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   customText('For Sale', 13, grey, FontWeight.w100),
                 ]),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 20.0, right: 20.0),
                 child: customText('Refrigerator', 16, grey, FontWeight.w600),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 20.0, right: 20.0),
                 child: customText('\$15-30', 14, grey, FontWeight.w500),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
               Padding(
@@ -102,7 +104,7 @@ class _PostDots extends State<PostDots> {
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       backgroundColor: primaryColor,
-                      fixedSize: Size(double.infinity, 50),
+                      fixedSize: const Size(double.infinity, 50),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5),
                       )),
@@ -114,7 +116,7 @@ class _PostDots extends State<PostDots> {
                         width: 15,
                         child: Image.asset('assets/images/message.png'),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       customText('Chat', 13, grey, FontWeight.w500)
@@ -122,7 +124,7 @@ class _PostDots extends State<PostDots> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 37,
               ),
               Center(
@@ -143,6 +145,7 @@ class _PostDots extends State<PostDots> {
 
   _PostDots({required this.post});
 
+  // ignore: non_constant_identifier_names
   void ShowBottomSheet(BuildContext context) {
     showModalBottomSheet(
       context: context,
@@ -150,7 +153,7 @@ class _PostDots extends State<PostDots> {
         return Container(
           height: 260,
           width: double.infinity,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.only(
                 topRight: Radius.circular(15.0),
@@ -163,35 +166,35 @@ class _PostDots extends State<PostDots> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 4,
                 ),
                 Center(
                   child: Container(
                     decoration: BoxDecoration(
-                        color: Color(0x66404040),
+                        color: const Color(0x66404040),
                         borderRadius: BorderRadius.circular(2)),
                     height: 3,
                     width: 70,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 customText('Edit Listing', 18, grey, FontWeight.w500),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 customText('Mark as Reserved', 18, grey, FontWeight.w500),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 customText('Mark as Sold', 18, grey, FontWeight.w500),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 customText('Delete Listing', 18, Colors.red, FontWeight.w500),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
                 Center(
@@ -213,11 +216,11 @@ class _PostDots extends State<PostDots> {
   Widget pencil = Padding(
     padding: const EdgeInsets.all(15.0),
     child: InkWell(
-      child: Container(
+      radius: 10,
+      child: SizedBox(
           width: 15,
           height: 15,
           child: Image.asset('assets/images/pencil.png', width: 15)),
-      radius: 10,
     ),
   );
   int _currentPage = 0;
@@ -227,17 +230,17 @@ class _PostDots extends State<PostDots> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: Text('Post'),
+        title: const Text('Post'),
         actions: [
           IconButton(
             onPressed: () {
               ShowBottomSheet(context);
             },
-            icon: Icon(Icons.more_vert),
+            icon: const Icon(Icons.more_vert),
           )
         ],
       ),
-      body: Container(
+      body: SizedBox(
         width: double.infinity,
         height: double.infinity,
         child: Padding(
@@ -255,6 +258,7 @@ class _PostDots extends State<PostDots> {
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: InkWell(
+                        radius: 20,
                         child: Padding(
                           padding: const EdgeInsets.all(7.0),
                           child: Image.asset(
@@ -262,13 +266,12 @@ class _PostDots extends State<PostDots> {
                             width: 16,
                           ),
                         ),
-                        radius: 20,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
-                    Container(
+                    SizedBox(
                       width: 190,
                       child: Column(
                         children: [
@@ -325,10 +328,10 @@ class _PostDots extends State<PostDots> {
                     )
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
-                Container(
+                SizedBox(
                   width: double.infinity,
                   child: Column(children: [
                     Stack(
@@ -339,7 +342,7 @@ class _PostDots extends State<PostDots> {
                             height: 500,
                             autoPlay: true,
                             reverse: false,
-                            autoPlayInterval: Duration(seconds: 2),
+                            autoPlayInterval: const Duration(seconds: 2),
                             enableInfiniteScroll: true,
                             enlargeCenterPage: true,
                             viewportFraction: 1.0,
@@ -382,7 +385,7 @@ class _PostDots extends State<PostDots> {
                             child: DotsIndicator(
                               dotsCount: post.imagePath.length,
                               position: _currentPage,
-                              decorator: DotsDecorator(
+                              decorator: const DotsDecorator(
                                 size: Size.square(10.0),
                                 // activeSize: Size(20.0, 10.0),
                                 // activeShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
@@ -395,7 +398,7 @@ class _PostDots extends State<PostDots> {
                     ),
                   ]),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Padding(
@@ -403,7 +406,7 @@ class _PostDots extends State<PostDots> {
                   child: Container(
                     width: double.infinity,
                     height: 45,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Color(0xFF404040),
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(10.0),
@@ -423,8 +426,8 @@ class _PostDots extends State<PostDots> {
                                   right: 8.0,
                                   bottom: 8.0),
                               child: InkWell(
-                                child: Image.asset('assets/images/cart.png'),
                                 radius: 12,
+                                child: Image.asset('assets/images/cart.png'),
                               ),
                             ),
                             Padding(
@@ -467,94 +470,86 @@ class _PostDots extends State<PostDots> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(right: 13.0, left: 13.0),
-                  child: Container(
-                    width: double.infinity,
-                    height: 45,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          width: 190,
-                          child: TextField(
-                            decoration: InputDecoration(
-                                prefixIcon: pencil,
-                                hintText: 'Type your comment',
-                                hintStyle: TextStyle(
-                                  fontWeight: FontWeight.w100,
-                                  fontSize: 14,
-                                  color: grey,
-                                ),
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(5),
-                                )),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 8,
-                        ),
-                        Container(
-                          width: 55,
-                          height: 13,
-                          child: Row(
-                            children: [
-                              Image.asset('assets/images/heart.png'),
-                              SizedBox(width: 3),
-                              InkWell(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => LikesPage(),
-                                        ));
-                                  },
-                                  child: customText(
-                                      '1.124', 12, grey, FontWeight.normal))
-                            ],
-                          ),
-                        ),
-                        SizedBox(width: 8),
-                        Container(
-                          width: 55,
-                          height: 13,
-                          child: Row(
-                            children: [
-                              Image.asset(
-                                'assets/images/commet.png',
+                SizedBox(
+                  width: double.infinity,
+                  height: 45,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SizedBox(
+                        width: 190,
+                        child: TextField(
+                          cursorColor: grey,
+                          decoration: InputDecoration(
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: grey)
+                            ),
+                              prefixIcon: pencil,
+                              hintText: 'Type your comment',
+                              hintStyle: TextStyle(
+                                fontWeight: FontWeight.w100,
+                                fontSize: 14,
+                                color: grey,
                               ),
-                              SizedBox(width: 3),
-                              InkWell(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => CommentPage(),
-                                        ));
-                                  },
-                                  child: customText(
-                                      '1.123', 12, grey, FontWeight.normal))
-                            ],
-                          ),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5),
+                              )),
                         ),
-                      ],
-                    ),
+                      ),
+                      const SizedBox(
+                        width: 8,
+                      ),
+                      SizedBox(
+                        width: 55,
+                        height: 13,
+                        child: Row(
+                          children: [
+                            Image.asset('assets/images/heart.png'),
+                            const SizedBox(width: 3),
+                            InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => LikesPage(),
+                                      ));
+                                },
+                                child: customText(
+                                    '1.124', 12, grey, FontWeight.normal))
+                          ],
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      SizedBox(
+                        width: 55,
+                        height: 13,
+                        child: Row(
+                          children: [
+                            Image.asset(
+                              'assets/images/commet.png',
+                            ),
+                            const SizedBox(width: 3),
+                            InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => CommentPage(),
+                                      ));
+                                },
+                                child: customText(
+                                    '1.123', 12, grey, FontWeight.normal))
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                SizedBox(
-                  height: 50,
-                ),
-                Container(
-                  height: 2,
-                  width: 130,
-                  color: grey,
-                ),
-                SizedBox(
-                  height: 5,
-                ),
+
+
               ],
             ),
           ),

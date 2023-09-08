@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:guido/homePageScreens/chat.dart';
+import 'package:guido/homePageScreens/home.dart';
 import 'package:guido/screens/login.dart';
 import 'package:guido/screens/register.dart';
 import 'package:guido/screens/splash.dart';
+
+import 'ChatPages/user01.dart';
 import 'homePageScreens/_bottomnavBar.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -26,9 +31,14 @@ class _MyAppState extends State<MyApp> {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      // home: Login(),
-      // home:BottomNavBar(),
-      home: Splash(),
+      // home: const Login(),
+      home:const BottomNavBar(),
+      // home: const User01(),
+      // home: Register(),
+      // home: const Splash(),
+      // home: Authentication(),
+      // home: const ProfilePage(),
+      // home: const ChatPage(),
     );
   }
 }

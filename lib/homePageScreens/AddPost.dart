@@ -1,11 +1,13 @@
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:guido/AddPostScreens/Set_Price.dart';
 import 'package:guido/AddPostScreens/search.dart';
 import 'package:guido/const.dart';
-import 'package:guido/homePageScreens/post.dart';
 
 class AddNewPost extends StatefulWidget {
+  const AddNewPost({super.key});
+
   @override
   State<StatefulWidget> createState() => _AddNewPostState();
 }
@@ -15,22 +17,20 @@ class _AddNewPostState extends State<AddNewPost> {
     showDialog(
       context: context,
       builder: (context) {
-        return Container(
-          child: AlertDialog(
-            content: Column(
-              children: [
-                Image.asset(
-                  'assets/images/popupImage.png',
-                  height: 30,
-                ),
-                customText('Upload Successful', 16, grey, FontWeight.w700),
-                customText(
-                    'Your post has been successfully uploaded, and automatically appear in the community channel',
-                    14,
-                    grey,
-                    FontWeight.w400)
-              ],
-            ),
+        return AlertDialog(
+          content: Column(
+            children: [
+              Image.asset(
+                'assets/images/popupImage.png',
+                height: 30,
+              ),
+              customText('Upload Successful', 16, grey, FontWeight.w700),
+              customText(
+                  'Your post has been successfully uploaded, and automatically appear in the community channel',
+                  14,
+                  grey,
+                  FontWeight.w400)
+            ],
           ),
         );
       },
@@ -60,31 +60,31 @@ class _AddNewPostState extends State<AddNewPost> {
               InkWell(
                 onTap: () {},
                 child: Container(
-                  color: Color(0xffFAFAFA),
+                  color: const Color(0xffFAFAFA),
                   height: 150,
                   width: 150,
-                  child: Icon(
+                  child: const Icon(
                     Icons.add,
                     color: Color(0xaa0A0A0A),
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
-              Container(
+              SizedBox(
                 width: double.infinity,
                 height: 55,
                 child: TextField(
                   controller: title,
-                  cursorColor: Color(0xff404040),
+                  cursorColor: const Color(0xff404040),
                   decoration: InputDecoration(
                       hintText: 'Add Title',
-                      hintStyle: TextStyle(
+                      hintStyle: const TextStyle(
                           color: Color(0xff9E9E9E),
                           fontSize: 14,
                           fontWeight: FontWeight.w100),
-                      focusedBorder: OutlineInputBorder(
+                      focusedBorder: const OutlineInputBorder(
                         borderSide: BorderSide(color: Color(0xff404040)),
                       ),
                       border: OutlineInputBorder(
@@ -92,35 +92,33 @@ class _AddNewPostState extends State<AddNewPost> {
                       )),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Container(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 15.0),
-                  child: customText('Maximum of 25 words', 12,
-                      Color(0xff9E9E9E), FontWeight.w100),
-                ),
+              Padding(
+                padding: const EdgeInsets.only(left: 15.0),
+                child: customText('Maximum of 25 words', 12,
+                    const Color(0xff9E9E9E), FontWeight.w100),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Container(
                 width: double.infinity,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(10))),
                 child: TextField(
                   maxLines: 5,
                   maxLength: null,
-                  cursorColor: Color(0xff404040),
+                  cursorColor: const Color(0xff404040),
                   controller: description,
                   decoration: InputDecoration(
                       hintText: 'Add Description',
-                      hintStyle: TextStyle(
+                      hintStyle: const TextStyle(
                         fontWeight: FontWeight.w100,
                         color: Color(0xff9E9E9E),
                       ),
-                      focusedBorder: OutlineInputBorder(
+                      focusedBorder: const OutlineInputBorder(
                         borderSide: BorderSide(color: Color(0xff404040)),
                       ),
                       border: OutlineInputBorder(
@@ -128,17 +126,15 @@ class _AddNewPostState extends State<AddNewPost> {
                       )),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Container(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 15.0),
-                  child: customText('Maximum of 500 words', 12,
-                      Color(0xff9E9E9E), FontWeight.w100),
-                ),
+              Padding(
+                padding: const EdgeInsets.only(left: 15.0),
+                child: customText('Maximum of 500 words', 12,
+                    const Color(0xff9E9E9E), FontWeight.w100),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Column(
@@ -149,7 +145,7 @@ class _AddNewPostState extends State<AddNewPost> {
                       customText('More Information', 14, grey, FontWeight.w700),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 25,
                   ),
                   Row(
@@ -157,15 +153,15 @@ class _AddNewPostState extends State<AddNewPost> {
                     children: [
                       customText(
                           'Set a Bizmarker', 14, grey, FontWeight.normal),
-                      Container(
+                      SizedBox(
                           height: 10,
                           child: Transform.scale(
                             scale: 0.75,
                             child: Switch(
-                              inactiveTrackColor: Color(0x66404040),
+                              inactiveTrackColor: const Color(0x66404040),
                               activeColor: Colors.white,
                               inactiveThumbColor: Colors.white,
-                              activeTrackColor: Color(0xff4468FA),
+                              activeTrackColor: const Color(0xff4468FA),
                               value: _isSwitched,
                               onChanged: (value) {
                                 setState(() {
@@ -176,7 +172,7 @@ class _AddNewPostState extends State<AddNewPost> {
                           ))
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Row(
@@ -184,21 +180,24 @@ class _AddNewPostState extends State<AddNewPost> {
                     children: [
                       customText('Set the Price', 14, grey, FontWeight.normal),
                       InkWell(
+                        splashColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
                         onTap: () {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => SetPrice(),
+                                builder: (context) => const SetPrice(),
                               ));
                         },
                         child: Row(
                           children: [
                             customText('Haven\'t set a price yet', 12,
-                                Color(0x660A0A0A), FontWeight.w400),
-                            SizedBox(
+                                const Color(0x660A0A0A), FontWeight.w400),
+                            const SizedBox(
                               width: 5,
                             ),
-                            Icon(
+                            const Icon(
                               Icons.arrow_forward_ios_outlined,
                               color: Color(0xff404040),
                               size: 13,
@@ -208,7 +207,7 @@ class _AddNewPostState extends State<AddNewPost> {
                       )
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Row(
@@ -217,21 +216,24 @@ class _AddNewPostState extends State<AddNewPost> {
                       customText(
                           'Select Location', 14, grey, FontWeight.normal),
                       InkWell(
+                        splashColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
                         onTap: () {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => LocationAddPage(),
+                                builder: (context) => const LocationAddPage(),
                               ));
                         },
                         child: Row(
                           children: [
-                            customText('No Location', 12, Color(0x660A0A0A),
-                                FontWeight.w400),
-                            SizedBox(
+                            customText('No Location', 12,
+                                const Color(0x660A0A0A), FontWeight.w400),
+                            const SizedBox(
                               width: 5,
                             ),
-                            Icon(
+                            const Icon(
                               Icons.arrow_forward_ios_outlined,
                               color: Color(0xff404040),
                               size: 13,
@@ -241,7 +243,7 @@ class _AddNewPostState extends State<AddNewPost> {
                       )
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Row(
@@ -250,21 +252,24 @@ class _AddNewPostState extends State<AddNewPost> {
                       customText(
                           'Add Post Hashtag', 14, grey, FontWeight.normal),
                       InkWell(
+                        splashColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
                         onTap: () {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => SearchAddPage(),
+                                builder: (context) => const SearchAddPage(),
                               ));
                         },
                         child: Row(
                           children: [
-                            customText('0 Interest', 12, Color(0x660A0A0A),
-                                FontWeight.w400),
-                            SizedBox(
+                            customText('0 Interest', 12,
+                                const Color(0x660A0A0A), FontWeight.w400),
+                            const SizedBox(
                               width: 5,
                             ),
-                            Icon(
+                            const Icon(
                               Icons.arrow_forward_ios_outlined,
                               color: Color(0xff404040),
                               size: 13,
@@ -274,98 +279,105 @@ class _AddNewPostState extends State<AddNewPost> {
                       )
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 40,
                   ),
                   Align(
                     alignment: Alignment.bottomCenter,
-                    child: Container(
+                    child: SizedBox(
                       width: double.infinity,
                       height: 50,
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            decoration: BoxDecoration(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(10)),
-                                border: Border.all(
-                                  color: Colors.red,
-                                  width: 1,
-                                )),
-                            child: Padding(
-                              padding: const EdgeInsets.all(13.0),
-                              child: Image.asset('assets/images/Trash.png',
-                                  width: 25),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Container(
-                            height: 50,
-                            width: 50,
-                            decoration: BoxDecoration(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(10)),
-                                border: Border.all(color: grey, width: 1)),
-                            child: Padding(
-                              padding: const EdgeInsets.all(13.0),
-                              child: Image.asset(
-                                'assets/images/pencilBox.png',
-                                width: 25,
+                          Row(
+                            children: [
+                              Container(
+                                width: 50,
+                                height: 50,
+                                decoration: BoxDecoration(
+                                    borderRadius: const BorderRadius.all(
+                                        Radius.circular(10)),
+                                    border: Border.all(
+                                      color: Colors.red,
+                                      width: 1,
+                                    )),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(13.0),
+                                  child: Image.asset('assets/images/Trash.png',
+                                      width: 25),
+                                ),
                               ),
-                            ),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              Container(
+                                height: 50,
+                                width: 50,
+                                decoration: BoxDecoration(
+                                    borderRadius: const BorderRadius.all(
+                                        Radius.circular(10)),
+                                    border: Border.all(color: grey, width: 1)),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(13.0),
+                                  child: Image.asset(
+                                    'assets/images/pencilBox.png',
+                                    width: 25,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                            ],
                           ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  fixedSize: Size(230, 50),
-                                  backgroundColor: primaryColor,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(10)),
-                                  )),
-                              onPressed: () {
-                                print('Post is clicked');
-                                showCustomDialog(
-                                  context,
-                                  'Set Post as a Bizmarker?',
-                                  Text(
-                                      'When you activate bizmarker, this post will appear in the community channel',
-                                      style: TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w400,
-                                          color: grey)),
-                                  'Cancel',
-                                  Colors.white,
-                                  () {
-                                    print('Cancel is clicked');
-                                  },
-                                  'Yes',
-                                  primaryColor,
-                              () {
-                                Navigator.of(context).pop(); // Close the first dialog
-                                Future.delayed(Duration(milliseconds: 100), () {
-                                  showCustomDialogS(context); // Show the second dialog after a delay
-                                });
-                              },
-                                );
-                              },
-                              child: customText(
-                                  'Post', 15, grey, FontWeight.normal))
+                          Expanded(
+                            child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                    fixedSize: const Size(230, 50),
+                                    backgroundColor: primaryColor,
+                                    shape: const RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(10)),
+                                    )),
+                                onPressed: () {
+                                  showCustomDialog(
+                                    context,
+                                    'Set Post as a Bizmarker?',
+                                    Text(
+                                        'When you activate bizmarker, this post will appear in the community channel',
+                                        style: TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w400,
+                                            color: grey)),
+                                    'Cancel',
+                                    Colors.white,
+                                    () {},
+                                    'Yes',
+                                    primaryColor,
+                                    () {
+                                      setState(() {
+                                        Navigator.of(context).pop(); // Close the first dialog
+                                        Future.delayed(
+                                            const Duration(milliseconds: 100),
+                                                () {
+                                              showCustomDialogS(context);
+                                            });
+                                      });
+
+                                    },
+                                  );
+                                },
+                                child: customText(
+                                    'Post', 15, grey, FontWeight.normal)),
+                          )
                         ],
                       ),
                     ),
                   )
                 ],
               ),
-              SizedBox(
-                height: 60,
-              ),
+              SizedBox(height: 7),
               Center(
                 child: Container(
                   height: 2,

@@ -1,4 +1,5 @@
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:guido/const.dart';
 
@@ -26,7 +27,7 @@ class _CommunityChannelState extends State<CommunityChannel> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
+              SizedBox(
                 width: double.infinity,
                 height: 50,
                 child: TextField(
@@ -50,12 +51,12 @@ class _CommunityChannelState extends State<CommunityChannel> {
                   ),
                 ),
               ),
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
               customText('Maximum of 25 words', 12, grey, FontWeight.w200),
-              SizedBox(height: 20,),
-              Divider(height: 8,color: Color(0xffFAFAFA),thickness: 8),
-              SizedBox(height: 20,),
-              Container(
+              const SizedBox(height: 20,),
+              const Divider(height: 8,color: Color(0xffFAFAFA),thickness: 8),
+              const SizedBox(height: 20,),
+              SizedBox(
                 width: double.infinity,
                 height: 50,
                 child: TextField(
@@ -68,7 +69,7 @@ class _CommunityChannelState extends State<CommunityChannel> {
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: grey),
                     ),
-                    prefixIcon: Icon(Icons.search),
+                    prefixIcon: const Icon(Icons.search),
                     hintText: '#Searchanything',
                     hintStyle: TextStyle(
                         fontWeight: FontWeight.w100,
@@ -81,69 +82,69 @@ class _CommunityChannelState extends State<CommunityChannel> {
                   ),
                 ),
               ),
-              SizedBox(height: 5,),
+              const SizedBox(height: 5,),
               customText('Search for hashtags to be able to create a community channel', 12, grey, FontWeight.w100),
-              SizedBox(height: 30,),
+              const SizedBox(height: 30,),
               customText('Suggestion', 14, grey, FontWeight.w700),
-              SizedBox(height: 30,),
+              const SizedBox(height: 30,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   customText('#coffee', 14, grey, FontWeight.w400),
                   InkWell(
-                    child: customText('Add', 12, Color(0xff4468FA), FontWeight.w500),
+                    child: customText('Add', 12, const Color(0xff4468FA), FontWeight.w500),
                   )
                 ],
               ),
-               SizedBox(height: 20,),
+               const SizedBox(height: 20,),
                Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   customText('#restaurant', 14, grey, FontWeight.w400),
                   InkWell(
-                    child: customText('Add', 12, Color(0xff4468FA), FontWeight.w500),
+                    child: customText('Add', 12, const Color(0xff4468FA), FontWeight.w500),
                   )
                 ],
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
                Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   customText('#workingspace', 14, grey, FontWeight.w400),
                   InkWell(
-                    child: customText('Add', 12, Color(0xff4468FA), FontWeight.w500),
+                    child: customText('Add', 12, const Color(0xff4468FA), FontWeight.w500),
                   )
                 ],
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
                Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   customText('#area', 14, grey, FontWeight.w400),
                   InkWell(
-                    child: customText('Add', 12, Color(0xff4468FA), FontWeight.w500),
+                    child: customText('Add', 12, const Color(0xff4468FA), FontWeight.w500),
                   )
                 ],
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
                Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   customText('#food', 14, grey, FontWeight.w400),
                   InkWell(
-                    child: customText('Add', 12, Color(0xff4468FA), FontWeight.w500),
+                    child: customText('Add', 12, const Color(0xff4468FA), FontWeight.w500),
                   )
                 ],
               ),
-              SizedBox(height: 100),
-              Container(
+              const SizedBox(height: 100),
+              SizedBox(
                 width: double.infinity,
                 height: 50,
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: name!= null && search == '' ? Color(0xffE0E0E0) : primaryColor,
+                      backgroundColor: name!= null && search == '' ? const Color(0xffE0E0E0) : primaryColor,
 
-                      fixedSize: Size(double.infinity, 50),
+                      fixedSize: const Size(double.infinity, 50),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       )

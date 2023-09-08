@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:guido/const.dart';
+// ignore: depend_on_referenced_packages
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// ignore: depend_on_referenced_packages
 import 'package:google_fonts/google_fonts.dart';
-import 'package:guido/homePageScreens/_bottomnavBar.dart';
-import 'package:guido/main.dart';
 import 'package:guido/screens/register.dart';
-import '../homePageScreens/home.dart';
+import 'authentication.dart';
 import 'forgot.dart';
-import 'package:pin_code_fields/pin_code_fields.dart';
+
 
 class Login extends StatefulWidget {
 
@@ -17,8 +17,7 @@ class Login extends StatefulWidget {
   State<Login> createState() => _LoginState();
 }
 
-class _LoginState extends State<Login> {
-  bool performLogin(){
+class _LoginState extends State<Login> {bool performLogin(){
     if(emailMobNum.text != '' && pass.text != ''){
       return true;
     }else{
@@ -30,6 +29,10 @@ class _LoginState extends State<Login> {
   bool _ischecked = false;
   TextEditingController emailMobNum = TextEditingController();
   TextEditingController pass = TextEditingController();
+  bool obscurePassword = true;
+final _formKey = GlobalKey<FormState>();
+String? emailError;
+String? passwordError;
 
   @override
   Widget build(BuildContext context) {
@@ -38,347 +41,301 @@ class _LoginState extends State<Login> {
         width: double.infinity,
         height: double.infinity,
         color: primaryColor,
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 18.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(
-                  height: 50,
-                ),
-                  Image.asset('assets/Logo.png',width: 150),
-                  SizedBox(
+        child: Form(
+          key: _formKey,
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 18.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const SizedBox(
                     height: 50,
                   ),
-                  Row(
-                    children: [
-                      Text(
-                        'Login',
-                        style:GoogleFonts.poppins(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w700
+                    Image.asset('assets/Logo.png',width: 150),
+                    const SizedBox(
+                      height: 50,
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          'Login',
+                          style:GoogleFonts.poppins(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w700
 
-                        ),),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          customText('New to guido? ', 16, grey, FontWeight.w400),
-
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Register()));
-                            },
-                            child: customText('Register', 16, grey, FontWeight.w500,underline: true),
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Container(
-                        height: 40,
-                        child: TextField(
-                          textAlignVertical: TextAlignVertical.bottom,
-                          controller: emailMobNum,
-                          decoration: InputDecoration(
-                            hintText: 'Email or Mobile Number',
-                             
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(5),
-                              )),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Container(
-                        height: 40,
-                        child: TextField(
-                          textAlignVertical: TextAlignVertical.bottom,
-                          controller: pass,
-                          obscureText: true,
-                          obscuringCharacter: '*',
-                          decoration: InputDecoration(
-                            hintText: 'Password',
-                            suffixIcon: Icon(Icons.remove_red_eye_outlined,color: grey,),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                    ],
-                  ),
-                  Container(
-                    width: double.infinity,
-                    height: 50,
-                    child: ElevatedButton(
-                        onPressed: () {
-                          if(emailMobNum.text != '' && pass.text != ''){
-                             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Authentication(),));
-                          }else{
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text('Please enter both Email/Mobile Number and Password.'),
-                                duration: Duration(seconds: 2),
-                              ),
-                            );
-                          }
-                        },
-                        style: ElevatedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5.0),
-                            )),
-                        child: customText('Login', 16, grey, FontWeight.normal),
-                        ),
-
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                    width: 310,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          ),),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
                           children: [
-                            Checkbox(
-                                value: _ischecked,
+                            customText('New to guido? ', 16, grey, FontWeight.w400),
 
-                                onChanged: (bool? newValue) {
-                                  setState(() {
-                                    _ischecked = newValue ?? false;
-                                  });
-                                },
-                              side: BorderSide(color:grey),
-                             activeColor: Colors.transparent,
-                              checkColor: grey,
-
-                            ),
-                           customText('Remember me', 14, grey, FontWeight.normal)
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const Register()));
+                              },
+                              child: customText('Register', 16, grey, FontWeight.w500,underline: true),
+                            )
                           ],
                         ),
-                        InkWell(
-                          child: customText('Forgot Password', 14, grey, FontWeight.normal,underline: true),
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => Forgot_password(),
-                                ));
-                          },
-                        )
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 25,
-                  ),
-
-                  Container(
-                    width: 300,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: 80,
-                          height: 1,
-                          color: grey,
+                        const SizedBox(
+                          height: 30,
                         ),
-                       customText('or Continue with', 14, grey, FontWeight.w400),
-                        Container(
-                          width: 80,
-                          height: 1,
-                          color: grey,
+
+                        SizedBox(
+                          height: 40,
+                          child: TextFormField(
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter some text';
+                              }
+
+                              // Check if the input is a valid email ending with "@gmail.com"
+                              if (RegExp(r'^[\w-]+(\.[\w-]+)*@gmail\.com$').hasMatch(value)) {
+                                return null; // Valid email
+                              }
+
+                              // Check if the input is an 11-digit number
+                              if (RegExp(r'^\d{11}$').hasMatch(value)) {
+                                return null; // Valid 11-digit number
+                              }
+
+                              return 'Please enter a valid Gmail address or an 11-digit number';
+                            },
+                            cursorColor: grey,
+                            textAlignVertical: TextAlignVertical.bottom,
+                            controller: emailMobNum,
+                            keyboardType: TextInputType.emailAddress,
+                            decoration: InputDecoration(
+                              hintText: 'Email or Mobile Number',
+                               focusedBorder: OutlineInputBorder(
+                                 borderSide: BorderSide(color: grey),
+                               ),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                              errorText: emailError,
+                            ),
+                          ),
                         ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Center(
-                    child: Container(
-                        width: 300,
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Container(
-                                    width: 35,
-                                    height: 35,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(25),
-                                      color: Colors.white,
-                                    ),
-                                    child: Image.asset(
-                                        'assets/images/pngwing.com (1).png',
-                                        width: 50)),
+
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        SizedBox(
+                          height: 40,
+                          child: TextFormField(
+                            validator: (value) {
+                              if(value == null || value.isEmpty){
+                                return 'Please enter some text';
+                              }
+                              return null;
+                            },
+                            cursorColor: grey,
+                            textAlignVertical: TextAlignVertical.bottom,
+                            controller: pass,
+                            obscureText: obscurePassword,
+                            obscuringCharacter: '*',
+                            decoration: InputDecoration(
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: grey)
                               ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Container(
-                                    width: 35,
-                                    height: 35,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(25),
-                                      color: Colors.white,
-                                    ),
-                                    child: Center(
-                                      child: FaIcon(
-                                        FontAwesomeIcons.apple,
-                                        size: 25,
-                                      ),
-                                    )),
+                              hintText: 'Password',
+                              suffixIcon:GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    obscurePassword = !obscurePassword;
+                                  });
+                                },
+                                child: Icon(obscurePassword ?
+                                  Icons.visibility_off
+                                  : Icons.visibility,)
                               ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Container(
-                                    width: 35,
-                                    height: 35,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(25),
-                                      color: Colors.white,
-                                    ),
-                                    child: Image.asset(
-                                      'assets/images/pngwing.com (2).png',
-                                      width: 10,
-                                    )),
-                              )
-                            ])),
-                  ),
-                  SizedBox(
-                    height: 78,
-                  ),
-
-                  Container(
-                    height: 2,
-                    width: 130,
-                    color: grey,
-                  )
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
 
 
-}
-
-class Authentication extends StatefulWidget {
-  @override
-  State<Authentication> createState() => _AuthenticationState();
-}
-
-class _AuthenticationState extends State<Authentication> {
-  TextEditingController pin = TextEditingController();
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: primaryColor,
-      ),
-      body: Container(
-        width: double.infinity,
-        color: primaryColor,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 18.0),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 50,
-                ),
-                Image.asset('assets/Logo.png',width: 150),
-                SizedBox(
-                  height: 50,
-                ),
-
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        customText('Two-factor Authentication', 20, Colors.black, FontWeight.w700),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              errorText: passwordError,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 15,
+                        ),
                       ],
                     ),
                     SizedBox(
-                      height: 15,
-                    ),
-                    customText('Enter 6-digit code from your Two-factor Authenticator email.', 16, grey, FontWeight.w400),
-                    PinCodeTextField(
-                      controller: pin,
-                      appContext: context,
-                      length: 6,
-                      keyboardType: TextInputType.phone,
-                      pinTheme: PinTheme(
-                        inactiveColor: grey,
-                        activeColor: grey,
-                        selectedFillColor: Colors.white,
-                          fieldWidth: 40
-                      ),
-                      textStyle: TextStyle(
-                        color: grey,
-
-                      ),
-
-                    ),
-                    Container(
                       width: double.infinity,
+                      height: 50,
                       child: ElevatedButton(
-
                           onPressed: () {
-                            if(pin.text != '') {
-                              Navigator.pushReplacement(context, MaterialPageRoute(
-                                builder: (context) => BottomNavBar(),));
+                            if( _formKey.currentState!.validate()){
+                               Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Authentication(),));
+                            }else{
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                content: Text('Processing Data'),
+                                  duration: Duration(seconds: 2),
+                                ),
+                              );
                             }
                           },
                           style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(5.0),
                               )),
-                          child: customText('Register', 16, grey, FontWeight.normal)),
+                          child: customText('Login', 16, grey, FontWeight.normal),
+                          ),
+
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    SizedBox(
+                      width: 310,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Checkbox(
+                                  value: _ischecked,
+
+                                  onChanged: (bool? newValue) {
+                                    setState(() {
+                                      _ischecked = newValue ?? false;
+                                    });
+                                  },
+                                side: BorderSide(color:grey),
+                               activeColor: Colors.transparent,
+                                checkColor: grey,
+
+                              ),
+                             customText('Remember me', 14, grey, FontWeight.normal)
+                            ],
+                          ),
+                          InkWell(
+                            child: customText('Forgot Password', 14, grey, FontWeight.normal,underline: true),
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const Forgot_password(),
+                                  ));
+                            },
+                          )
+                        ],
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 25,
                     ),
 
-                  ],
-                ),
-                SizedBox(
-                  height: 220,
-                ),
-                Container(
-                  height: 2,
-                  width: 130,
-                  color: grey,
-                ),
-                SizedBox(
-                  height: 9,
-                )
-              ],
+                    SizedBox(
+                      width: 300,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 80,
+                            height: 1,
+                            color: grey,
+                          ),
+                         customText('or Continue with', 14, grey, FontWeight.w400),
+                          Container(
+                            width: 80,
+                            height: 1,
+                            color: grey,
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Center(
+                      child: SizedBox(
+                          width: 300,
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                      width: 35,
+                                      height: 35,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(25),
+                                        color: Colors.white,
+                                      ),
+                                      child: Image.asset(
+                                          'assets/images/pngwing.com (1).png',
+                                          width: 50)),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                      width: 35,
+                                      height: 35,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(25),
+                                        color: Colors.white,
+                                      ),
+                                      child: const Center(
+                                        child: FaIcon(
+                                          FontAwesomeIcons.apple,
+                                          size: 25,
+                                        ),
+                                      )),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                      width: 35,
+                                      height: 35,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(25),
+                                        color: Colors.white,
+                                      ),
+                                      child: Image.asset(
+                                        'assets/images/pngwing.com (2).png',
+                                        width: 10,
+                                      )),
+                                )
+                              ])),
+                    ),
+                    const SizedBox(
+                      height: 78,
+                    ),
+
+                    Container(
+                      height: 2,
+                      width: 130,
+                      color: grey,
+                    )
+                ],
+              ),
             ),
           ),
         ),
       ),
     );
   }
+
+
 }
+
 
 
 

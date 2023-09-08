@@ -1,9 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../const.dart';
 
 class SearchAddPage extends StatefulWidget {
+  const SearchAddPage({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _SearchAddPage();
@@ -17,7 +18,7 @@ class _SearchAddPage extends State<SearchAddPage> {
         title: customText('Search', 16, grey, FontWeight.normal),
       ),
       body: Center(
-        child: Container(
+        child: SizedBox(
           width: 310,
           height: double.infinity,
           child: SingleChildScrollView(
@@ -25,11 +26,11 @@ class _SearchAddPage extends State<SearchAddPage> {
               mainAxisAlignment: MainAxisAlignment.start,
 
               children: [
-                Container(
+                SizedBox(
                   width: 310,
                   height: 45,
                   child: TextField(
-                    cursorColor: Color(0xff404040),
+                    cursorColor: const Color(0xff404040),
                     textAlignVertical: TextAlignVertical.bottom,
                     decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(
@@ -81,7 +82,7 @@ class _SearchAddPage extends State<SearchAddPage> {
                 const SizedBox(
                   height: 30,
                 ),
-                Container(
+                SizedBox(
                   width: double.infinity,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -92,7 +93,7 @@ class _SearchAddPage extends State<SearchAddPage> {
                         children: [
                           customText('#coffee', 14, grey, FontWeight.w400),
                           InkWell(
-                            child: customText('Add', 14, Color(0xff4468FA), FontWeight.w400),
+                            child: customText('Add', 14, const Color(0xff4468FA), FontWeight.w400),
                           )
                         ],
                       ),
@@ -104,7 +105,7 @@ class _SearchAddPage extends State<SearchAddPage> {
                         children: [
                           customText('#restaurant', 14, grey, FontWeight.w400),
                           InkWell(
-                            child: customText('Add', 14, Color(0xff4468FA), FontWeight.w400),
+                            child: customText('Add', 14, const Color(0xff4468FA), FontWeight.w400),
                           )
                         ],
                       ),
@@ -116,7 +117,7 @@ class _SearchAddPage extends State<SearchAddPage> {
                         children: [
                           customText('#workingspace', 14, grey, FontWeight.w400),
                           InkWell(
-                            child: customText('Add', 14, Color(0xff4468FA), FontWeight.w400),
+                            child: customText('Add', 14, const Color(0xff4468FA), FontWeight.w400),
                           )
                         ],
                       ),
@@ -128,7 +129,7 @@ class _SearchAddPage extends State<SearchAddPage> {
                         children: [
                           customText('#area', 14, grey, FontWeight.w400),
                           InkWell(
-                            child: customText('Add', 14, Color(0xff4468FA), FontWeight.w400),
+                            child: customText('Add', 14, const Color(0xff4468FA), FontWeight.w400),
                           )
                         ],
                       ),
@@ -140,7 +141,7 @@ class _SearchAddPage extends State<SearchAddPage> {
                         children: [
                           customText('#food', 14, grey, FontWeight.w400),
                           InkWell(
-                            child: customText('Add', 14, Color(0xff4468FA), FontWeight.w400),
+                            child: customText('Add', 14, const Color(0xff4468FA), FontWeight.w400),
                           )
                         ],
                       ),
@@ -168,6 +169,8 @@ class _SearchAddPage extends State<SearchAddPage> {
 }
 
 class LocationAddPage extends StatefulWidget {
+  const LocationAddPage({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _LocationAddPage();
@@ -181,7 +184,7 @@ class _LocationAddPage extends State<LocationAddPage> {
         title: customText('Search', 16, grey, FontWeight.normal),
       ),
       body: Center(
-        child: Container(
+        child: SizedBox(
           width: 310,
           height: double.infinity,
           child: SingleChildScrollView(
@@ -189,11 +192,11 @@ class _LocationAddPage extends State<LocationAddPage> {
               mainAxisAlignment: MainAxisAlignment.start,
 
               children: [
-                Container(
+                SizedBox(
                   width: 310,
                   height: 45,
                   child: TextField(
-                    cursorColor: Color(0xff404040),
+                    cursorColor: const Color(0xff404040),
                     textAlignVertical: TextAlignVertical.bottom,
                     decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(
@@ -209,7 +212,7 @@ class _LocationAddPage extends State<LocationAddPage> {
                         hintStyle: const TextStyle(fontWeight: FontWeight.w100)),
                   ),
                 ),
-            Container(
+            const SizedBox(
                 height: 200,
               child: Center(child: Text('Map Here')),
               
@@ -222,7 +225,7 @@ class _LocationAddPage extends State<LocationAddPage> {
                 const SizedBox(
                   height: 30,
                 ),
-                Container(
+                SizedBox(
                   width: double.infinity,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -233,7 +236,7 @@ class _LocationAddPage extends State<LocationAddPage> {
                         children: [
                           customText('Yunnan', 14, grey, FontWeight.w400),
                           InkWell(
-                            child: customText('Location', 14, Color(0xff4468FA), FontWeight.w400),
+                            child: customText('Location', 14, const Color(0xff4468FA), FontWeight.w400),
                           )
                         ],
                       ),
@@ -245,7 +248,7 @@ class _LocationAddPage extends State<LocationAddPage> {
                         children: [
                           customText('Boon Lay', 14, grey, FontWeight.w400),
                           InkWell(
-                            child: customText('Location', 14, Color(0xff4468FA), FontWeight.w400),
+                            child: customText('Location', 14, const Color(0xff4468FA), FontWeight.w400),
                           )
                         ],
                       ),
@@ -257,7 +260,7 @@ class _LocationAddPage extends State<LocationAddPage> {
                         children: [
                           customText('Jurong West', 14, grey, FontWeight.w400),
                           InkWell(
-                            child: customText('Location', 14, Color(0xff4468FA), FontWeight.w400),
+                            child: customText('Location', 14, const Color(0xff4468FA), FontWeight.w400),
                           )
                         ],
                       ),
@@ -269,7 +272,7 @@ class _LocationAddPage extends State<LocationAddPage> {
                         children: [
                           customText('Keat Hong', 14, grey, FontWeight.w400),
                           InkWell(
-                            child: customText('Location', 14, Color(0xff4468FA), FontWeight.w400),
+                            child: customText('Location', 14, const Color(0xff4468FA), FontWeight.w400),
                           )
                         ],
                       ),
@@ -281,7 +284,7 @@ class _LocationAddPage extends State<LocationAddPage> {
                         children: [
                           customText('Choa Cu Kang', 14, grey, FontWeight.w400),
                           InkWell(
-                            child: customText('Location', 14, Color(0xff4468FA), FontWeight.w400),
+                            child: customText('Location', 14, const Color(0xff4468FA), FontWeight.w400),
                           )
                         ],
                       ),

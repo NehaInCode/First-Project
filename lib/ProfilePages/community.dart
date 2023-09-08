@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:guido/const.dart';
 
@@ -22,7 +21,7 @@ class _JoinCommunityState extends State<JoinCommunity> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
+              SizedBox(
                 height: 50,
                 width: double.infinity,
                 child: TextField(
@@ -37,7 +36,7 @@ class _JoinCommunityState extends State<JoinCommunity> {
                       fontWeight: FontWeight.w500,
                       color: grey
                     ),
-                    border: OutlineInputBorder(
+                    border: const OutlineInputBorder(
                       borderSide: BorderSide(
                         width: 1,
                         color: Color(0xffDEDEDE)
@@ -46,18 +45,18 @@ class _JoinCommunityState extends State<JoinCommunity> {
                   ),
                 ),
               ),
-              SizedBox(height: 15,),
+              const SizedBox(height: 15,),
               customText('Maximum of 25 words', 12, grey, FontWeight.w100),
-              SizedBox(height: 25,),
-              Divider(height: 8,color: Color(0xffFAFAFA),thickness: 8),
-              SizedBox(height: 20,),
-              Container(
+              const SizedBox(height: 25,),
+              const Divider(height: 8,color: Color(0xffFAFAFA),thickness: 8),
+              const SizedBox(height: 20,),
+              SizedBox(
                 height: 50,
                 width: double.infinity,
                 child: TextField(
                   cursorColor: grey,
                   decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.search),
+                    prefixIcon: const Icon(Icons.search),
                       focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: grey)
                       ),
@@ -67,7 +66,7 @@ class _JoinCommunityState extends State<JoinCommunity> {
                           fontWeight: FontWeight.w100,
                           color: grey
                       ),
-                      border: OutlineInputBorder(
+                      border: const OutlineInputBorder(
                           borderSide: BorderSide(
                               width: 1,
                               color: Color(0xffDEDEDE)
@@ -76,52 +75,52 @@ class _JoinCommunityState extends State<JoinCommunity> {
                   ),
                 ),
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
               customText('Search for hashtags to be able to create a community channel', 12, grey, FontWeight.w100),
-              SizedBox(height: 30,),
+              const SizedBox(height: 30,),
               customText('Hashtag Channel  (5)', 14, grey, FontWeight.w700),
-              SizedBox(height: 35,),
+              const SizedBox(height: 35,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   customText('#coffee', 14, grey, FontWeight.w400),
-                  customText('Delete', 12, Color(0xffCB3A31), FontWeight.w500)
+                  customText('Delete', 12, const Color(0xffCB3A31), FontWeight.w500)
                 ],
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
                 Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   customText('#restaurant', 14, grey, FontWeight.w400),
-                  customText('Delete', 12, Color(0xffCB3A31), FontWeight.w500)
+                  customText('Delete', 12, const Color(0xffCB3A31), FontWeight.w500)
                 ],
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
                 Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   customText('#workingspace', 14, grey, FontWeight.w400),
-                  customText('Delete', 12, Color(0xffCB3A31), FontWeight.w500)
+                  customText('Delete', 12, const Color(0xffCB3A31), FontWeight.w500)
                 ],
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
                 Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   customText('#area', 14, grey, FontWeight.w400),
-                  customText('Delete', 12, Color(0xffCB3A31), FontWeight.w500)
+                  customText('Delete', 12, const Color(0xffCB3A31), FontWeight.w500)
                 ],
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
                 Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   customText('#food', 14, grey, FontWeight.w400),
-                  customText('Delete', 12, Color(0xffCB3A31), FontWeight.w500)
+                  customText('Delete', 12, const Color(0xffCB3A31), FontWeight.w500)
                 ],
               ),
-              SizedBox(height: 70,),
-              Container(
+              const SizedBox(height: 70,),
+              SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
@@ -129,13 +128,13 @@ class _JoinCommunityState extends State<JoinCommunity> {
                         borderRadius: BorderRadius.circular(10)
                       ),
                       backgroundColor: primaryColor,
-                      fixedSize: Size(double.infinity, 50)
+                      fixedSize: const Size(double.infinity, 50)
                     ),
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => WFA(),));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const WFA(),));
                 }, child: customText('Join Channel', 14, grey, FontWeight.normal)),
               ),
-              SizedBox(height: 15,),
+              const SizedBox(height: 15,),
               Center(
                 child: Container(
                   height: 2,
@@ -167,13 +166,13 @@ class _WFAState extends State<WFA> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             customText('WFA', 16, grey, FontWeight.w600),
-            SizedBox(height: 4,),
+            const SizedBox(height: 4,),
             customText('20k member', 12, grey, FontWeight.w200),
           ],
         ),
-        actions: [
+        actions: const [
          Padding(
-           padding: const EdgeInsets.only(right: 15.0),
+           padding: EdgeInsets.only(right: 15.0),
            child: Icon(Icons.more_vert),
          )
         ],
@@ -182,7 +181,7 @@ class _WFAState extends State<WFA> {
         padding: const EdgeInsets.all(15.0),
         child: Column(
           children: [
-            SizedBox(height:15),
+            const SizedBox(height:15),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
@@ -190,66 +189,66 @@ class _WFAState extends State<WFA> {
                   Container(
                     height: 30,
                     decoration: BoxDecoration(
-                        color: Color(0xdd404040),
+                        color: const Color(0xdd404040),
                         borderRadius: BorderRadius.circular(15)
                     ),
                     child: Center(child: Padding(
                       padding: const EdgeInsets.only(left: 8.0,right: 8.0),
-                      child: customText('#coffee', 10, Color(0xffFFD464), FontWeight.normal),
+                      child: customText('#coffee', 10, const Color(0xffFFD464), FontWeight.normal),
                     )),
                   ),
-                  SizedBox(width: 5,),
+                  const SizedBox(width: 5,),
                   Container(
                     height: 30,
                     decoration: BoxDecoration(
-                        color: Color(0xdd404040),
+                        color: const Color(0xdd404040),
                         borderRadius: BorderRadius.circular(15)
                     ),
                     child: Center(child: Padding(
                       padding: const EdgeInsets.only(left: 8.0,right: 8.0),
-                      child: customText('#restaurant', 10, Color(0xffFFD464), FontWeight.normal),
+                      child: customText('#restaurant', 10, const Color(0xffFFD464), FontWeight.normal),
                     )),
                   ),
-                  SizedBox(width: 5,),
+                  const SizedBox(width: 5,),
                   Container(
                     height: 30,
                     decoration: BoxDecoration(
-                        color: Color(0xdd404040),
+                        color: const Color(0xdd404040),
                         borderRadius: BorderRadius.circular(15)
                     ),
                     child: Center(child: Padding(
                       padding: const EdgeInsets.only(left: 8.0,right: 8.0),
-                      child: customText('#workingspace', 10, Color(0xffFFD464), FontWeight.normal),
+                      child: customText('#workingspace', 10, const Color(0xffFFD464), FontWeight.normal),
                     )),
                   ),
-                  SizedBox(width: 5,),
+                  const SizedBox(width: 5,),
                   Container(
                     height: 30,
                     decoration: BoxDecoration(
-                        color: Color(0xdd404040),
+                        color: const Color(0xdd404040),
                         borderRadius: BorderRadius.circular(15)
                     ),
                     child: Center(child: Padding(
                       padding: const EdgeInsets.only(left: 8.0,right: 8.0),
-                      child: customText('#area', 10, Color(0xffFFD464), FontWeight.normal),
+                      child: customText('#area', 10, const Color(0xffFFD464), FontWeight.normal),
                     )),
                   ),
-                  SizedBox(width: 5,),
+                  const SizedBox(width: 5,),
                   Container(
                     height: 30,
                     decoration: BoxDecoration(
-                        color: Color(0xdd404040),
+                        color: const Color(0xdd404040),
                         borderRadius: BorderRadius.circular(15)
                     ),
                     child: Center(child: Padding(
                       padding: const EdgeInsets.only(left: 8.0,right: 8.0),
-                      child: customText('#food', 10, Color(0xffFFD464), FontWeight.normal),
+                      child: customText('#food', 10, const Color(0xffFFD464), FontWeight.normal),
                     )),
                   ),
                 ],
               ),
             ),
-Spacer(),
+const Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -264,7 +263,7 @@ Spacer(),
                     child: Image.asset('assets/images/safetyText.png'),
                   ),
                 ),
-                Container(
+                SizedBox(
                   width: 210,
                   height: 45,
                   child: TextField(
