@@ -61,7 +61,7 @@ class _RegisterState extends State<Register> {
                       ),
                       Row(
                         children: [
-                          customText('Already have an account?', 16, grey,
+                          customText('Already have an account?', 14, grey,
                               FontWeight.w400),
                           InkWell(
                             onTap: () {
@@ -241,14 +241,7 @@ class _RegisterState extends State<Register> {
                 const SizedBox(
                   height: 132,
                 ),
-                Container(
-                  height: 2,
-                  width: 130,
-                  color: grey,
-                ),
-                const SizedBox(
-                  height: 9,
-                )
+
               ],
             ),
           ),

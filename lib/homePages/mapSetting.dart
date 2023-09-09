@@ -112,6 +112,7 @@ class _Toogle extends State<Toogle> {
     return Switch(
         inactiveTrackColor: Colors.grey.shade200,
         inactiveThumbColor: Colors.white,
+
         activeTrackColor: Colors.blue.shade700,
         activeColor: Colors.white,
         value: isSwitched,

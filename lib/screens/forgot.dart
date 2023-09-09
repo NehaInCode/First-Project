@@ -119,14 +119,7 @@ class _ForgotPassword extends State<Forgot_password> {
                       const SizedBox(
                         height: 210,
                       ),
-                      Container(
-                        height: 2,
-                        width: 130,
-                        color: grey,
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      )
+
                     ],
                   ),
                 )
@@ -296,14 +289,7 @@ class _SetPassword extends State<SetPassword> {
                       const SizedBox(
                         height: 160,
                       ),
-                      Container(
-                        height: 2,
-                        width: 130,
-                        color: grey,
-                      ),
-                      const SizedBox(
-                        height: 9,
-                      )
+
 
                     ],
                   ),

@@ -33,33 +33,36 @@ class _HomePage extends State<HomePage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      SizedBox(
-                        width: 285,
-                        height: 45,
-                        child: TextField(
-                          cursorColor: grey,
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => SearchPage(),
-                                ));
-                          },
-                          textAlignVertical: TextAlignVertical.bottom,
-                          decoration: InputDecoration(
-                              focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: grey)),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              prefixIcon: const Icon(Icons.search),
-                              hintText: '#SearchAnyThing',
-                              hintStyle:
-                                  const TextStyle(fontWeight: FontWeight.w100)),
+                      Expanded(
+                        child: SizedBox(
+                          // width: 285,
+                          height: 45,
+                          child: TextField(
+                            cursorColor: grey,
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => SearchPage(),
+                                  ));
+                            },
+                            textAlignVertical: TextAlignVertical.center,
+                            decoration: InputDecoration(
+                                focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: grey)),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                prefixIcon: const Icon(Icons.search),
+                                hintText: '#SearchAnyThing',
+                                hintStyle:
+                                    const TextStyle(fontWeight: FontWeight.w100,
+                                    fontSize: 15)),
+                          ),
                         ),
                       ),
 
-                      // SizedBox(width: 2,),
+                      SizedBox(width: 4,),
                       InkWell(
                         onTap: () {
                           Navigator.push(

@@ -75,7 +75,7 @@ String? passwordError;
                       children: [
                         Row(
                           children: [
-                            customText('New to guido? ', 16, grey, FontWeight.w400),
+                            customText('New to guido? ', 14, grey, FontWeight.w400),
 
                             InkWell(
                               onTap: () {
@@ -306,9 +306,12 @@ String? passwordError;
                                         borderRadius: BorderRadius.circular(25),
                                         color: Colors.white,
                                       ),
-                                      child: Image.asset(
-                                        'assets/images/pngwing.com (2).png',
-                                        width: 10,
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(4.0),
+                                        child: Image.asset(
+                                          'assets/images/pngwing.com (2).png',
+                                          width: 10,
+                                        ),
                                       )),
                                 )
                               ])),
@@ -317,11 +320,7 @@ String? passwordError;
                       height: 78,
                     ),
 
-                    Container(
-                      height: 2,
-                      width: 130,
-                      color: grey,
-                    )
+
                 ],
               ),
             ),

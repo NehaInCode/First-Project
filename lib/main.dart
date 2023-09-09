@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:guido/homePageScreens/profile.dart';
 import 'package:guido/screens/login.dart';
 import 'package:guido/screens/register.dart';
+import 'package:guido/screens/splash.dart';
+
+import 'homePageScreens/_bottomnavBar.dart';
 
 
 
@@ -28,9 +31,9 @@ class _MyAppState extends State<MyApp> {
         useMaterial3: true,
       ),
       // home: const Login(),
-      // home:const BottomNavBar(),
+      home:const BottomNavBar(),
       // home: const User01(),
-      home: ProfilePage(),
+      // home: ProfilePage(),
       // home: const Splash(),
       // home: Authentication(),
       // home: const ProfilePage(),

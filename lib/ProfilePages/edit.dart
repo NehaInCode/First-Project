@@ -130,6 +130,7 @@ class _EditProfileState extends State<EditProfile> {
                        padding: const EdgeInsets.only(right: 15.0,left: 15.0),
                        child: Center(
                          child: TextFormField(
+                           textAlignVertical: TextAlignVertical.bottom,
                            validator: (value) {
                              if(value == null||value.isEmpty){
                                return 'Please enter your name';
@@ -140,7 +141,8 @@ class _EditProfileState extends State<EditProfile> {
                            decoration: InputDecoration(
                              hintText: 'UserName',
                              hintStyle: const TextStyle(
-                               fontWeight: FontWeight.w100
+                               fontWeight: FontWeight.w100,
+                               fontSize: 14
                              ),
                              focusedBorder: UnderlineInputBorder(
                                borderSide: BorderSide(
@@ -171,6 +173,7 @@ class _EditProfileState extends State<EditProfile> {
                        padding: const EdgeInsets.only(right: 15.0,left: 15.0),
                        child: Center(
                          child: TextFormField(
+                           textAlignVertical: TextAlignVertical.bottom,
                            validator: (value) {
                              if(value == null || value.isEmpty){
                                return 'Please enter Gmail address or number';
@@ -187,7 +190,8 @@ class _EditProfileState extends State<EditProfile> {
                            decoration: InputDecoration(
                              hintText: 'Gmail',
                                hintStyle: const TextStyle(
-                                 fontWeight: FontWeight.w100
+                                 fontWeight: FontWeight.w100,
+                                 fontSize: 14
                                ),
                                focusedBorder: UnderlineInputBorder(
                                    borderSide: BorderSide(
@@ -219,6 +223,7 @@ class _EditProfileState extends State<EditProfile> {
                        padding: const EdgeInsets.only(right: 15.0,left: 15.0),
                        child: Center(
                          child: TextFormField(
+                           textAlignVertical: TextAlignVertical.bottom,
                            validator: (value) {
                              if(value == null || value.isEmpty){
                                return 'Please enter some text';
@@ -229,7 +234,8 @@ class _EditProfileState extends State<EditProfile> {
                            decoration: InputDecoration(
                              hintText: 'Bio',
                                hintStyle: const TextStyle(
-                                 fontWeight: FontWeight.w100
+                                 fontWeight: FontWeight.w100,
+                                 fontSize: 14
                                ),
                                focusedBorder: UnderlineInputBorder(
                                    borderSide: BorderSide(
@@ -332,6 +338,7 @@ class _EditProfileState extends State<EditProfile> {
                           padding: const EdgeInsets.only(right: 15.0, left: 15.0),
                           child: Center(
                             child: TextField(
+                              textAlignVertical: TextAlignVertical.bottom,
                               enabled: false,
                               readOnly: true,
                               cursorColor: grey,
@@ -395,6 +402,7 @@ class _EditProfileState extends State<EditProfile> {
                   padding: const EdgeInsets.only(right: 15.0, left: 15.0),
                   child: Center(
                     child: TextField(
+                      textAlignVertical: TextAlignVertical.bottom,
                       controller: birthday,
                       enabled: false,
                       readOnly: true,

@@ -23,6 +23,7 @@ class _AuthenticationState extends State<Authentication> {
         backgroundColor: primaryColor,
       ),
       body: Container(
+        height: double.infinity,
         width: double.infinity,
         color: primaryColor,
         child: Padding(
@@ -96,14 +97,7 @@ class _AuthenticationState extends State<Authentication> {
                 const SizedBox(
                   height: 220,
                 ),
-                Container(
-                  height: 2,
-                  width: 130,
-                  color: grey,
-                ),
-                const SizedBox(
-                  height: 9,
-                )
+
               ],
             ),
           ),
