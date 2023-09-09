@@ -101,14 +101,7 @@ class _ComposeChatState extends State<ComposeChat> {
               ],
             ),
 
-            const Spacer(),
-            Center(
-              child: Container(
-                height: 2,
-                width: 130,
-                color: grey,
-              ),
-            ),
+
           ],
         ),
       ),

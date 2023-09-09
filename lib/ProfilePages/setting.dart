@@ -120,13 +120,7 @@ showCustomDialog(context, 'Are you sure to Log Out?', Text('Are you sure you wan
             const SizedBox(
               height: 10,
             ),
-            Center(
-              child: Container(
-                height: 2,
-                width: 130,
-                color: grey,
-              ),
-            ),
+
 
 
           ],

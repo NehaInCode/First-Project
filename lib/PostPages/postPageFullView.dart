@@ -227,13 +227,7 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
               const SizedBox(
                 height: 37,
               ),
-              Center(
-                child: Container(
-                  height: 2,
-                  width: 130,
-                  color: grey,
-                ),
-              ),
+
             ],
           ),
         );
@@ -850,11 +844,7 @@ class _PostDotsFullPage extends State<PostDotsFullPage> {
                               const SizedBox(
                                 height: 50,
                               ),
-                              Container(
-                                height: 2,
-                                width: 130,
-                                color: Colors.white,
-                              ),
+
                             ],
                           ),
                         ),

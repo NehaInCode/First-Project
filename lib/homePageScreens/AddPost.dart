@@ -378,13 +378,7 @@ class _AddNewPostState extends State<AddNewPost> {
                 ],
               ),
               SizedBox(height: 7),
-              Center(
-                child: Container(
-                  height: 2,
-                  width: 130,
-                  color: grey,
-                ),
-              ),
+
             ],
           ),
         ),

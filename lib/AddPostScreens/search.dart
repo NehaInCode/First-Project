@@ -151,14 +151,7 @@ class _SearchAddPage extends State<SearchAddPage> {
                 const SizedBox(
                   height: 300,
                 ),
-                Container(
-                  height: 2,
-                  width: 130,
-                  color: grey,
-                ),
-                const SizedBox(
-                  height: 5,
-                )
+
               ],
             ),
           ),
@@ -294,14 +287,7 @@ class _LocationAddPage extends State<LocationAddPage> {
                 const SizedBox(
                   height: 300,
                 ),
-                Container(
-                  height: 2,
-                  width: 130,
-                  color: grey,
-                ),
-                const SizedBox(
-                  height: 5,
-                )
+
               ],
             ),
           ),

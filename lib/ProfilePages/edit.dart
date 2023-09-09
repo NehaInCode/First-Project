@@ -468,13 +468,7 @@ class _EditProfileState extends State<EditProfile> {
                   },child: customText('Save', 14, grey, FontWeight.normal)),
                 ),
                 const SizedBox(height: 15,),
-                Center(
-                  child: Container(
-                    height: 2,
-                    width: 130,
-                    color: grey,
-                  ),
-                ),
+
               ],
             ),
           ),

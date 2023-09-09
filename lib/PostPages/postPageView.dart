@@ -127,13 +127,7 @@ class _PostDots extends State<PostDots> {
               const SizedBox(
                 height: 37,
               ),
-              Center(
-                child: Container(
-                  height: 2,
-                  width: 130,
-                  color: grey,
-                ),
-              ),
+
             ],
           ),
         );
@@ -197,14 +191,7 @@ class _PostDots extends State<PostDots> {
                 const SizedBox(
                   height: 40,
                 ),
-                Center(
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: grey, borderRadius: BorderRadius.circular(3)),
-                    height: 3,
-                    width: 130,
-                  ),
-                ),
+
               ],
             ),
           ),

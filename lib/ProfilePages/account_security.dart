@@ -324,13 +324,7 @@ class _Password extends State<Password>{
                   }, child: customText('Save', 14, grey, FontWeight.normal)),
             ),
             const SizedBox(height: 10),
-            Center(
-              child: Container(
-                height: 2,
-                width: 130,
-                color: grey,
-              ),
-            ),
+
           ],
         ),
       ),

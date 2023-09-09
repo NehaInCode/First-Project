@@ -52,14 +52,7 @@ class PostChatPage extends StatelessWidget {
                 const SizedBox(
                   height: 40,
                 ),
-                Center(
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: grey, borderRadius: BorderRadius.circular(3)),
-                    height: 3,
-                    width: 130,
-                  ),
-                )
+
               ],
             ),
           ),
@@ -324,14 +317,7 @@ class PostChatPage extends StatelessWidget {
             const SizedBox(
               height: 17,
             ),
-            Container(
-              height: 2,
-              width: 130,
-              color: grey,
-            ),
-            const SizedBox(
-              height: 3,
-            )
+
           ],
         ),
       ),

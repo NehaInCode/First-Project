@@ -83,14 +83,7 @@ class _SearchPostPage extends State<SearchPostPage> {
                 const SizedBox(
                   height: 380,
                 ),
-                Container(
-                  height: 2,
-                  width: 130,
-                  color: grey,
-                ),
-                const SizedBox(
-                  height: 5,
-                )
+
               ],
             ),
           ),

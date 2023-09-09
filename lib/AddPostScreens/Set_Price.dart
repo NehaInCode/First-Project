@@ -152,13 +152,7 @@ class _SetPriceState extends State<SetPrice> {
                 }, child: customText('Done', 14, Colors.white, FontWeight.normal)),
               ),
               const SizedBox(height: 20,),
-              Center(
-                child: Container(
-                  height: 2,
-                  width: 130,
-                  color: grey,
-                ),
-              ),
+
 
 
             ],

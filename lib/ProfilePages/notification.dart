@@ -241,14 +241,7 @@ title: customText('Notification', 16, grey, FontWeight.normal),
 
              ],
            ),
-           const Spacer(),
-           Center(
-             child: Container(
-               height: 2,
-               width: 130,
-               color: grey,
-             ),
-           ),
+
          ],
        ),
      ),

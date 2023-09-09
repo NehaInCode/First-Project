@@ -94,14 +94,7 @@ class _Privacy extends State<Privacy>{
 
             ],
           ),
-          const Spacer(),
-          Center(
-            child: Container(
-              height: 2,
-              width: 130,
-              color: grey,
-            ),
-          ),
+
         ],
       ),
     ),

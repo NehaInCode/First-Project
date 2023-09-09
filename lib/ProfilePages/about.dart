@@ -38,14 +38,7 @@ appBar: AppBar(
                const Icon(Icons.arrow_forward_ios_outlined,size: 15,)
              ],
            ),
-           const Spacer(),
-           Center(
-             child: Container(
-               height: 2,
-               width: 130,
-               color: grey,
-             ),
-           ),
+
          ],
        ),
      ),
