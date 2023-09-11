@@ -32,7 +32,7 @@ class _SplashState extends State<Splash> {
                 color: primaryColor,
                   height: 150,
                   width: 150,
-                  child: Image.asset('assets/images/Logo Guido (1).png',height: 150)),
+                  child: Image.asset('assets/images/logo_guido.png',height: 150)),
             ),
           ],
         ),
